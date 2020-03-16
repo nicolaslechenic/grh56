@@ -1,0 +1,12 @@
+.bar_one{
+    transform: translateY(11px) rotate(225deg);
+}
+.bar_two{
+    transform: scale(0);
+}
+.bar_three{
+    transform: translateY(-7px) rotate(-45deg);
+}
+.top_navmenu{
+    display: flex!important;
+}

@@ -1,0 +1,16 @@
+{
+    "name": "me/p-project-wmc",
+    "description": "MVC project",
+    "authors": [
+        {
+            "name": "Yaroslav HONTAR",
+            "email": "galba.rp@gmail.com"
+        }
+    ],
+    "autoload":{
+        "psr-4":{
+            "Projet\\" : "./app/"
+        }
+    },
+    "require": {}
+}

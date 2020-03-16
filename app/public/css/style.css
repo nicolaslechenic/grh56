@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css?family=Chonburi&display=swap');
+    /* GENERAL STYLING*/
+html, body{
+    width: 100%;
+    height: auto;
+    margin: 0;
+}
+.active {
+    color: #8A0202 !important;
+}
+.social_net{
+    font: 1em 'Charm', sans-serif, bold;
+}
+.header_main, #top_menu,#top_menu ul, #footer_line1, .social_net, #social_net, #footer_line2, #icon_footer{
+    display: flex;
+    display: -ms-flexbox; /* IE10 */
+}
+
+        /*HEADER STYLING*/
+.header_main{
+    justify-content: space-between;
+    margin: 0 3em;
+    max-width: 1200px;
+    margin: auto;
+}
+.logo{
+    height: auto;
+    width: 100%;
+    flex-basis: 150px;
+    margin-left: 2.5em;   
+}
+        /*TOP NAVIGATION MENU*/
+#top_menu{
+    align-self: flex-end;
+}
+#top_menu   ul{
+    list-style: none;
+    align-items: flex-end;
+}
+#top_menu ul li{
+    margin-right: 2.5em;
+}
+#top_menu ul li a{
+    font: 1.2em 'Charm', sans-serif, bold;
+    text-decoration: none;
+    color:#01385C;
+    transition: font-size .4s;
+    -webkit-transition: font-size .4s; /*Safari and Chrome*/
+    -moz-transition: font-size .4s; /*Firefox 4*/
+    -o-transition: font-size .4s;       
+}
+#top_menu ul li a:hover{
+    font-size: 1.6em!important;
+ }
+
+#top_separator{
+   height: 1em;
+   width: 100vw;
+   background-color: #01385C;
+}
+
+        /* HAMBURGER ICON*/
+   /* setting width of the icon*/
+#burger_button{
+    display: none;
+    margin-right: 2em;
+    background: none;
+    font-size: 1.5em;
+    border: none;
+}
+#burger_button div{
+    color: #01385C;
+}
+#burger_icon{
+    margin: -2px 8px;
+    width: 25px;
+}
+  /*creating  3 bars */
+#bar1,   #bar2,   #bar3 {
+    background-color: #01385C;
+    border-radius: 3px;
+    content: '';
+    display: block;
+    height: 4px;
+    margin: 5px 0;
+    transition: all .5s ease-in-out;
+}
+
+        /*MAIN SECTION*/
+.article_general{
+    position: relative;
+}
+
+.article_general>img{
+    display: block;
+    position: relative;
+    margin-top: 1.5em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1.5em;
+    max-width: 100%;
+    height: auto;
+}
+.article_general p{
+    font: 3vw 'Gerogia', italic;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color:rgba(0, 0, 0, 0.5);
+    padding:5px 20px;
+    border-radius: 10px;
+    color:white; 
+}
+.article_general svg{
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    top: 85%;
+    left: 50%;
+    transform: translate(-30%, 0);
+}
+#svg_text{
+    font-weight: bold;
+}
+#svg_text:hover{
+    fill: #8A0202;
+}
+        /*FOOTER*/
+footer{
+    background-color: #01385C;
+}
+#footer_main{
+    max-width: 1200px;
+    margin: auto;
+}
+#footer_sub_menu ul, #footer_line2{
+    list-style: none;
+    margin-left: 2.5em;   
+}
+.social_net{
+    margin-right: 2.5em;
+}
+#footer_sub_menu ul li a, #footer_line2{
+    list-style: none;
+    text-decoration: none;
+    color: white;
+    font: 0.8em 'Charm', sans-serif;
+}
+#footer_line1, #icon_footer{
+    justify-content: space-between;
+    align-items: center;
+}
+#icon_footer img{
+margin-left: 2em;
+}
+#logo_footer{
+    margin-left: 3em!important;
+}
+.social_net{
+    color: white;
+    flex-direction: column;
+}
+.social_net p{
+    margin: 0;
+}
+#social_net{
+    justify-content: space-between;
+    margin-top: 5px;
+}
+#footer_line2{
+    justify-content: space-evenly;
+}
+#footer_line2 a{
+    text-decoration: none;
+    color: white;
+}
