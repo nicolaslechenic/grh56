@@ -9,7 +9,7 @@ require_once __DIR__. '/vendor/autoload.php';
 
 // catchin errors and displaying them in specific view
 try{
-    $controllerFront = new \Projet\Controllers\ControllerFront(); //objet controller
+    $controllerFront = new \GRH56\Controllers\ControllerFront(); //objet controller
     if(isset($_GET['action'])) {
         if($_GET['action'] == 'contact'){
             $controllerFront -> contactForm();
