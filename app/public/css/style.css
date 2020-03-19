@@ -1,82 +1,114 @@
 @import url('https://fonts.googleapis.com/css?family=Chonburi&display=swap');
-    /* GENERAL STYLING*/
-html, body{
+
+/* GENERAL STYLING*/
+html,
+body {
     width: 100%;
     height: auto;
     margin: 0;
 }
+
 .active {
     color: #8A0202 !important;
 }
-.social_net{
+
+.social_net {
     font: 1em 'Charm', sans-serif, bold;
 }
-.header_main, #top_menu,#top_menu ul, #footer_line1, .social_net, #social_net, #footer_line2, #icon_footer{
+
+.header_main,
+#top_menu,
+#top_menu ul,
+#footer_line1,
+.social_net,
+#social_net,
+#footer_line2,
+#icon_footer {
     display: flex;
-    display: -ms-flexbox; /* IE10 */
+    display: -ms-flexbox;
+    /* IE10 */
 }
 
-        /*HEADER STYLING*/
-.header_main{
+.main_container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*HEADER STYLING*/
+.header_main {
     justify-content: space-between;
     margin: 0 3em;
     max-width: 1200px;
     margin: auto;
 }
-.logo{
+
+.logo {
     height: auto;
     width: 100%;
     flex-basis: 150px;
-    margin-left: 2.5em;   
+    margin-left: 2.5em;
 }
-        /*TOP NAVIGATION MENU*/
-#top_menu{
+
+/*TOP NAVIGATION MENU*/
+#top_menu {
     align-self: flex-end;
 }
-#top_menu   ul{
+
+#top_menu ul {
     list-style: none;
     align-items: flex-end;
 }
-#top_menu ul li{
+
+#top_menu ul li {
     margin-right: 2.5em;
 }
-#top_menu ul li a{
+
+#top_menu ul li a {
     font: 1.2em 'Charm', sans-serif, bold;
     text-decoration: none;
-    color:#01385C;
+    color: #01385C;
     transition: font-size .4s;
-    -webkit-transition: font-size .4s; /*Safari and Chrome*/
-    -moz-transition: font-size .4s; /*Firefox 4*/
-    -o-transition: font-size .4s;       
-}
-#top_menu ul li a:hover{
-    font-size: 1.6em!important;
- }
-
-#top_separator{
-   height: 1em;
-   width: 100vw;
-   background-color: #01385C;
+    -webkit-transition: font-size .4s;
+    /*Safari and Chrome*/
+    -moz-transition: font-size .4s;
+    /*Firefox 4*/
+    -o-transition: font-size .4s;
 }
 
-        /* HAMBURGER ICON*/
-   /* setting width of the icon*/
-#burger_button{
+#top_menu ul li a:hover {
+    font-size: 1.6em !important;
+}
+
+#top_separator {
+    height: 1em;
+    width: 100vw;
+    background-color: #01385C;
+}
+
+/* HAMBURGER ICON*/
+/* setting width of the icon*/
+#burger_button {
     display: none;
     margin-right: 2em;
     background: none;
     font-size: 1.5em;
     border: none;
 }
-#burger_button div{
+
+#burger_button div {
     color: #01385C;
 }
-#burger_icon{
+
+#burger_icon {
     margin: -2px 8px;
     width: 25px;
 }
-  /*creating  3 bars */
-#bar1,   #bar2,   #bar3 {
+
+/*creating  3 bars */
+#bar1,
+#bar2,
+#bar3 {
     background-color: #01385C;
     border-radius: 3px;
     content: '';
@@ -87,103 +119,157 @@ html, body{
 }
 
         /*MODAL BOX*/
-#connect_modal{
-    position: absolute;
-    width: 300px;
-    height: 250px;
-    background-color: grey;
-    border: 1px solid black;
+#modal_box {
+    background-color: rgb(248, 244, 244);
+    border: 1px solid #01385C;
+    border-radius: 15px;
+    height: 35%;
     left: 50%;
-    top: 50%;
+    position: absolute;
+    top: 30%;
     transform: translate(-50%, -50%);
+    width: 30%;
     z-index: 1;
+    text-align: center;
+
 }
-        /*MAIN SECTION*/
-.article_general{
+#login_title{
+    font-size: 1.5em;
+    margin-top:1em;
+    margin-bottom: 2.5em;
+    color:#01385C;
+    
+}
+#log_in{
+    display: flex;
+    flex-direction: column;
+}
+.log_in_field{
+    margin: 5px 10px;
+    height:2em;
+    border-radius: 5px
+}
+
+/*MAIN SECTION*/
+.top_article {
     position: relative;
 }
 
-.article_general>img{
+.top_article>img {
     display: block;
     position: relative;
     margin-top: 1.5em;
-    margin-left: auto;
-    margin-right: auto;
     margin-bottom: 1.5em;
     max-width: 100%;
     height: auto;
 }
-.article_general p{
-    font: 3vw 'Gerogia', italic;
+
+.top_article p {
+    font-size: 2em;
     position: absolute;
     top: 35%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color:rgba(0, 0, 0, 0.5);
-    padding:5px 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px 20px;
     border-radius: 10px;
-    color:white; 
+    color: white;
 }
-.article_general svg{
+
+.top_article svg {
     position: absolute;
     margin-left: auto;
     margin-right: auto;
     top: 85%;
     left: 50%;
-    transform: translate(-30%, 0);
+    transform: translate(-40%, 0);
 }
-#svg_text{
+
+#svg_text {
     font-weight: bold;
 }
-#svg_text:hover{
+
+#svg_text:hover {
     fill: #8A0202;
 }
-        /*FOOTER*/
-footer{
+
+/*LESSONS SECTION*/
+section {
+    padding: 15px 0;
+}
+
+.lesson {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    max-width: 250px;
+    height: auto;
+}
+
+.lesson_card_text {
+    padding: 2px 16px;
+}
+
+/*FOOTER*/
+footer {
     background-color: #01385C;
 }
-#footer_main{
+
+#footer_main {
     max-width: 1200px;
     margin: auto;
 }
-#footer_sub_menu ul, #footer_line2{
+
+#footer_sub_menu ul,
+#footer_line2 {
     list-style: none;
-    margin-left: 2.5em;   
+    margin-left: 2.5em;
 }
-.social_net{
+
+.social_net {
     margin-right: 2.5em;
 }
-#footer_sub_menu ul li a, #footer_line2{
+
+#footer_sub_menu ul li a,
+#footer_line2 {
     list-style: none;
     text-decoration: none;
     color: white;
     font: 0.8em 'Charm', sans-serif;
 }
-#footer_line1, #icon_footer{
+
+#footer_line1,
+#icon_footer {
     justify-content: space-between;
     align-items: center;
 }
-#icon_footer img{
-margin-left: 2em;
+
+#icon_footer img {
+    margin-left: 2em;
 }
-#logo_footer{
-    margin-left: 3em!important;
+
+#logo_footer {
+    margin-left: 3em !important;
 }
-.social_net{
+
+.social_net {
     color: white;
     flex-direction: column;
 }
-.social_net p{
+
+.social_net p {
     margin: 0;
 }
-#social_net{
+
+#social_net {
     justify-content: space-between;
     margin-top: 5px;
 }
-#footer_line2{
+
+#footer_line2 {
     justify-content: space-evenly;
 }
-#footer_line2 a{
+
+#footer_line2 a {
     text-decoration: none;
     color: white;
 }

@@ -1,14 +1,14 @@
 <?php
 
-namespace Projet\Controllers;
+namespace GRH56\Controllers;
 
 class ControllerFront
 {
     
     function home()
     {
-        $homeFront = new \Projet\Models\FrontManager();
-        $accueil = $homeFront->viewFront();
+        $homeFront = new \GRH56\Models\FrontManager();
+        $lesson = $homeFront->diplayLessons();
         
         require 'app/views/home.php';
     }
@@ -24,4 +24,4 @@ class ControllerFront
     {
         require 'app/views/courses.php';
     }
-}
+}  

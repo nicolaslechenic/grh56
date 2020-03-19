@@ -21,7 +21,11 @@
     </div>
     </div>
     <div class id="top_separator"></div>
-    <div id ="connect_modal">
-        
+    <div id="modal_box">
+        <div id="login_title">SE CONNECTER</div>
+        <form id="log_in" action="studet.php" method="post">
+            <input type="email" class="log_in_field" id="log_in_email" placeholder="Votre adresse email...">
+            <input type="password" class="log_in_field" id="log_in_password" placeholder="Mot de passe...">
+        </form>
     </div>
 </header>
