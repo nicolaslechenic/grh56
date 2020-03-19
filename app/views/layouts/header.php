@@ -21,4 +21,7 @@
     </div>
     </div>
     <div class id="top_separator"></div>
+    <div id ="connect_modal">
+        
+    </div>
 </header>
