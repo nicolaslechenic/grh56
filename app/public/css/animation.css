@@ -1,0 +1,24 @@
+.modal_animate {
+    animation: animateopacity 1.1s;
+    -webkit-animation: animateopacity 1.1s;
+}
+
+@-webkit-keyframes animateopacitym {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes animateopacity {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

@@ -15,17 +15,22 @@
                 <li><a href="index.php?action=about" class="main_menu_link" id="about">A PROPOS</a></li>
                 <li><a href="index.php?action=courses" class="main_menu_link" id="courses">LES COURS</a></li>
                 <li><a href="index.php?action=contact" class="main_menu_link" id="contact">CONTACT</a></li>
-                <li><a href="#">SE CONNECTER</a></li>
+                <li><a  id="connect">SE CONNECTER</a></li>
             </ul>
         </nav>
     </div>
     </div>
     <div class id="top_separator"></div>
-    <div id="modal_box">
+    <div id="modal_box" class="modal_animate">
+        <i class="fa fa-remove" style="font-size:24px"></i>
         <div id="login_title">SE CONNECTER</div>
         <form id="log_in" action="studet.php" method="post">
             <input type="email" class="log_in_field" id="log_in_email" placeholder="Votre adresse email...">
             <input type="password" class="log_in_field" id="log_in_password" placeholder="Mot de passe...">
+            <a href="#" class="modal_links">Mot de passe oublier ?</a>
+            <button type="submit" id="connect_button">Se connecter</button>
+            <p>Nouvel étudiant ?</p>
+            <a href="#" class="modal_links" id="create_account">Créer un compte</a>
         </form>
     </div>
 </header>
