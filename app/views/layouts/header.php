@@ -21,4 +21,11 @@
     </div>
     </div>
     <div class id="top_separator"></div>
+    <div id="modal_box">
+    
+        <form class="log_in" action="studet.php" method="post">
+            <input type="email" id="log_in_email" placeholder="Votre adresse email...">
+            <input type="password" id="log_in_password" placeholder="Mot de passe...">
+        </form>
+    </div>
 </header>

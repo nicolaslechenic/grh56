@@ -118,6 +118,21 @@ body {
     transition: all .5s ease-in-out;
 }
 
+/*MODAL BOX*/
+#modal_box {
+    background-color: lightgray;
+    border: 1px solid #01385C;
+    border-radius: 15px;
+    height: 30%;
+    left: 50%;
+    position: absolute;
+    top: 30%;
+    transform: translate(-50%, -50%);
+    width: 30%;
+    z-index: 1;
+
+}
+
 /*MAIN SECTION*/
 .top_article {
     position: relative;
