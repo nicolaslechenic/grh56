@@ -121,7 +121,7 @@ body {
 }
 
 /*MODAL BOX*/
-#modal_box {
+.modal_box {
     background-color: rgb(255, 255, 255);
     border: 0.5px solid #01385C;
     border-radius: 15px;
@@ -145,7 +145,7 @@ body {
 }
 
 .fa:hover {
-    color: #8A0202;
+    color: rgb(233, 6, 6);
 }
 
 #login_title {
@@ -155,7 +155,7 @@ body {
     color: rgb(70, 136, 180);
 }
 
-#log_in {
+.log_form {
     display: flex;
     flex-direction: column;
 }
@@ -173,6 +173,10 @@ body {
     font: 1.5em 'Open Sans';
     height: 2em;
     margin: 20px 10px;
+}
+
+#connect_button:hover {
+    background-color: #01385C;
 }
 
 .modal_links {

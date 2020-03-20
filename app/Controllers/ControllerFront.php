@@ -24,4 +24,8 @@ class ControllerFront
     {
         require 'app/views/courses.php';
     }
+    function admin()
+    {
+        require 'app/views/admin.php';
+    }
 }  

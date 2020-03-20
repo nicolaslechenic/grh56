@@ -21,16 +21,26 @@
     </div>
     </div>
     <div class id="top_separator"></div>
-    <div id="modal_box" class="modal_animate">
+    <div id="modal_box" class="modal_animate modal_box">
         <i class="fa fa-remove" style="font-size:24px"></i>
         <div id="login_title">SE CONNECTER</div>
-        <form id="log_in" action="studet.php" method="post">
+        <form class="log_form" action="studet.php" method="post">
             <input type="email" class="log_in_field" id="log_in_email" placeholder="Votre adresse email...">
             <input type="password" class="log_in_field" id="log_in_password" placeholder="Mot de passe...">
             <a href="#" class="modal_links">Mot de passe oublier ?</a>
             <button type="submit" id="connect_button">Se connecter</button>
             <p>Nouvel étudiant ?</p>
             <a href="#" class="modal_links" id="create_account">Créer un compte</a>
+        </form>
+    </div>
+    <div id="signin_box" class="modal_animate modal_box">
+        <i class="fa fa-remove" style="font-size:24px"></i>
+        <div id="signin_title"></div>
+        <form class="log_form"  action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+            PRENOM: <input type="text"  name="name" class="log_in_field" id="log_in_name" placeholder="Votre prenom ...">
+            NOM: <input type="text" name="surname" class="log_in_field" id="log_in_surname" placeholder="Votre nom...">
+            EMAIL: : <input type="email" name="email" class="log_in_field" id="log_in_surname" placeholder="Votre nom...">
+            <button type="submit" id="signup_button">Créer mon compter</button>
         </form>
     </div>
 </header>

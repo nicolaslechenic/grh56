@@ -23,10 +23,12 @@ try{
         if($_GET['action'] == 'home'){
             $controllerFront -> home();
         }
+        
 
     }else{
         $controllerFront -> home();
     }
+
 
 
 }catch(Exception $e){
