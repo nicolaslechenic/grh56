@@ -11,7 +11,7 @@ require_once __DIR__. '/vendor/autoload.php';
 try{
     $controllerFront = new \GRH56\Controllers\ControllerFront(); //object controllerFront
     $controllerBack = new \GRH56\Controllers\ControllerBack(); //object controllerBack
-    $controllerUserReg = new \GRH56\Controllers\ControllerUserReg(); //object controllerUserReg
+    $controllerUser = new \GRH56\Controllers\ControllerUser(); //object controllerUserReg
     if(isset($_GET['action']))  {
         if($_GET['action'] == 'contact'){
             $controllerFront -> contactForm();
@@ -26,7 +26,10 @@ try{
             $controllerFront -> home();
         }
         if($_SERVER['REQUEST_METHOD'] == 'POST' && $_GET['action'] == 'register'){
-            $controllerUserReg -> userRegistration();
+            $controllerUser -> userRegistration();
+        }
+        if($_SERVER['REQUEST_METHOD'] == 'POST' && $_GET['action'] == 'login'){
+            $controllerUser -> userLogin();
         }
     }elseif($_SERVER['QUERY_STRING'] == '/admin'){
         $controllerBack -> admin();

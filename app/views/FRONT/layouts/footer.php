@@ -38,6 +38,7 @@
         <script src="app/public/js/active.js"></script>
         <script src="app/public/js/hamburgerBtn.js"></script>
         <script src="app/public/js/modalBox.js"></script>
+        <script src="app/public/js/signInValid.js"></script>
 
     </body>
 
