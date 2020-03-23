@@ -3,7 +3,7 @@
 
  class FrontManager extends Manager
  {     
-     public function diplayLessons(){
+     public function displayLessons(){
         $bdd = $this->dbConnect();
         $lessons = $bdd->prepare('SELECT title, image FROM lessons');
         $lessons->execute(array());

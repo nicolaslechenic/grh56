@@ -7,10 +7,12 @@ session_start();
 require_once __DIR__. '/vendor/autoload.php';
 
 
-// catchin errors and displaying them in specific view
+// catching errors and displaying them in specific view
 try{
-    $controllerFront = new \GRH56\Controllers\ControllerFront(); //objet controller
-    if(isset($_GET['action'])) {
+    $controllerFront = new \GRH56\Controllers\ControllerFront(); //object controllerFront
+    $controllerBack = new \GRH56\Controllers\ControllerBack(); //object controllerBack
+    $controllerUserReg = new \GRH56\Controllers\ControllerUserReg(); //object controllerUserReg
+    if(isset($_GET['action']))  {
         if($_GET['action'] == 'contact'){
             $controllerFront -> contactForm();
         }
@@ -23,9 +25,13 @@ try{
         if($_GET['action'] == 'home'){
             $controllerFront -> home();
         }
-        
-
-    }else{
+        if($_SERVER['REQUEST_METHOD'] == 'POST' && $_GET['action'] == 'register'){
+            $controllerUserReg -> userRegistration();
+        }
+    }elseif($_SERVER['QUERY_STRING'] == '/admin'){
+        $controllerBack -> admin();
+    }
+    else{
         $controllerFront -> home();
     }
 
