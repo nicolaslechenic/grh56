@@ -7,10 +7,9 @@ session_start();
 require_once __DIR__. '/vendor/autoload.php';
 
 
-// catching errors and displaying them in specific view
+// displaying  specific view or catching errors
 try{
     $controllerFront = new \GRH56\Controllers\ControllerFront(); //object controllerFront
-    $controllerBack = new \GRH56\Controllers\ControllerBack(); //object controllerBack
     $controllerUser = new \GRH56\Controllers\ControllerUser(); //object controllerUserReg
     if(isset($_GET['action']))  {
         if($_GET['action'] == 'contact'){
@@ -25,15 +24,20 @@ try{
         if($_GET['action'] == 'home'){
             $controllerFront -> home();
         }
-        if($_SERVER['REQUEST_METHOD'] == 'POST' && $_GET['action'] == 'register'){
-            $controllerUser -> userRegistration();
-        }
-        if($_SERVER['REQUEST_METHOD'] == 'POST' && $_GET['action'] == 'login'){
-            $controllerUser -> userLogin();
-        }
+        // if($_SERVER['REQUEST_METHOD'] == 'POST' && $_GET['action'] == 'register'){
+        //     $controllerUser -> userRegistration();
+        // }
+        // if($_SERVER['REQUEST_METHOD'] == 'POST' && $_GET['action'] == 'login'){
+        //     $controllerUser -> userLogin();
+        // }
+        //check if we typed ?/admin
     }elseif($_SERVER['QUERY_STRING'] == '/admin'){
-        $controllerBack -> admin();
+        require 'indexAdmin.php';
     }
+    //check if AJAX request
+    elseif(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest'){
+        require 'indexUser.php';
+    } 
     else{
         $controllerFront -> home();
     }

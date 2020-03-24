@@ -167,7 +167,7 @@ body {
     border-radius: 5px;
 }
 
-#connect_button,
+#login_button,
 #signup_button {
     background-color: rgb(70, 136, 180);
     border-radius: 10px;

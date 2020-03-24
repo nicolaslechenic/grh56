@@ -2,7 +2,7 @@
 
 namespace GRH56\Controllers;
 
-class ControllerBack
+class ControllerAdmin
 {
     
     function admin()

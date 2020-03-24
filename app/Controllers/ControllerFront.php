@@ -9,6 +9,9 @@ class ControllerFront
     {
         $homeFront = new \GRH56\Models\FrontManager();
         $lesson = $homeFront->displayLessons();
+
+        $userLogIn = new \GRH56\Models\UserManager();  
+        $loginData = $userLogIn->checkUser();
         
         require 'app/views/FRONT/home.php';
     }

@@ -38,3 +38,4 @@ include_once 'layouts/header.php';
     </section>
 </div>
 <?php include 'layouts/footer.php' ?>
+<?php var_dump($loginData); ?>

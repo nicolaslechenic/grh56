@@ -30,7 +30,7 @@
             <input type="password"  name="password" class="log_in_field" id="log_in_password" placeholder="Mot de passe...">
             <span id="passwordRequired"></span>
             <a href="#" class="modal_links">Mot de passe oublier ?</a>
-            <button type="submit" id="connect_button">Se connecter</button>
+            <button type="button" id="login_button">Se connecter</button>
             <p>Nouvel étudiant ?</p>
             <a href="#" class="modal_links" id="create_account">Créer un compte</a>
         </form>
@@ -46,9 +46,9 @@
             <label for="email">EMAIL:</label>
             <input type="text"  name="email" class="log_in_field" id="sign_in_email" placeholder="Votre email ...">
             <label for="password">MOT DE PASSE:</label>
-            <input type="text"  name="PASSWORD" class="log_in_field" id="sign_in_password" placeholder="Mot de passe ...">
+            <input type="text"  name="password" class="log_in_field" id="sign_in_password" placeholder="Mot de passe ...">
             <label for="password">CONFIRMER LE MOT DE PASSE:</label>
-            <input type="text"  name="PASSWORD" class="log_in_field" id="sign_in_password_ confirm" placeholder="Confirmer le mot de passe ...">
+            <input type="text"  name="confirm_password" class="log_in_field" id="sign_in_password_ confirm" placeholder="Confirmer le mot de passe ...">
             <button type="submit" id="signup_button">Créer mon compter</button>
         </form>
     </div>
