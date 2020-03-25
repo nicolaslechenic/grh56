@@ -3,10 +3,10 @@
 
  class UserManager extends Manager
  {     
-     public function checkUser(){
+     public function checkUser($email, $password){
         $bdd = $this->dbConnect();
-        $loginData = $bdd->prepare('SELECT id_student FROM users WHERE email="$email" AND password="$password"');
-        $loginData->execute(array());
+        $loginData = $bdd->prepare('SELECT id_student FROM users WHERE email=? AND pass=?' );
+        $loginData->execute(array($email, $password));
         $loginData = $loginData->fetchAll();
         return $loginData;
      }

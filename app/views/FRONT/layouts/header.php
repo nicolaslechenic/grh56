@@ -29,6 +29,7 @@
             <span id="emailRequired"></span>
             <input type="password"  name="password" class="log_in_field" id="log_in_password" placeholder="Mot de passe...">
             <span id="passwordRequired"></span>
+            <span id="wrongEmailPass"></span>
             <a href="#" class="modal_links">Mot de passe oublier ?</a>
             <button type="button" id="login_button">Se connecter</button>
             <p>Nouvel étudiant ?</p>

@@ -16,11 +16,13 @@ $(document).ready(function () {
                     passwordAjax: login_password
                 },
                 success: function (response) {
-                    console.log(response);
+                    if (response == "ok") {
+                        window.location = 'app/views/STUDENT/student.php';
+                    } else {
+                        $("#wrongEmailPass").html(response);
+                    }
                 },
-                dataType: 'text'
-
-            })
+            });
         }
 
     })

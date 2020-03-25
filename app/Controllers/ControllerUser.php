@@ -22,23 +22,22 @@ class ControllerUser
     // }
     function userLogin(){
         if (isset($_POST['data'])){
-            
-            $email = $_POST['emailAjax'];
+            // escape special characters
+            $email = htmlspecialchars($_POST['emailAjax']);
             $password = $_POST['passwordAjax'];
-
+        //using email  and password inputs for sql request  
         $userLogIn = new \GRH56\Models\UserManager();
-        $loginData = $userLogIn->checkUser();
-            
+        $loginData = $userLogIn->checkUser($email, $password);
         
+        // checking response from model and displaying corresponding message
             if(count($loginData) > 0){
-                exit ("success");
+                exit ('ok');
+                
             }else{
-                exit('failed');
+                exit('Email or password is wrong');
             }
 
         }
-
-
         
         //require 'app/views/FRONT/student.php';
     }
