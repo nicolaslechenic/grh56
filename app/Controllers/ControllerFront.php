@@ -9,7 +9,13 @@ class ControllerFront
     {
         $homeFront = new \GRH56\Models\FrontManager();
         $lesson = $homeFront->displayLessons();
-
+        if (isset($_SESSION['connected'])){
+        $connected = 'main_menu_link_connected';
+        $disconnected = 'main_menu_link';
+        }else{
+            $connected = 'main_menu_link';
+            $disconnected = 'main_menu_link_connected';
+        }
     
         require 'app/views/FRONT/home.php';
     }

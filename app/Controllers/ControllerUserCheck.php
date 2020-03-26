@@ -22,25 +22,28 @@ class ControllerUserCheck
     // }
     
     function checkUser(){
+        
         if (isset($_POST['data'])){
             // escape special characters
             $email = htmlspecialchars($_POST['emailAjax']);
             $password = $_POST['passwordAjax'];
-        //using email  and password inputs for sql request  
-        $userLogIn = new \GRH56\Models\UserCheckManager();
-        $loginData = $userLogIn->checkUser($email, $password);
-    }
+            //using email  and password inputs for sql request  
+            $userLogIn = new \GRH56\Models\UserCheckManager();
+            $loginData = $userLogIn->checkUser($email, $password);
     
-        // checking response from model and displaying corresponding message
+            // checking response from model and displaying corresponding message
             if(count($loginData) > 0){
+                $_SESSION['connected'] = '1';
+                $_SESSION['email'] = $email;
                 exit("ok");
                 
             }else{
                 exit('Email or password is wrong');
             }
 
-        
+        }
         
         //require 'app/views/FRONT/student.php';
     }
+    
 }  

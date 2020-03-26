@@ -88,6 +88,10 @@ body {
     background-color: #01385C;
 }
 
+.main_menu_link_connected {
+    display: none;
+}
+
 /* HAMBURGER ICON*/
 /* setting width of the icon*/
 #burger_button {

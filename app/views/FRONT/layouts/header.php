@@ -15,7 +15,8 @@
                 <li><a href="index.php?about" class="main_menu_link" id="about">A PROPOS</a></li>
                 <li><a href="index.php?action=courses" class="main_menu_link" id="courses">LES COURS</a></li>
                 <li><a href="index.php?action=contact" class="main_menu_link" id="contact">CONTACT</a></li>
-                <li><a  id="connect">SE CONNECTER</a></li>
+                <li><a class="<?php echo($connected)?>" id="connect">SE CONNECTER</a></li>
+                <li><a href="index.php?action=logout" class="<?php echo($disconnected)?>" id="log_out">SE DECONNECTER</a></li>
             </ul>
         </nav>
     </div>

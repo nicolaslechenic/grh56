@@ -6,10 +6,10 @@ session_start();
 //autoload.php genere avec composer
 require_once __DIR__. '/vendor/autoload.php';
 
-
 // displaying  specific view or catching errors
 try{
-    $controllerFront = new \GRH56\Controllers\ControllerFront(); //object controllerFront
+    $controllerFront = new \GRH56\Controllers\ControllerFront(); //creating object controllerFront
+    $controllerUserLogin = new \GRH56\Controllers\ControllerUserLogin(); 
     if(isset($_GET['action']))  {
         if($_GET['action'] == 'contact'){
             $controllerFront -> contactForm();
@@ -23,11 +23,13 @@ try{
         if($_GET['action'] == 'home'){
             $controllerFront -> home();
         }
-        // if($_SERVER['REQUEST_METHOD'] == 'POST' && $_GET['action'] == 'register'){
-        //     $controllerUser -> userRegistration();
-        // }
-        // if($_SERVER['REQUEST_METHOD'] == 'POST' && $_GET['action'] == 'login'){
-        //     $controllerUser -> userLogin();
+        if($_GET['action'] == 'logout'){
+            $controllerUserLogin -> logOut();
+        }
+        // if($_GET['action'] == 'connect'){
+        //     if (isset($_SESSION['connected'])){
+        //         $controllerUserLogin-> logIn();
+        //     }
         // }
         //check if we typed ?/admin
     }elseif($_SERVER['QUERY_STRING'] == '/admin'){

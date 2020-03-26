@@ -1,14 +1,4 @@
 <?php 
-// session_start();
-// require_once 'fonctions/bdd.php';
-// include 'fonctions/blog.php';
-// $bdd = bdd();
-// if(!empty($_POST)){
-//     $articles = search();
-// }else{
-//     $articles = article();
-// }
-
 include 'layouts/head.php';
 include_once 'layouts/header.php';
 ?>
@@ -38,3 +28,4 @@ include_once 'layouts/header.php';
     </section>
 </div>
 <?php include 'layouts/footer.php' ?>
+<?php var_dump($_SESSION['connected']) ?>
