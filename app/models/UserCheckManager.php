@@ -1,7 +1,7 @@
 <?php
  namespace GRH56\Models;
 
- class UserManager extends Manager
+ class UserCheckManager extends Manager
  {     
      public function checkUser($email, $password){
         $bdd = $this->dbConnect();

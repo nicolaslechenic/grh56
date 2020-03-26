@@ -1,3 +1,3 @@
 <?php
-$controllerUser = new \GRH56\Controllers\ControllerUser(); //creating object controllerUser
-$controllerUser -> userLogin();
+$controllerUser = new \GRH56\Controllers\ControllerUserCheck(); //creating object controllerUser
+$controllerUser -> checkUser();

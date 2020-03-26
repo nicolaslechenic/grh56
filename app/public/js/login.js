@@ -17,7 +17,7 @@ $(document).ready(function () {
                 },
                 success: function (response) {
                     if (response == "ok") {
-                        window.location = 'app/views/STUDENT/student.php';
+                        window.location = 'indexLogin.php';
                     } else {
                         $("#wrongEmailPass").html(response);
                     }

@@ -9,7 +9,7 @@
                         </ul>
                     </nav>
                     <div id="icon_footer">
-                        <a href="www.datadock.fr"><img src="/grh56/app/public/images/datadock.jpg" alt="Datadock logo"></a>
+                        <a href="www.datadock.fr"><img src="./app/public/images/datadock.jpg" alt="Datadock logo"></a>
                         <a href="index.php?action=home"><img id="logo_footer" src="/grh56/app/public/images/logo_small_white.png"
                                 alt="GRH formation logo"></a>
                         <a href="http://www.eflextraining.com/"><img src="/grh56/app/public/images/eflex.png"

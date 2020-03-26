@@ -10,7 +10,6 @@ require_once __DIR__. '/vendor/autoload.php';
 // displaying  specific view or catching errors
 try{
     $controllerFront = new \GRH56\Controllers\ControllerFront(); //object controllerFront
-    $controllerUser = new \GRH56\Controllers\ControllerUser(); //object controllerUserReg
     if(isset($_GET['action']))  {
         if($_GET['action'] == 'contact'){
             $controllerFront -> contactForm();
