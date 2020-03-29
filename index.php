@@ -9,7 +9,8 @@ require_once __DIR__. '/vendor/autoload.php';
 // displaying  specific view or catching errors
 try{
     $controllerFront = new \GRH56\Controllers\ControllerFront(); //creating object controllerFront
-    $controllerUserLogin = new \GRH56\Controllers\ControllerUserLogin(); 
+    $controllerUserLogin = new \GRH56\Controllers\ControllerUser();
+
     if(isset($_GET['action']))  {
         if($_GET['action'] == 'contact'){
             $controllerFront -> contactForm();
@@ -26,11 +27,13 @@ try{
         if($_GET['action'] == 'logout'){
             $controllerUserLogin -> logOut();
         }
+        
         // if($_GET['action'] == 'connect'){
         //     if (isset($_SESSION['connected'])){
         //         $controllerUserLogin-> logIn();
         //     }
         // }
+
         //check if we typed ?/admin
     }elseif($_SERVER['QUERY_STRING'] == '/admin'){
         require 'indexAdmin.php';

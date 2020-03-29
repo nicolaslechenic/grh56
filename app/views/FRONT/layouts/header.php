@@ -40,18 +40,23 @@
     <div id="signin_box" class="modal_animate modal_box">
         <i class="fa fa-remove" style="font-size:24px"></i>
         <div id="signin_title"></div>
-        <form class="log_form"  action="index.php?action=register" method="post">
+        <form class="log_form"  id="signup_form" action="index.php?action=register" method="post">
             <label for="name">PRENOM:</label>
-            <input type="text"  name="name" class="log_in_field" id="sign_in_name" placeholder="Votre prenom ...">
+            <input type="text"  name="name" class="log_in_field" id="sign_up_name" placeholder="Votre prenom ...">
+            <span id="nameRequired"></span>
             <label for="surname">NOM:</label>
-            <input type="text"  name="surname" class="log_in_field" id="sign_in_surname" placeholder="Votre nom ...">
+            <input type="text"  name="surname" class="log_in_field" id="sign_up_surname" placeholder="Votre nom ...">
+            <span id="surnameRequired"></span>
             <label for="email">EMAIL:</label>
-            <input type="text"  name="email" class="log_in_field" id="sign_in_email" placeholder="Votre email ...">
+            <input type="text"  name="email" class="log_in_field" id="sign_up_email" placeholder="Votre email ...">
+            <span id="upEmailRequired"></span>
             <label for="password">MOT DE PASSE:</label>
-            <input type="text"  name="password" class="log_in_field" id="sign_in_password" placeholder="Mot de passe ...">
+            <input type="text"  name="password" class="log_in_field" id="sign_up_password" placeholder="Mot de passe ...">
+            <span id="upPasswordRequired"></span>
             <label for="password">CONFIRMER LE MOT DE PASSE:</label>
-            <input type="text"  name="confirm_password" class="log_in_field" id="sign_in_password_ confirm" placeholder="Confirmer le mot de passe ...">
-            <button type="submit" id="signup_button">Créer mon compter</button>
+            <input type="text"  name="confirm_password" class="log_in_field" id="sign_up_password_ confirm" placeholder="Confirmer le mot de passe ...">
+            <span id="upPasswordConfirmRequired"></span>
+            <button type="button" id="signup_button">Créer mon compter</button>
         </form>
     </div>
 </header>   

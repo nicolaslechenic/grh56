@@ -1,4 +1,3 @@
-console.log('start')
 // fildes to retarive sign in data from form
 let formValidSignIn = document.getElementById("login_form");
 let email = document.getElementById("log_in_email");
@@ -22,7 +21,6 @@ let formFieldsNamesSigIn = ["Email", "Mot de passe"];
 formValidSignIn.addEventListener("click", function resetMessage(submit) {
     for (let i = 0; i < formFieldsNamesSigIn.length; i++) {
         formFieldsSignInRequired[i].textContent = "";
-        console.log("reset");
     }
 });
 // form validation
