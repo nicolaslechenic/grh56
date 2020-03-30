@@ -5,10 +5,15 @@
  {     
      public function checkLogIn($email, $password){
         $bdd = $this->dbConnect();
-        $loginData = $bdd->prepare('SELECT username FROM users WHERE email=? AND pass=?' );
-        $loginData->execute(array($email, $password));
-        $loginData = $loginData->fetchAll();
-        return $loginData;
+        $loginData = $bdd->prepare('SELECT pass FROM users WHERE email=?' );
+        $loginData->execute(array($email));
+        $loginData = $loginData->fetch()[0];
+        if(password_verify($password,$loginData)){
+         return true;
+        }else{
+         return false;
+        }
+        
      }
      public function checkEmailexists($email){
         $bdd = $this->dbConnect();

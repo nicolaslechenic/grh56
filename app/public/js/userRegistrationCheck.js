@@ -20,7 +20,6 @@ $(document).ready(function () {
                         url: 'indexSignUp.php',
                         type: 'POST',
                         data: {
-                            signup: 1, //key for checking if request exists
                             name: signup_name,
                             surname: signup_surname,
                             email: signup_email,

@@ -43,8 +43,8 @@ class ControllerUser
         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
         if (isset($_POST['signin'])){
             // escape special characters
-            $email =$_POST['emailAjax'];
-            $password = $_POST['passwordAjax'];
+            $email =$_POST['email'];
+            $password = $_POST['password'];
             
             //using email  and password inputs for sql request  
             $userLogIn = new \GRH56\Models\UserManager();
@@ -52,19 +52,20 @@ class ControllerUser
          
     
             // checking response from model(if there is any data in the array) 
-            if(count($loginData) > 0){
+            if($loginData == true){
                 $_SESSION['connected'] = '1';
                 $_SESSION['email'] = $email;
                 exit("ok");
                 
             }else{
+                print_r($loginData);
                 exit('Votre identifiant ou mot de passe est incorrect.');
             }
 
         }
         
     }
-    function logIn(){       
+    function logIn(){  
         require 'app/views/STUDENT/student.php';
 
     }

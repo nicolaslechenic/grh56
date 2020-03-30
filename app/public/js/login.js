@@ -4,12 +4,12 @@ $(document).ready(function () {
         var login_password = $('#log_in_password').val();
 
         $.ajax({
-            url: 'index.php',
+            url: 'indexUser.php',
             type: 'POST',
             data: {
                 signin: 1, //setting a key for checking if  
-                emailAjax: login_email,
-                passwordAjax: login_password
+                email: login_email,
+                password: login_password
             },
             success: function (response) {
                 if (response == "ok") {
