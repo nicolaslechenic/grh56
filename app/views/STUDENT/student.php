@@ -1,6 +1,10 @@
 <?php
-include 'layouts/headstudent.php';
-include_once 'layouts/headerstudent.php';
+session_start();
+include 'app/views/FRONT/layouts/head.php';
+include_once 'app/views/FRONT/layouts/header.php';
 ?>
 <h1>STUDENT PAGE</h1>
-<?php include 'layouts/footerstudent.php' ?>
+<?php include 'app/views/FRONT/layouts/footer.php' ?>
+<?php echo($_SESSION['user']);
+echo($_SESSION['name']);
+    ?>

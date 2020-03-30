@@ -9,7 +9,7 @@ require_once __DIR__. '/vendor/autoload.php';
 // displaying  specific view or catching errors
 try{
     $controllerFront = new \GRH56\Controllers\ControllerFront(); //creating object controllerFront
-    $controllerUserLogin = new \GRH56\Controllers\ControllerUser();
+    $controllerUser = new \GRH56\Controllers\ControllerUser();
 
     if(isset($_GET['action']))  {
         if($_GET['action'] == 'contact'){
@@ -25,7 +25,10 @@ try{
             $controllerFront -> home();
         }
         if($_GET['action'] == 'logout'){
-            $controllerUserLogin -> logOut();
+            $controllerUser -> logOut();
+        }
+        if($_GET['action'] == 'student'){
+            $controllerUser -> logedIn();
         }
         
         // if($_GET['action'] == 'connect'){
@@ -38,10 +41,10 @@ try{
     }elseif($_SERVER['QUERY_STRING'] == '/admin'){
         require 'indexAdmin.php';
     }
-    //check if AJAX request
-    elseif(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest'){
-        require 'indexUser.php';
-    } 
+    // //check if AJAX request
+    // elseif(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest'){
+    //     require 'indexUser.php';
+    // } 
     else{
         $controllerFront -> home();
     }
