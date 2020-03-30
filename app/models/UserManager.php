@@ -17,4 +17,14 @@
         $signUpData = $signUpData->fetchAll();
         return $signUpData;
      }
+     public function userRegister($name, $surname, $email, $password){
+         $bdd = $this->dbConnect();
+         $signUpData = $bdd->prepare('INSERT INTO users(username, surname, email, pass)  VALUES (?, ?, ?, ?)' );
+         $signUpData->execute([$name, $surname, $email, $password]);
+         if($signUpData){
+         return true;
+         }else{
+         return false;
+         }
+     }
  }

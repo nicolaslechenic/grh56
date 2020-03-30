@@ -24,23 +24,21 @@ class ControllerUser
         }
 
     }
-    // function signUp(){
-    //     require 'app/views/STUDENT/student.php';
-    //     var_dump($_POST['emailAjax']);   
-    //         // $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);// filter removes tags/special characters from array     
-    //         // $name = $_POST['name'];
-    //         // $surname = $_POST['surname'];
-    //         // $email = $_POST['email'];
-    //         // $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-    //         // $userSignUpObj = new \GRH56\Models\UserManager();
-    //         // $userSignUp = $userSignUpEmail->signUp($name, $surname, $email, $password);
+    function signUp(){
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);// filter removes tags/special characters from array     
+            $name = $_POST['name'];
+            $surname = $_POST['surname'];
+            $email = $_POST['email'];
+            $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+            $userSignUpObj = new \GRH56\Models\UserManager();
+            $userSignUp = $userSignUpObj->userRegister($name, $surname, $email, $password);
     
-    //         // if($userSignUp){
-    //         //     require 'app/views/STUDENT/student.php';
-    //         // }else{
-    //         //     die('Oups! Il y a une erreur....');
-    //         // }
-    //      }
+            if($userSignUp == true){
+                exit ('registred');
+            }else{
+                exit('Oups! Il y a une erreur....');
+            }
+         }
     function checkUser(){
         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
         if (isset($_POST['signin'])){
