@@ -8,7 +8,7 @@ $(document).ready(function () {
             type: 'POST',
             data: {
                 signup: 1, //key for checking if request exists
-                emailAjax: signup_email,
+                email: signup_email,
             },
             success: function (response) {
                 if (response == "ok") {

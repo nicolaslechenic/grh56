@@ -3,25 +3,22 @@
 namespace GRH56\Controllers;
 // creating user class with registration signin functions
 class ControllerUser
-{
+{       // checking if  email exists in the database
      function userRegistrationCheck(){
         //for security - cleaning received data
        $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-        
-        if (isset($_POST['signup'])){
-            
-            $email = ($_POST['emailAjax']);
             //using email  input for sql request  
+            $email = ($_POST['email']);
             $userSignUp = new \GRH56\Models\UserManager();
             $signUpData = $userSignUp->checkEmailexists($email);
              //checking response from model(if there is any data in the array) 
             if(count($signUpData) > 0){
                 exit("Cette adresse e-mail est déjà utilisée ");
             }else{
-
                 exit("ok");
             }
-        }
+        }else{
+            require 'app/views/STUDENT/student.php';
 
     }
     function signUp(){
@@ -48,8 +45,7 @@ class ControllerUser
             
             //using email  and password inputs for sql request  
             $userLogIn = new \GRH56\Models\UserManager();
-            $loginData = $userLogIn->checkLogIn($email, $password);
-         
+            $loginData = $userLogIn->checkLogIn($email, $password);         
     
             // checking response from model(if there is any data in the array) 
             if($loginData == true){
