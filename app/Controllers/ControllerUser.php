@@ -17,9 +17,6 @@ class ControllerUser
             }else{
                 exit("ok");
             }
-        }else{
-            require 'app/views/STUDENT/student.php';
-
     }
     function signUp(){
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);// filter removes tags/special characters from array     
@@ -35,7 +32,7 @@ class ControllerUser
             }else{
                 exit('Oups! Il y a une erreur....');
             }
-         }
+    }
     function checkUser(){
         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
         if (isset($_POST['signin'])){
