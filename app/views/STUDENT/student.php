@@ -1,5 +1,4 @@
 <?php
-session_start();
 include 'app/views/FRONT/layouts/head.php';
 include_once 'app/views/FRONT/layouts/header.php';
 ?>

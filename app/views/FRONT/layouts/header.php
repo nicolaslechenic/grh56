@@ -37,7 +37,7 @@
             <span id="passwordRequired"></span>
             <span id="wrongEmailPass"></span>
             <a href="#" class="modal_links">Mot de passe oublier ?</a>
-            <button type="button" id="login_button">Se connecter</button>
+            <button type="button"  id="login_button">Se connecter</button>
             <p>Nouvel étudiant ?</p>
             <a href="#" class="modal_links" id="create_account">Créer un compte</a>
         </form>

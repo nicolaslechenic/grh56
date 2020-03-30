@@ -13,7 +13,7 @@ $(document).ready(function () {
             },
             success: function (response) {
                 if (response == "ok") {
-                    window.location = 'indexLogin.php';
+                    window.location = 'index.php';
                 } else {
                     $("#wrongEmailPass").html(response);
 

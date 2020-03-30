@@ -30,27 +30,19 @@ try{
         if($_GET['action'] == 'student'){
             $controllerUser -> logedIn();
         }
-        
-        // if($_GET['action'] == 'connect'){
-        //     if (isset($_SESSION['connected'])){
-        //         $controllerUserLogin-> logIn();
-        //     }
-        // }
-
-        //check if we typed ?/admin
+        //check if usser logged in then send to user page
+    }elseif(isset($_SESSION['user'])){
+        $controllerUser -> logedIn();
+    //check if we typed ?/admin
     }elseif($_SERVER['QUERY_STRING'] == '/admin'){
         require 'indexAdmin.php';
-    }
     // //check if AJAX request
     // elseif(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest'){
     //     require 'indexUser.php';
     // } 
-    else{
+    }else{
         $controllerFront -> home();
     }
-
-
-
 }catch(Exception $e){
 
 }
