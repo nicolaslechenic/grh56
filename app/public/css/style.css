@@ -31,6 +31,11 @@ body {
     /* IE10 */
 }
 
+.flexcolumn {
+    display: flex;
+    flex-direction: column;
+}
+
 .main_container {
     max-width: 1200px;
     margin-left: auto;
@@ -90,6 +95,7 @@ body {
 
 .main_menu_link_connected {
     display: none;
+    margin: 0;
 }
 
 /* HAMBURGER ICON*/
@@ -158,11 +164,6 @@ body {
     margin-top: 1em;
     margin-bottom: 0.5em;
     color: rgb(70, 136, 180);
-}
-
-.log_form {
-    display: flex;
-    flex-direction: column;
 }
 
 .log_in_field {
@@ -327,7 +328,6 @@ footer {
 
 .social_net {
     color: white;
-    flex-direction: column;
 }
 
 .social_net p {
@@ -346,4 +346,11 @@ footer {
 #footer_line2 a {
     text-decoration: none;
     color: white;
+}
+
+
+/* STUDENT PAGE*/
+.account_form {
+    margin: 3em auto 2em auto;
+    width: 40vw;
 }

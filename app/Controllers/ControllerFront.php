@@ -9,7 +9,7 @@ class ControllerFront
     {
         $homeFront = new \GRH56\Models\FrontManager();
         $lesson = $homeFront->displayLessons();
-    
+       
         require 'app/views/FRONT/home.php';
     }
     function contactForm()

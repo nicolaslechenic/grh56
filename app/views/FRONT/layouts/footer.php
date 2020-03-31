@@ -15,9 +15,9 @@
                         <a href="http://www.eflextraining.com/"><img src="app/public/images/eflex.png"
                                 alt="Eflex training logo"></a>
                     </div>
-                    <div class="social_net">
+                    <div class="social_net flexcolumn">
                         <p>SUIVEZ-NOUS SUR:</p>
-                        <div id="social_net">
+                        <div id="social_net flexcolumn">
                             <a href="www.twitter.com" class="icon"><img src="app/public/images/icon-1.jpg"
                                     alt="Twitter icon"></a>
                             <a href="www.facebook.com" class="icon"><img src="app/public/images/icon-2.jpg"
