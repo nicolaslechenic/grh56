@@ -51,9 +51,7 @@ class ControllerUser
             }else{
                 exit('Votre identifiant ou mot de passe est incorrect.');
             }
-
-        }
-        
+        }        
     }
     //if function checkUser sends true, then gooing to student page
     function logedIn(){  
@@ -67,5 +65,25 @@ class ControllerUser
         session_destroy();
         $controllerFront = new \GRH56\Controllers\ControllerFront();
         $controllerFront -> home();
+    }
+    function account(){
+        require 'app/views/STUDENT/studentaccount.php';
+    }
+    function accountUpdate(){
+
+        $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING); 
+        $nameUpdate = $_POST['name'];
+        $surnameUpdate = $_POST['surname'];
+        $emailUpdate = $_POST['email'];
+        $id =  $_SESSION['user'];
+        $userUpdate = new \GRH56\Models\UserManager();
+        $userDataUpdate = $userUpdate->userUpdate($nameUpdate, $surnameUpdate, $emailUpdate, $id); 
+        
+        if($userDataUpdate == 'true'){
+            echo "<script type='text/javascript'>alert('C'est fait !');</script>";
+            require 'app/views/STUDENT/studentaccount.php';
+        }else{
+           echo ('Oupss....');
+        }
     }    
 }  

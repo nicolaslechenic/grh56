@@ -10,7 +10,7 @@ require_once __DIR__. '/vendor/autoload.php';
 try{
     $controllerFront = new \GRH56\Controllers\ControllerFront(); //creating object controllerFront
     $controllerUser = new \GRH56\Controllers\ControllerUser();
-    $controllerUserAccount = new \GRH56\Controllers\ControllerUserAccount();
+    
 
     if(isset($_GET['action']))  {
         if($_GET['action'] == 'contact'){
@@ -32,11 +32,11 @@ try{
             $controllerUser -> logedIn();
         }
         if($_GET['action'] == 'account'){
-            $controllerUserAccount -> account();
+            $controllerUser -> account();
         }
         //check if usser logged in then send to user page
-    }elseif(isset($_SESSION['user'])){
-        $controllerUser -> logedIn();
+    // }elseif(isset($_SESSION['user'])){
+    //     $controllerUser -> logedIn();
     //check if we typed ?/admin
     }elseif($_SERVER['QUERY_STRING'] == '/admin'){
         require 'indexAdmin.php';
@@ -44,7 +44,13 @@ try{
     // elseif(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest'){
     //     require 'indexUser.php';
     // } 
-    }else{
+    }elseif(isset($_POST['action'])){
+        if($_POST['action'] == 'modif'){
+            $controllerUser -> accountUpdate();
+        }
+    }
+    
+    else{
         $controllerFront -> home();
     }
 }catch(Exception $e){

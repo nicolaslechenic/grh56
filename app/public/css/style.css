@@ -352,5 +352,9 @@ footer {
 /* STUDENT PAGE*/
 .account_form {
     margin: 3em auto 2em auto;
-    width: 40vw;
+    width: 450px;
+}
+
+.account_card form label {
+    margin-left: 10px;
 }
