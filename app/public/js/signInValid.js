@@ -1,5 +1,5 @@
 // fildes to retarive sign in data from form
-let formValidSignIn = document.getElementById("login_form");
+let formValidSignIn = document.getElementById("login_button");
 let email = document.getElementById("log_in_email");
 let password = document.getElementById("log_in_password");
 
@@ -24,7 +24,7 @@ formValidSignIn.addEventListener("click", function resetMessage(submit) {
     }
 });
 // form validation
-formValidSignIn.addEventListener("click", function validate(submit) {
+formValidSignIn.addEventListener("click", function validate(event) {
 
     // regex validation results
     let emailResult = emailRegExp.test(email.value);
@@ -37,11 +37,10 @@ formValidSignIn.addEventListener("click", function validate(submit) {
     for (let i = 0; i < formFieldsNamesSigIn.length; i++) {
         if (formFieldsSignIn[i].value === "") {
             formFieldsSignInRequired[i].textContent = formFieldsNamesSigIn[i] + " manquant";
-
-            submit.preventDefault();
+            event.stopImmediatePropagation();
         } else if (formRegExp[i] === false) {
             formFieldsSignInRequired[i].textContent = formFieldsNamesSigIn[i] + " n'est pas conforme"
-            submit.preventDefault();
+            event.stopImmediatePropagation();
         }
         formFieldsSignInRequired[i].style.color = "red";
     }

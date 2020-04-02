@@ -28,13 +28,13 @@ let formFieldsNamesSigUp = ["Prenom", "Nom", "Email", "Mot de passe"];
 
 
 //reset error mesages on submit
-formValidSignUp.addEventListener("click", function resetMessage(submit) {
+formValidSignUp.addEventListener("click", function resetMessage() {
     for (let i = 0; i < formFieldsNamesSigUp.length; i++) {
         formFieldsSignUpRequired[i].textContent = "";
     }
 });
 // form validation
-formValidSignUp.addEventListener("click", function validate(submit) {
+formValidSignUp.addEventListener("click", function validate(event) {
     console.log('valid')
     // regex validation results
     let nameResult = nameRegExp.test(name.value);
@@ -50,18 +50,18 @@ formValidSignUp.addEventListener("click", function validate(submit) {
         if (formFieldsSignUp[i].value === "") {
             console.log('empty')
             formFieldsSignUpRequired[i].textContent = formFieldsNamesSigUp[i] + " manquant";
-            submit.preventDefault();
+            event.stopImmediatePropagation();
 
         } else if (formRegExpUp[i] == false) {
             console.log('false')
             formFieldsSignUpRequired[i].textContent = formFieldsNamesSigUp[i] + " n'est pas conforme"
-            submit.preventDefault();
+            event.stopImmediatePropagation();
         }
     }
     if (passwordUp.value != confirmPassword.value) {
         console.log(passwordUp.value);
         console.log(confirmPassword.value);
         passwordUpConfirmRequired.textContent = "La confirmation du mot de passe ne correspond pas !"
-        submit.preventDefault();
+        click.stopImmediatePropagation();
     }
 });

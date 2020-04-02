@@ -1,6 +1,6 @@
 <?php
  namespace GRH56\Models;
- session_start();
+
 
  class UserManager extends Manager
  {     
@@ -9,7 +9,7 @@
         $loginData = $bdd->prepare('SELECT * FROM users WHERE email=?' );
         $loginData->execute([$email]);
         $loginData = $loginData->fetch();
-        if(password_verify($password,$loginData['pass'])){
+        if( password_verify($password,$loginData['pass'])){
             $_SESSION['user'] = $loginData['id_student'];
             $_SESSION['name'] = $loginData['username'];
             $_SESSION['surname'] = $loginData['surname'];
@@ -19,7 +19,6 @@
             return false;
         }        
      }
-
      public function checkEmailexists($email){
         $bdd = $this->dbConnect();
         $signUpData = $bdd->prepare('SELECT id_student FROM users WHERE email=?' );
@@ -41,15 +40,39 @@
      public function userUpdate($nameUpdate, $surnameUpdate, $emailUpdate, $id){
         $bdd = $this->dbConnect();
         $updateData = $bdd->prepare('UPDATE users SET username = ?, surname = ?, email = ?  WHERE id_student = ? ');
-        $updateData->execute([$nameUpdate, $surnameUpdate, $emailUpdate]);
-        $updateData = $updateData-> fetch();
+        $updateData->execute([$nameUpdate, $surnameUpdate, $emailUpdate, $id]); 
+        $getUserData = $bdd->prepare('SELECT * FROM users WHERE id_student=?');
+        $getUserData->execute([$id]);
+        $getUserData = $getUserData-> fetch();
         if($updateData){
-            $_SESSION['name'] = $loginData['username'];
-            $_SESSION['surname'] = $loginData['surname'];
-            $_SESSION['email'] = $loginData['email'];
+            $_SESSION['name'] = $getUserData['username'];
+            $_SESSION['surname'] = $getUserData['surname'];
+            $_SESSION['email'] = $getUserData['email'];
            return true;
         }else{
            return false;
         }
     }
+   public function changePassword($passwordChange, $id){
+      $bdd = $this->dbConnect();
+      $updatePass = $bdd->prepare('UPDATE users SET pass = ?  WHERE id_student = ? ');
+      $updatePass->execute([$passwordChange, $id]); 
+      
+      if($updatePass){
+         return true;
+      }else{
+         return false;
+      }
+   }
+   public function deleteUser($id){
+      $bdd = $this->dbConnect();
+      $deleteUser = $bdd->prepare('DELETE FROM users WHERE id_student = ?');
+      $deleteUser->execute([$id]); 
+      
+      if($deleteUser){
+         return true;
+      }else{
+         return false;
+      }
+  }
  }

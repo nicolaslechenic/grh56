@@ -1,7 +1,7 @@
 //checking if user emil exists without reloading page
 $(document).ready(function () {
     $('#signup_button').on('click', function () {
-        console.log('ajax');
+
         let signup_email = $('#sign_up_email').val();
         $.ajax({
             url: 'indexUser.php',
@@ -26,8 +26,9 @@ $(document).ready(function () {
                             password: signup_password
                         },
                         success: function (response) {
-                            if (response == 'registred')
-                                window.location = 'indexLogin.php';
+                            if (response == 'registred') {
+                                window.location.href = 'index.php?action=student';
+                            }
                         }
                     })
                 } else {

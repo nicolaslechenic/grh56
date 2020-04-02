@@ -62,7 +62,7 @@
     <div id="signin_box" class="modal_animate modal_box">
         <i class="fa fa-remove" style="font-size:24px"></i>
         <div id="signin_title"></div>
-        <form class="flexcolumn"  id="signup_form" action="index.php?action=register" method="post">
+        <form class="flexcolumn"  id="signup_form" method="post">
             <label for="name">PRENOM:</label>
             <input type="text"  name="name" class="log_in_field" id="sign_up_name" placeholder="Votre prenom ...">
             <span id="nameRequired"></span>
@@ -78,7 +78,7 @@
             <label for="password">CONFIRMER LE MOT DE PASSE:</label>
             <input type="text"  name="confirm_password" class="log_in_field" id="sign_up_password_ confirm" placeholder="Confirmer le mot de passe ...">
             <span id="upPasswordConfirmRequired"></span>
-            <button type="button" id="signup_button">Créer mon compter</button>
+            <button type="button" id="signup_button" class="signup_button">Créer mon compter</button>
         </form>
     </div>
 </header>   

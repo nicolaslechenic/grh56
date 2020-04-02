@@ -34,6 +34,15 @@ try{
         if($_GET['action'] == 'account'){
             $controllerUser -> account();
         }
+        if($_GET['action'] == 'modif'){
+            $controllerUser -> accountUpdate();
+        }
+        if($_GET['action'] == 'modif_pass'){
+            $controllerUser -> changePass();
+        }
+        if($_GET['action'] == 'delete'){
+            $controllerUser -> deleteUser();
+        }
         //check if usser logged in then send to user page
     // }elseif(isset($_SESSION['user'])){
     //     $controllerUser -> logedIn();
@@ -44,10 +53,6 @@ try{
     // elseif(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest'){
     //     require 'indexUser.php';
     // } 
-    }elseif(isset($_POST['action'])){
-        if($_POST['action'] == 'modif'){
-            $controllerUser -> accountUpdate();
-        }
     }
     
     else{

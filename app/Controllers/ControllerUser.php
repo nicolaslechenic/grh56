@@ -69,21 +69,58 @@ class ControllerUser
     function account(){
         require 'app/views/STUDENT/studentaccount.php';
     }
+    // function to update student data
     function accountUpdate(){
 
-        $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING); 
+        $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        
         $nameUpdate = $_POST['name'];
         $surnameUpdate = $_POST['surname'];
         $emailUpdate = $_POST['email'];
         $id =  $_SESSION['user'];
+        
         $userUpdate = new \GRH56\Models\UserManager();
         $userDataUpdate = $userUpdate->userUpdate($nameUpdate, $surnameUpdate, $emailUpdate, $id); 
         
         if($userDataUpdate == 'true'){
-            echo "<script type='text/javascript'>alert('C'est fait !');</script>";
-            require 'app/views/STUDENT/studentaccount.php';
+            
+            require 'app/views/STUDENT/student.php';
+            echo "<script type='text/javascript'>alert('Vos données sont modifiées !');</script>";
+        }else{ 
+           echo ('Oupss....');
+        }
+    } 
+    // function to change student password
+    function changePass(){
+
+        $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        $passwordChange = password_hash($_POST['password'], PASSWORD_DEFAULT);
+        $id =  $_SESSION['user'];
+        $changePass = new \GRH56\Models\UserManager();
+        $changePassword = $changePass->changePassword($passwordChange, $id); 
+        
+        if($changePassword  == 'true'){
+           
+            require 'app/views/STUDENT/home.php';
+            echo "<script type='text/javascript'>alert('Vos données sont modifiées !');</script>";
         }else{
            echo ('Oupss....');
         }
-    }    
+    } 
+    function deleteUser(){
+        $id =  $_SESSION['user'];
+        $delete = new \GRH56\Models\UserManager();
+        $deleteUser =  $delete->deleteUser( $id); 
+        
+        if( $deleteUser  == 'true'){
+            unset($_SESSION['user']);
+            unset($_SESSION['name']);
+            session_destroy();
+            require 'app/views/FRONT/home.php';
+            echo "<script type='text/javascript'>alert('GOODBYE !');</script>";
+        }else{
+           echo ('Oupss....');
+        }
+        
+    }     
 }  
