@@ -4,16 +4,21 @@
 
  class UserManager extends Manager
  {     
+
+     private function session( $name, $surname, $email, $user){
+         $_SESSION['name'] = $name;
+         $_SESSION['surname'] = $surname;
+         $_SESSION['email'] = $email;
+         $_SESSION['user'] = $user;
+      }
+
      public function checkLogIn($email, $password){
         $bdd = $this->dbConnect();
         $loginData = $bdd->prepare('SELECT * FROM users WHERE email=?' );
         $loginData->execute([$email]);
         $loginData = $loginData->fetch();
         if( password_verify($password,$loginData['pass'])){
-            $_SESSION['user'] = $loginData['id_student'];
-            $_SESSION['name'] = $loginData['username'];
-            $_SESSION['surname'] = $loginData['surname'];
-            $_SESSION['email'] = $loginData['email'];
+           $this->session($loginData['id_student'], $loginData['username'], $loginData['surname'], $loginData['email']);
             return true;
         }else{
             return false;
@@ -45,9 +50,7 @@
         $getUserData->execute([$id]);
         $getUserData = $getUserData-> fetch();
         if($updateData){
-            $_SESSION['name'] = $getUserData['username'];
-            $_SESSION['surname'] = $getUserData['surname'];
-            $_SESSION['email'] = $getUserData['email'];
+           $this->session($getUserData['username'], $getUserData['surname'], $getUserData['email']);
            return true;
         }else{
            return false;

@@ -43,6 +43,9 @@ try{
         if($_GET['action'] == 'delete'){
             $controllerUser -> deleteUser();
         }
+        if($_GET['action'] == 'checkemail'){
+            $controllerUser -> checkEmailExists();
+        }
         //check if usser logged in then send to user page
     // }elseif(isset($_SESSION['user'])){
     //     $controllerUser -> logedIn();
