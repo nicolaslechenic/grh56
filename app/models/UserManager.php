@@ -1,7 +1,5 @@
 <?php
  namespace GRH56\Models;
-
-
  class UserManager extends Manager
  {     
 
@@ -18,7 +16,7 @@
         $loginData->execute([$email]);
         $loginData = $loginData->fetch();
         if( password_verify($password,$loginData['pass'])){
-           $this->session($loginData['id_student'], $loginData['username'], $loginData['surname'], $loginData['email']);
+           $this->session($loginData['username'], $loginData['surname'], $loginData['email'], $loginData['id_student']);
             return true;
         }else{
             return false;
@@ -36,7 +34,14 @@
          $bdd = $this->dbConnect();
          $signUpData = $bdd->prepare('INSERT INTO users(username, surname, email, pass)  VALUES (?, ?, ?, ?)' );
          $signUpData->execute([$name, $surname, $email, $password]);
+         
          if($signUpData){
+            $getUserData = $bdd->prepare('SELECT * FROM users WHERE email=?');
+            $getUserData->execute([$email]);
+            $getUserData = $getUserData-> fetch();
+            $this->session($getUserData['username'], $getUserData['surname'], $getUserData['email'], $getUserData['id_student']);
+            var_dump($_SESSION["name"]);
+            die();
             return true;
          }else{
             return false;

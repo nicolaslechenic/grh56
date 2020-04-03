@@ -7,7 +7,7 @@ $(document).ready(function () {
             url: 'indexUser.php',
             type: 'POST',
             data: {
-                signin: 1, //setting a key for checking if  
+                signin: 1, //setting a key for checking
                 email: login_email,
                 password: login_password
             },

@@ -1,5 +1,4 @@
 <?php
-// important pour la  sécurité de vos scripts : le sessions
 //Demarre la session
 session_start();
 

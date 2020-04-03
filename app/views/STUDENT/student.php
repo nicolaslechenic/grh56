@@ -4,6 +4,6 @@ include_once 'app/views/FRONT/layouts/header.php';
 ?>
 <h1>STUDENT PAGE</h1>
 <?php include 'app/views/FRONT/layouts/footer.php' ?>
-<?php echo($_SESSION['user']);
+<?php var_dump($_SESSION);
 echo($_SESSION['name']);
     ?>
