@@ -27,15 +27,15 @@
                         $show3 = $show4 =  $show5 = 'main_menu_link_connected';
                     endif;
                     ?>
-                <li><a href="index.php?action=home" class="main_menu_link" id="index">ACCUEIL</a></li>
+                <li><a href="index.php?action=home" class="main_menu_link" id="home">ACCUEIL</a></li>
                 <li class="<?php echo($show1)?>"><a href="index.php?action=about"  id="about">A PROPOS</a></li>
                 <li class="<?php echo($show1)?>"><a href="index.php?action=courses" id="courses">LES COURS</a></li>
                 <li class="<?php echo($show1)?>"><a href="index.php?action=contact"  id="contact">CONTACT</a></li>
-                <li class="<?php echo($show4)?>"><a href="index.php?action=links"  id="about">LIENS UTILES</a></li>
-                <li class="<?php echo($show4)?>"><a href="index.php?action=mycourses"  id="courses">MES COURS</a></li>
-                <li class="<?php echo($show5)?>"><a href="index.php?action=student" id="log_out"><?php echo($_SESSION['name']) ?></a></li>
-                <li class="<?php echo($show3)?>"><a href="index.php?action=account"  id="log_out">MON COMPTE</a></li>
-                <li class="<?php echo($show3)?>" ><a href="index.php?action=logout" id="log_out">SE DECONNECTER</a></li>
+                <li class="<?php echo($show4)?>"><a href="index.php?action=links"  id="links">LIENS UTILES</a></li>
+                <li class="<?php echo($show4)?>"><a href="index.php?action=mycourses"  id="mycourses">MES COURS</a></li>
+                <li class="<?php echo($show5)?>"><a href="index.php?action=student" id="student"><?php echo($_SESSION['name']) ?></a></li>
+                <li class="<?php echo($show3)?>"><a href="index.php?action=account"  id="account">MON COMPTE</a></li>
+                <li class="<?php echo($show3)?>" ><a href="index.php?action=logout" id="home">SE DECONNECTER</a></li>
                 <li class="<?php echo($show2)?>"><a  id="connect">SE CONNECTER</a></li>
                 
                 

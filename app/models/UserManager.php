@@ -18,7 +18,7 @@
         if( password_verify($password,$loginData['pass'])){
            $this->session($loginData['username'], $loginData['surname'], $loginData['email'], $loginData['id_student']);
             return true;
-        }else{
+        }else{ 
             return false;
         }        
      }
