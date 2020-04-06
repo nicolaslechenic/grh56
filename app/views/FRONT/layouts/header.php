@@ -49,12 +49,12 @@
         <div id="login_title">SE CONNECTER</div>
         <form class="flexcolumn" id="login_form" action="index.php?action=login" method="post">
             <input type="text" name='email' class="log_in_field" id="log_in_email" placeholder="Votre adresse email...">
-            <span id="emailRequired"></span>
-            <input type="password"  name="password" class="log_in_field" id="log_in_password" placeholder="Mot de passe...">
-            <span id="passwordRequired"></span>
-            <span id="wrongEmailPass"></span>
+            <span  class="form_error" id="emailRequired"></span>
+            <input type="password" class="log_in_field"   name="password" class="log_in_field" id="log_in_password" placeholder="Mot de passe...">
+            <span class="form_error" id="passwordRequired"></span>
+            <span class="form_error" id="wrongEmailPass"></span>
             <a href="#" class="modal_links">Mot de passe oublier ?</a>
-            <button type="button"  id="login_button">Se connecter</button>
+            <button type="button" class="button"  id="login_button">Se connecter</button>
             <p>Nouvel étudiant ?</p>
             <a href="#" class="modal_links" id="create_account">Créer un compte</a>
         </form>
@@ -65,20 +65,20 @@
         <form class="flexcolumn"  id="signup_form" method="post">
             <label for="name">PRENOM:</label>
             <input type="text"  name="name" class="log_in_field" id="sign_up_name" placeholder="Votre prenom ...">
-            <span id="nameRequired"></span>
+            <span class="form_error" id="nameRequired"></span>
             <label for="surname">NOM:</label>
             <input type="text"  name="surname" class="log_in_field" id="sign_up_surname" placeholder="Votre nom ...">
-            <span id="surnameRequired"></span>
+            <span class="form_error" id="surnameRequired"></span>
             <label for="email">EMAIL:</label>
             <input type="text"  name="email" class="log_in_field" id="sign_up_email" placeholder="Votre email ...">
-            <span id="upEmailRequired"></span>
+            <span class="form_error" id="upEmailRequired"></span>
             <label for="password">MOT DE PASSE:</label>
             <input type="text"  name="password" class="log_in_field" id="sign_up_password" placeholder="Mot de passe ...">
-            <span id="upPasswordRequired"></span>
+            <span class="form_error" id="upPasswordRequired"></span>
             <label for="password">CONFIRMER LE MOT DE PASSE:</label>
             <input type="text"  name="confirm_password" class="log_in_field" id="sign_up_password_ confirm" placeholder="Confirmer le mot de passe ...">
-            <span id="upPasswordConfirmRequired"></span>
-            <button type="button" id="signup_button" class="signup_button">Créer mon compter</button>
+            <span  class="form_error" id="upPasswordConfirmRequired"></span>
+            <button type="button" id="signup_button" class="button">Créer mon compter</button>
         </form>
     </div>
 </header>   

@@ -55,7 +55,7 @@
         $getUserData->execute([$id]);
         $getUserData = $getUserData-> fetch();
         if($updateData){
-           $this->session($getUserData['username'], $getUserData['surname'], $getUserData['email']);
+           $this->session($getUserData['username'], $getUserData['surname'], $getUserData['email'], $getUserData['id_student']);
            return true;
         }else{
            return false;

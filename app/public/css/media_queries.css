@@ -1,13 +1,23 @@
 @media (min-width: 1200px) {}
 
-@media (max-width: 960px) {
+@media (max-width: 1199px) {
+    #top_menu ul li a {
+        font-size: 1em;
+    }
+
     #top_menu ul li {
         margin-right: 1.5em;
     }
 
-    #top_menu ul li a {
-        font-size: 1em;
+    /*ACCOUNT SECTION*/
+    #account_section button {
+        font-size: 2.2vw;
     }
+
+}
+
+@media (max-width: 960px) {
+
 
     .top_article p {
         font-size: 1.5em;
@@ -60,6 +70,10 @@
     }
 
     /*MAIN SECTION*/
+    .main_container {
+        padding-bottom: 280px;
+    }
+
     .top_article svg {
         top: 60%;
         left: 50%;
@@ -96,6 +110,24 @@
         align-items: center;
         flex-direction: column-reverse;
         margin-top: 10px;
+    }
+
+    /*ACCOUNT SECTION*/
+    #account_section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .account_card {
+        width: 65%;
+    }
+
+    #account_section {
+        padding-bottom: 330px;
+    }
+
+    #account_section button {
+        font-size: 1.25em;
     }
 
 }

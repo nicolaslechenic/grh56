@@ -5,7 +5,7 @@ try{
     $controllerUser = new \GRH56\Controllers\ControllerUser(); //creating object controllerUser for login verification
     
     if(isset($_POST['signin'])){
-    $controllerUser -> checkUser();
+    $controllerUser -> checkUserLogIn();
     }elseif(isset($_POST['signup'])){
         $controllerUser -> userRegistrationCheck();
     }

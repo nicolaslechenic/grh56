@@ -16,7 +16,7 @@ include_once 'layouts/header.php';
             </svg>
         </div> 
     </article>
-    <section>
+    <section id="lessons_section">
         <article class="lessons">
             <div class="lesson">
                 <img src=app/public/images/<?= $lesson['image']?> alt="general english lesson">

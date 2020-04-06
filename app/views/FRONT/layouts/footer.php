@@ -1,4 +1,4 @@
-        <footer>
+        <footer class="footer">
             <div id="footer_main">
                 <div id="footer_line1">
                     <nav id="footer_sub_menu" aria-label="bottom sub menu">
