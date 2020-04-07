@@ -5,10 +5,21 @@ namespace GRH56\Controllers;
 class ControllerUser
 {  
     private $object;
+    public $errors;
+    public $errorsPass;
 
     /* to use for connecting to the model (DRY) */
     public function __construct(){
         $this->object = new \GRH56\Models\UserManager();
+        $this->errors = [
+            'name' => '',
+            'surname' => '',
+            'email' => '',
+        ];
+        $this->errorsPass = [ 
+            'old_pass' => '',
+            'new_pass' => ''
+        ];
     }
     
     // checking if  email exists in the database
@@ -33,7 +44,6 @@ class ControllerUser
             $surname = $_POST['surname'];
             $email = $_POST['email'];
             $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-            
             $userSignUp = $this->object->userRegister($name, $surname, $email, $password);
             if($userSignUp == true){
                 exit ('registred');
@@ -50,8 +60,7 @@ class ControllerUser
             $password = $_POST['password'];
             
             //using email  and password inputs for sql request  
-            $userLogIn = new \GRH56\Models\UserManager();
-            $loginData = $userLogIn->checkLogIn($email, $password);         
+            $loginData = $this->object->checkLogIn($email, $password);         
             // checking response from model(if there is any data in the array) 
             if($loginData == true){
                 exit("ok");
@@ -74,11 +83,8 @@ class ControllerUser
         $controllerFront -> home();
     }
     function account(){
-        $errors =[
-        'name' => '',
-        'surname' => '',
-        'email' => '',
-    ];
+        $errors = $this->errors;
+        $errorsPass =$this->errorsPass;
         require 'app/views/STUDENT/studentaccount.php';
     }
     // function to update student data
@@ -90,14 +96,9 @@ class ControllerUser
         $surnameUpdate = $_POST['surname'];
         $emailUpdate = $_POST['email'];
         $id =  $_SESSION['user'];
-        $errors =[
-            'name' => '',
-            'surname' => '',
-            'email' => '',
-        ];
-
+        $errors = $this->errors;
         if(empty($nameUpdate)){
-            $errors['name'] = 'Prenom manquant !';
+           $errors['name'] = 'Prenom manquant !';
             $_SESSION['name'] = '';
         }elseif(!preg_match("/(^[A-Z][a-zà-öø-ÿ]+) ?-?([A-Z][a-zà-öø-ÿ]+)? ?-?([A-Z][a-zà-öø-ÿ]+)?$/",$nameUpdate)) {
             $errors['name'] = "Prenom n'est pas conforme";
@@ -128,47 +129,57 @@ class ControllerUser
             echo ('Oupss....');
             }
         }else{
+            $errorsPass =$this->errorsPass;
             require 'app/views/STUDENT/studentaccount.php';
         }
     } 
-    // function to change student password
+    // function to change student password (checking if old password corresponds to db data and only than changing to new password)
     function changePass(){
 
         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-        $passwordOld = $_POST['oldPassword'];
-        $passwordChange = password_hash($_POST['password'], PASSWORD_DEFAULT);
-        $id =  $_SESSION['user'];
-        $errorsPass = [ 
-            'old_pass' => ' ',
-            'new_pass' => ' '
-        ];
-
-        if(empty($passwordOld)){
+        $password= $_POST['old_password'];
+        $newPass = $_POST['new_password'];
+        $email = $_SESSION['email'];
+        $newPasswordHash = password_hash($newPass, PASSWORD_DEFAULT);
+        $errorsPass =$this->errorsPass;
+        $errors = $this->errors;
+        if(empty($password)){
             $errorsPass['old_pass'] = 'Mot de passe manquant !';
         }else{
-        
+            $checkPassword = $this->object->checkLogIn($email, $password);
+            if($checkPassword == true){
+                $errorsPass['old_pass'] = '';
+            }else{
+                $errorsPass['old_pass'] = 'Mot de passe incorrect!';
+            }      
         }
-
-        $changePass = new \GRH56\Models\UserManager();
-        $changePassword = $changePass->changePassword($passwordChange, $id); 
-        if($changePassword  == 'true'){
-           
-            require 'app/views/STUDENT/home.php';
-            echo "<script type='text/javascript'>alert('Vos données sont modifiées !');</script>";
+        if(empty($newPass)){
+            $errorsPass['new_pass'] = 'Mot de passe manquant !';
+        }elseif(!preg_match('/^(?=.*\d)(?=.*[a-zà-öø-ÿ])(?=.*[A-Z]).{6,}$/', $newPass)){   
+            $errorsPass['new_pass'] = "Mot de passe n'est pas conforme !";   
+        }
+        if(empty($errorsPass['old_pass']) && empty($errorsPass['new_pass'])){                
+            $newPassword = $this->object->changePassword($newPasswordHash, $email);
+                if($newPassword == true){
+                    require 'app/views/STUDENT/student.php';
+                    echo "<script type='text/javascript'>alert('Vos données sont modifiées !');</script>";
+                }else{
+                    echo ('Oupss....1');
+                }
         }else{
-           echo ('Oupss....');
+            require 'app/views/STUDENT/studentaccount.php';
         }
-    } 
+    }
     function deleteUser(){
         $id =  $_SESSION['user'];
-        $delete = new \GRH56\Models\UserManager();
-        $deleteUser =  $delete->deleteUser( $id); 
-        
-        if( $deleteUser  == 'true'){
+        $deleteUser = $this->object->deleteUser( $id); 
+        if($deleteUser  == true){
+           
             unset($_SESSION['user']);
             unset($_SESSION['name']);
             session_destroy();
-            require 'app/views/FRONT/home.php';
+            $controllerFront = new \GRH56\Controllers\ControllerFront();
+            $controllerFront -> home();
             echo "<script type='text/javascript'>alert('GOODBYE !');</script>";
         }else{
            echo ('Oupss....');

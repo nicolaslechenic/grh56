@@ -17,7 +17,8 @@ let passwordUpConfirmRequired = document.getElementById("upPasswordConfirmRequir
 let nameRegExp = /(^[A-Z][a-zà-öø-ÿ]+) ?-?([A-Z][a-zà-öø-ÿ]+)? ?-?([A-Z][a-zà-öø-ÿ]+)?$/
 let surnameRegExp = /(^[A-Z][a-zà-öø-ÿ]+) ?-?([A-Z][a-zà-öø-ÿ]+)? ?-?([A-Z][a-zà-öø-ÿ]+)?$/
 let emailUpRegExp = /[a-z0-9\._%+!$&*=^|~#%'`?{}/\-]+@([a-z0-9\-]+\.){1,}([a-z]{2,16})/i;
-let passwordUpRegExp = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,}$/;
+/* digit preceded by 0 or more of any caracter + lower case letter preceded by 0 or more of any caracter etc... min=6*/
+let passwordUpRegExp = /^(?=.*\d)(?=.*[a-zà-öø-ÿ])(?=.*[A-Z]).{6,}$/;
 
 //arrays for sign up data and error messages
 let formFieldsSignUp = [name, surname, emailUp, passwordUp];
