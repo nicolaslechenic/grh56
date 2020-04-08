@@ -42,6 +42,7 @@
         <script src="app/public/js/userSignUp.js"></script>
         <script src="app/public/js/signUpValid.js"></script>
         <script src="app/public/js/login.js"></script>
+        <script src="app/public/js/urbanApi.js"></script>
         
         
         <script src="app/public/js/userRegistrationCheck.js"></script>

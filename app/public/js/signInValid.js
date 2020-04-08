@@ -36,7 +36,7 @@ formValidSignIn.addEventListener("click", function validate(event) {
 
     for (let i = 0; i < formFieldsNamesSigIn.length; i++) {
         if (formFieldsSignIn[i].value === "") {
-            formFieldsSignInRequired[i].textContent = formFieldsNamesSigIn[i] + " manquant";
+            formFieldsSignInRequired[i]. = formFieldsNamesSigIn[i] + " manquant";
             event.stopImmediatePropagation();
         } else if (formRegExp[i] === false) {
             formFieldsSignInRequired[i].textContent = formFieldsNamesSigIn[i] + " n'est pas conforme"

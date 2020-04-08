@@ -2,7 +2,7 @@
 include 'app/views/FRONT/layouts/head.php';
 include_once 'app/views/FRONT/layouts/header.php';
 ?>
-<section  id="account_section">
+<section  class="section">
     <div class="account_card">
         <form class="account_form flexcolumn"  id="personal_form" action="index.php?action=modif" method="post">
             <label for="name">PRENOM:</label>

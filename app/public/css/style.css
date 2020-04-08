@@ -23,7 +23,7 @@ body {
     font: 1em 'Charm', sans-serif, bold;
 }
 
-#account_section,
+.section,
 .header_main,
 #top_menu,
 #top_menu ul,
@@ -359,7 +359,12 @@ footer {
 
 
 /* STUDENT PAGE*/
-#account_section {
+#div {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section {
     justify-content: space-around;
     padding-bottom: 155px;
 }
