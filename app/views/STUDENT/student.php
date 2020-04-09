@@ -4,10 +4,14 @@ include_once 'app/views/FRONT/layouts/header.php';
 ?>
 <div id="div"> 
     <h1>STUDENT PAGE</h1>
-    
-        <input type="text" id="word_search" placeholder="">
-        <p id="result"></p>
-        <button type="button" class="button" id="search">Search</button>
-
+    <div class="dictionary">
+        <div class="search_area">
+            <input type="text" id="word_search" placeholder="">
+            <button type="button" class="button" id="search">Search</button>
+        </div>
+        <div class="results">
+            <ol id="results"></ol>
+        </div>
+    </div>
 </div>
 <?php include 'app/views/FRONT/layouts/footer.php' ?>

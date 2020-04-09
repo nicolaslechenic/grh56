@@ -32,13 +32,15 @@ body {
 #social_net,
 #footer_line2,
 #icon_footer,
-.flexcolumn {
+.flexcolumn,
+.dictionary {
     display: flex;
     display: -ms-flexbox;
     /* IE10 */
 }
 
-.flexcolumn {
+.flexcolumn,
+    {
     flex-direction: column;
 }
 
@@ -406,4 +408,12 @@ footer {
 #delete_account_text {
     font: 1em 'Open Sans';
     text-align: justify;
+}
+
+.dictionary {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    height: auto;
+    padding: 10px 20px;
+    width: auto;
 }

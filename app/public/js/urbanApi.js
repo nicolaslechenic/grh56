@@ -1,25 +1,27 @@
-    let result = document.getElementById("result");
-    let word = document.getElementById("word_search").value;
-    let searchBtn = document.getElementById("search");
+$(document).ready(function () {
+    const RESULT = document.getElementById('results');
+    let ul = document.getElementById('results');
+    let li = ul.getElementsByTagName('li')
+    $("#search").on("click", function () {
+        /* clearing results */
+        ul.innerHTML = "";
+        let word = document.getElementById("word_search").value;
 
-    searchBtn.addEventListener("click", function search() {
-        /* clearing resalt */
-
-
-        // result = "";
-        fetch("https://mashape-community-urban-dictionary.p.rapidapi.com/define?term=" + word, {
+        fetch("https://cors-anywhere.herokuapp.com/https://od-api.oxforddictionaries.com/api/v2/entries/en-gb/" + word, {
                 "method": "GET",
                 "headers": {
-                    "x-rapidapi-host": "mashape-community-urban-dictionary.p.rapidapi.com",
-                    "x-rapidapi-key": "1b3db1587emsh55553bedeb4bae3p1afaaajsna8c432997d98"
+                    "app_id": "d9730fd0",
+                    "app_key": "09309458c4b76c5d889b92c344a21f05"
                 }
             })
             .then(function (response) {
                 return response.json();
-
             })
             .then(function (json) {
-                result.innerText = json.list[0].definition;
+                let searchResult = document.createElement('li');
+                searchResult.innerText = json.results[0].lexicalEntries[0].entries[0].senses[0].definitions;
+                RESULT.appendChild(searchResult);
 
             })
     })
+})
