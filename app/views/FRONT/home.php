@@ -2,7 +2,6 @@
 include 'layouts/head.php';
 include_once 'layouts/header.php';
 ?>
-<!--  -->
 <div class="main_container">
     <article>
         <div class="top_article">
@@ -19,14 +18,20 @@ include_once 'layouts/header.php';
     <section id="lessons_section">
         <article class="lessons">
             <div class="lesson">
-                <img src=app/public/images/<?= $lesson['image']?> alt="general english lesson">
-                <div class="lesson_card_text">
-                    <h2><?= $lesson['title']?></h2>
-                </div>
+                <div class="card">
+                    <div class="card_front">
+                        <img src=app/public/images/<?= $lesson['image']?> alt="general english lesson">
+                        <div class="lesson_card_text">
+                            <h2><?= $lesson['title']?></h2>
+                        </div>
+                    </div>
+                    <div class="card_back">
+                        <p><?= $lesson['short']?></p>
+                        <a href="index.php?action=courses">LEARN MORE</a>               
+                    </div>
+                </div>    
             </div> 
         </article>
     </section>
 </div>
 <?php include 'layouts/footer.php' ?>
-
-

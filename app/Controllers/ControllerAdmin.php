@@ -9,7 +9,9 @@ class ControllerAdmin
     {
         // $usersBack = new \GRH56\Models\BackManager();
         // $usersAll = $usersBack->checkUser();
-
+        echo "<script>function () {
+        $('#modal_admin').show();}
+        </script>";
 
         require 'app/views/BACK/admin.php';
     }

@@ -1,27 +1,24 @@
 $(document).ready(function () {
-    const RESULT = document.getElementById('results');
-    let ul = document.getElementById('results');
-    let li = ul.getElementsByTagName('li')
+    let result = document.getElementById('result');
+    let div = document.getElementById('result');
     $("#search").on("click", function () {
         /* clearing results */
-        ul.innerHTML = "";
+        div.innerHTML = "";
         let word = document.getElementById("word_search").value;
-
-        fetch("https://cors-anywhere.herokuapp.com/https://od-api.oxforddictionaries.com/api/v2/entries/en-gb/" + word, {
-                "method": "GET",
-                "headers": {
-                    "app_id": "d9730fd0",
-                    "app_key": "09309458c4b76c5d889b92c344a21f05"
-                }
-            })
-            .then(function (response) {
-                return response.json();
+        fetch("https://api.dictionaryapi.dev/api/v1/entries/en/" +word)
+        .then(function (response) {
+           return response.json();
             })
             .then(function (json) {
-                let searchResult = document.createElement('li');
-                searchResult.innerText = json.results[0].lexicalEntries[0].entries[0].senses[0].definitions;
-                RESULT.appendChild(searchResult);
+                console.log(json);
+                let searchDef = document.createElement('p');
+                let searchExample = document.createElement('p');
+                searchDef.innerText = json[0].firstChild.firstChild.defenition;
+               
+                result.appendChild(searchDef);
+                
+                
 
-            })
+         })
     })
 })

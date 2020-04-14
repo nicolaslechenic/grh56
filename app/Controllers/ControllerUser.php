@@ -21,6 +21,11 @@ class ControllerUser
             'new_pass' => ''
         ];
     }
+    // functin to redirect to the homepage
+    public function mainPage(){
+        $controllerFront = new \GRH56\Controllers\ControllerFront();
+        $controllerFront -> home();
+    }
     
     // checking if  email exists in the database
      function userRegistrationCheck(){
@@ -62,16 +67,23 @@ class ControllerUser
             //using email  and password inputs for sql request  
             $loginData = $this->object->checkLogIn($email, $password);         
             // checking response from model(if there is any data in the array) 
-            if($loginData == true){
-                exit("ok");
-            }else{
+            if($loginData === "user"){
+                exit("user");
+            }elseif($loginData === "admin"){
+                exit("admin");
+            }
+            else{
                 exit('Votre identifiant ou mot de passe est incorrect.');
             }
         }        
     }
     //if function checkUser sends true, then gooing to student page
     function logedIn(){  
-        require 'app/views/STUDENT/student.php';
+        if(isset($_SESSION['name'])){
+            require 'app/views/STUDENT/student.php';
+        }else{
+            $this->mainPage();
+        }
 
     } 
     // on logout destroying session
@@ -85,7 +97,11 @@ class ControllerUser
     function account(){
         $errors = $this->errors;
         $errorsPass =$this->errorsPass;
-        require 'app/views/STUDENT/studentaccount.php';
+        if(isset($_SESSION['name'])){
+            require 'app/views/STUDENT/studentaccount.php';
+        }else{
+            $this->mainPage();
+        }
     }
     // function to update student data
     function accountUpdate(){
@@ -130,7 +146,11 @@ class ControllerUser
             }
         }else{
             $errorsPass =$this->errorsPass;
-            require 'app/views/STUDENT/studentaccount.php';
+            if(isset($_SESSION['name'])){
+                require 'app/views/STUDENT/studentaccount.php';
+            }else{
+                $this->mainPage();
+            }
         }
     } 
     // function to change student password (checking if old password corresponds to db data and only than changing to new password)
@@ -167,7 +187,11 @@ class ControllerUser
                     echo ('Oupss....1');
                 }
         }else{
-            require 'app/views/STUDENT/studentaccount.php';
+            if(isset($_SESSION['name'])){
+                require 'app/views/STUDENT/studentaccount.php';
+            }else{
+                $this->mainPage();
+            }
         }
     }
     function deleteUser(){
@@ -186,6 +210,34 @@ class ControllerUser
         }
         
     }
+    function admin(){
+        if(isset($_SESSION['name'])){
+            require 'app/views/BACK/admin.php';
+        }else{
+           $this->mainPage();
+        }
+    }
+
+    // function api(){
+    //     $request = new HttpRequest();
+    //     $request->setUrl('https://od-api.oxforddictionaries.com/api/v2/entries/en-gb/word');
+    //     $request->setMethod(HTTP_METH_GET);
+
+    // $request->setHeaders(array(
+    //   'postman-token' => 'a6ea9e58-c0e0-0f4e-f397-ddba4c69ee80',
+    //   'cache-control' => 'no-cache',
+    //   'app_key' => '09309458c4b76c5d889b92c344a21f05',
+    //   'app_id' => 'd9730fd0'
+    // ));
+
+    // try {
+    //   $response = $request->send();
+    //     die ($response);
+    //   echo $response->getBody();
+    // } catch (HttpException $ex) {
+    //   echo $ex;
+    // }
+    // }
     
       
 }  

@@ -17,7 +17,13 @@
         $loginData = $loginData->fetch();
         if( password_verify($password,$loginData['pass'])){
            $this->session($loginData['username'], $loginData['surname'], $loginData['email'], $loginData['id_student']);
-           return true;
+           if($loginData['id_status'] === "0"){
+            return "user";
+           }else{
+            return "admin";
+           }
+          
+         
         }else{ 
             return false;
         }        
@@ -39,7 +45,6 @@
             $getUserData->execute([$email]);
             $getUserData = $getUserData-> fetch();
             $this->session($getUserData['username'], $getUserData['surname'], $getUserData['email'], $getUserData['id_student']);
-            var_dump($_SESSION);
             return true;
          }else{
             return false;

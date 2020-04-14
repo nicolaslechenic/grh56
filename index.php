@@ -45,12 +45,13 @@ try{
         if($_GET['action'] == 'checkemail'){
             $controllerUser -> checkEmailExists();
         }
+
         //check if usser logged in then send to user page
     // }elseif(isset($_SESSION['user'])){
     //     $controllerUser -> logedIn();
     //check if we typed ?/admin
-    }elseif($_SERVER['QUERY_STRING'] == '/admin'){
-        require 'indexAdmin.php';
+    }elseif($_SERVER['QUERY_STRING'] == 'admin'){
+        $controllerUser -> admin();
     // //check if AJAX request
     // elseif(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest'){
     //     require 'indexUser.php';

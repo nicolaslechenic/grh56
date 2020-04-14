@@ -46,7 +46,7 @@
         
         
         <script src="app/public/js/userRegistrationCheck.js"></script>
-
+       
     </body>
 
 </html>

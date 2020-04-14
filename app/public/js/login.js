@@ -12,9 +12,12 @@ $(document).ready(function () {
                 password: login_password
             },
             success: function (response) {
-                if (response == "ok") {
+                if (response === "user") {
                     window.location.href = 'index.php?action=student';
-                } else {
+                }else if(response === "admin"){
+                    window.location.href = 'index.php?admin';
+                }
+                else {
                     $("#wrongEmailPass").html(response);
 
                 }
