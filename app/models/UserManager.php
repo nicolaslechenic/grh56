@@ -3,11 +3,12 @@
  class UserManager extends Manager
  {     
 
-   private function session( $name, $surname, $email, $user){
+   private function session( $name, $surname, $email, $user, $status){
          $_SESSION['name'] = $name;
          $_SESSION['surname'] = $surname;
          $_SESSION['email'] = $email;
          $_SESSION['user'] = $user;
+         $_SESSION['status'] = $status;
    }
 
    public function checkLogIn($email, $password){
@@ -16,7 +17,7 @@
         $loginData->execute([$email]);
         $loginData = $loginData->fetch();
         if( password_verify($password,$loginData['pass'])){
-           $this->session($loginData['username'], $loginData['surname'], $loginData['email'], $loginData['id_student']);
+           $this->session($loginData['username'], $loginData['surname'], $loginData['email'], $loginData['id_student'], $loginData['id_status']);
            if($loginData['id_status'] === "0"){
             return "user";
            }else{

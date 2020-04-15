@@ -77,10 +77,12 @@ class ControllerUser
             }
         }        
     }
-    //if function checkUser sends true, then gooing to student page
+    //if function checkUser sends true, then gooing to student page or admin page depending on $_SESSION['status]
     function logedIn(){  
-        if(isset($_SESSION['name'])){
+        if(isset($_SESSION['name']) && $_SESSION['status'] == '0'){
             require 'app/views/STUDENT/student.php';
+        }elseif(isset($_SESSION['name']) && $_SESSION['status'] == '1'){
+            require 'app/views/BACK/admin.php';
         }else{
             $this->mainPage();
         }
