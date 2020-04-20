@@ -45,7 +45,12 @@ try{
         if($_GET['action'] == 'checkemail'){
             $controllerUser -> checkEmailExists();
         }
-
+        if($_GET['action'] && !isset($_SESSION['name']) != '1'){
+            throw new Exception("You are not loged in");
+        }
+        // if($_GET['action'] == 'lessons' && !isset($_SESSION['name'])){
+        //     die ('error');
+        // }
         //check if usser logged in then send to user page
     // }elseif(isset($_SESSION['user'])){
     //     $controllerUser -> logedIn();
@@ -57,12 +62,11 @@ try{
     //     require 'indexUser.php';
     // } 
     }
-    
     else{
         $controllerFront -> home();
     }
 }catch(Exception $e){
-
+    echo ($e->getMessage());
 }
 
 

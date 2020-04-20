@@ -13,33 +13,43 @@
             <ul id="top_men_ul">
                 
             <?php //  conditions to  show or hide navigation menu tabs depending on user or admin is logged in or not
-                if(isset($_SESSION['user']) && $_SESSION['status'] == '1'):
-                    $show1 =  $show5 = $show3 = 'main_menu_link';
-                    $show4 =  $show2 =  'main_menu_link_connected';
+                if(isset($_SESSION['user']) && $_SESSION['status'] == '1' && $_GET['action'] !== 'home'):
+                    $show3 = $show6 = $show5 = 'main_menu_link';
+                    $show1 = $show4 =  $show2 =  'main_menu_link_connected';
+
+                elseif(isset($_SESSION['user']) && $_SESSION['status'] == '1'):
+                    $show1 = $show3 = $show4 = $show5 ='main_menu_link';
+                    $show2 = $show6 = 'main_menu_link_connected';
+
                 elseif(isset($_SESSION['user']) && $_SESSION['status'] == '0'):
+
                     if($_GET['action'] != 'student' && $_GET['action'] != 'account'):
-                        $show1 = $show2 = 'main_menu_link_connected';
-                        $show3 = $show4 = $show5 = 'main_menu_link';
+                        $show2 = $show6 ='main_menu_link_connected';
+                        $show1 = $show3 = $show4 = $show5 =  'main_menu_link';
+
                     elseif($_GET['action'] == 'student'):
-                        $show3 = $show4 =   'main_menu_link';
-                        $show1 =  $show5 = $show2 = 'main_menu_link_connected';  
+                        $show1 = $show3 = $show4 =  $show6 = 'main_menu_link';
+                        $show5 = $show2 = 'main_menu_link_connected';  
+
                     else:
-                        $show3 = $show4 =  $show5=  'main_menu_link';
-                        $show1 =  $show2 = 'main_menu_link_connected';  
+                        $show1 = $show3 = $show4 =  $show5= $show6 = 'main_menu_link';
+                        $show6 =  $show2 = 'main_menu_link_connected';  
                     endif;
+
                 else:
                     $show1 = $show2 = 'main_menu_link';
-                    $show3 = $show4 =  $show5 = 'main_menu_link_connected';
+                    $show3 = $show4 =  $show5 = $show6 ='main_menu_link_connected';
+
                 endif;
                     ?>
-                <li class="main_menu_link"><a href="index.php?action=home"  id="home">ACCUEIL</a></li>
+                <li class="<?php echo($show1)?>"><a href="index.php?action=home"  id="home">ACCUEIL</a></li>
                 <li class="<?php echo($show1)?>"><a href="index.php?action=about"  id="about">A PROPOS</a></li>
                 <li class="<?php echo($show1)?>"><a href="index.php?action=courses" id="courses">LES COURS</a></li>
                 <li class="<?php echo($show1)?>"><a href="index.php?action=contact"  id="contact">CONTACT</a></li>
-                <li class="<?php echo($show4)?>"><a href="index.php?action=links"  id="links">LIENS UTILES</a></li>
-                <li class="<?php echo($show4)?>"><a href="index.php?action=mycourses"  id="mycourses">MES COURS</a></li>
+                <!-- <li class="<?php echo($show4)?>"><a href="index.php?action=links"  id="links">LIENS UTILES</a></li> -->
+                <!-- <li class="<?php echo($show4)?>"><a href="index.php?action=mycourses"  id="mycourses">MES COURS</a></li> -->
                 <li class="<?php echo($show5)?>"><a href="index.php?action=student" id="student"><?php echo($_SESSION['name']) ?></a></li>
-                <li class="<?php echo($show3)?>"><a href="index.php?action=account"  id="account">MON COMPTE</a></li>
+                <li class="<?php echo($show6)?>"><a href="index.php?action=account"  id="account">MON COMPTE</a></li>
                 <li class="<?php echo($show3)?>" ><a href="index.php?action=logout" id="home">SE DECONNECTER</a></li>
                 <li class="<?php echo($show2)?>"><a  id="connect">SE CONNECTER</a></li>
                 

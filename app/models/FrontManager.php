@@ -5,9 +5,10 @@
  {     
      public function displayLessons(){
         $bdd = $this->dbConnect();
-        $lessons = $bdd->prepare('SELECT title, short, image FROM lessons');
+        $lessons = $bdd->prepare('SELECT lessons.title, lessons.short, lessons.image, lesson_description.description FROM lessons INNER JOIN lesson_description ON lessons.lesson_id = lesson_description.lesson_fk');
         $lessons->execute(array());
-        $lessons = $lessons->fetch();
+        $lessons = $lessons->fetchAll();
+        //die (var_dump($lessons));
         return $lessons;
      }
  }

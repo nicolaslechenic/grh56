@@ -8,7 +8,7 @@ class ControllerFront
     function home()
     {
         $homeFront = new \GRH56\Models\FrontManager();
-        $lesson = $homeFront->displayLessons();
+        $lessons = $homeFront->displayLessons();
        
         require 'app/views/FRONT/home.php';
     }

@@ -5,7 +5,7 @@ namespace GRH56\Controllers;
 class ControllerUser
 {  
     private $object;
-    public $errors;
+    protected $errors;
     public $errorsPass;
 
     /* to use for connecting to the model (DRY) */
