@@ -48,7 +48,7 @@
                 <li class="<?php echo($show1)?>"><a href="index.php?action=contact"  id="contact">CONTACT</a></li>
                 <!-- <li class="<?php echo($show4)?>"><a href="index.php?action=links"  id="links">LIENS UTILES</a></li> -->
                 <!-- <li class="<?php echo($show4)?>"><a href="index.php?action=mycourses"  id="mycourses">MES COURS</a></li> -->
-                <li class="<?php echo($show5)?>"><a href="index.php?action=student" id="student"><?php echo($_SESSION['name']) ?></a></li>
+                <li class="<?php echo($show5)?>"><a href="index.php?action=student" id="student"><?php echo(strtoupper($_SESSION['name'])) ?></a></li>
                 <li class="<?php echo($show6)?>"><a href="index.php?action=account"  id="account">MON COMPTE</a></li>
                 <li class="<?php echo($show3)?>" ><a href="index.php?action=logout" id="home">SE DECONNECTER</a></li>
                 <li class="<?php echo($show2)?>"><a  id="connect">SE CONNECTER</a></li>

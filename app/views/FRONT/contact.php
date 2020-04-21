@@ -1,6 +1,6 @@
 <?php 
-include 'layouts/head.php';
-include_once 'layouts/header.php';
+include 'app/views/FRONT/layouts/head.php';
+include_once 'app/views/FRONT/layouts/header.php';
 ?>
 <section class="normal_width main_container">
     <div id="contact_section">
@@ -31,4 +31,4 @@ include_once 'layouts/header.php';
         </form>
     </div>
 </section>
-<?php include 'layouts/footer.php' ?>
+<?php include 'app/views/FRONT/layouts/footer.php' ?>   

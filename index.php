@@ -4,6 +4,8 @@ session_start();
 
 //autoload.php genere avec composer
 require_once __DIR__. '/vendor/autoload.php';
+// only report errors, warnings and compile-time parse errors and not notices
+error_reporting(E_ERROR | E_WARNING | E_PARSE);
 
 // displaying  specific view or catching errors
 try{
@@ -50,26 +52,12 @@ try{
         }
         if($_GET['action'] && !isset($_SESSION['name']) != '1'){
             throw new Exception("You are not loged in");
-        }
-        // if($_GET['action'] == 'lessons' && !isset($_SESSION['name'])){
-        //     die ('error');
-        // }
-        //check if usser logged in then send to user page
-    // }elseif(isset($_SESSION['user'])){
-    //     $controllerUser -> logedIn();
-    //check if we typed ?/admin
-    }elseif($_SERVER['QUERY_STRING'] == 'admin'){
-        $controllerUser -> admin();
-    // //check if AJAX request
-    // elseif(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest'){
-    //     require 'indexUser.php';
-    // } 
-    }
-    else{
+        }  
+    }else{
         $controllerFront -> home();
     }
 }catch(Exception $e){
-    echo ($e->getMessage());
+    
 }
 
 

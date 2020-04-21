@@ -99,7 +99,7 @@ body {
 }
 
 .main_menu_link a {
-    font: 1.2em 'Charm', sans-serif, bold;
+    font: 1.3em 'Charm', sans-serif, bold;
     text-decoration: none;
     color: #01385C;
     transition: font-size .4s;
@@ -168,7 +168,7 @@ body {
     width: 500px;
     padding: 15px 0;
     position: absolute;
-    top: 35%;
+    top: 25%;
     transform: translate(-50%, -50%);
     z-index: 1;
     text-align: center;
@@ -248,6 +248,7 @@ body {
 
 .form_error {
     margin-bottom: 10px;
+    padding-left: 15px;
     color: red;
 }
 

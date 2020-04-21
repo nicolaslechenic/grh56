@@ -39,11 +39,11 @@ class ControllerFront
         $errorsContact = $this->errorsContact;
         for($i= 0; $i < count($errorsContact); $i++){
             if (empty($inedexedPost[$i])){
-                $errorsContact[$i] = "error";
+                $errorsContact[$i] = "Veuillez remplir ce champ !";
             }
         }
         if(!filter_var($inedexedPost['3'], FILTER_VALIDATE_EMAIL)){
-            $errorsContact['3'] = "L'\adresse e-mail n'est pas valide !";
+            $errorsContact['2'] = "L'adresse e-mail n'est pas valide !";
         }
         if(count($errorsContact) == 0){
             $to = 'galba.rp@gmail.com';
@@ -62,10 +62,9 @@ class ControllerFront
             unset($_POST['email']);
             unset($_POST['subject']);
             unset($_POST['message']);
-            echo "<script type='text/javascript'>alert('Sent !');</script>";
+            echo "<script type='text/javascript'>alert('Votre message a bien été envoyé !');</script>";
             $this->home();
         }else{
-            echo "<script type='text/javascript'>alert('problem !');</script>";
             require 'app/views/FRONT/contact.php';
         }
         
