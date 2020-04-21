@@ -1,5 +1,5 @@
 <header>
-    <div class="header_main">
+    <div class="header_main sticky">
         <a href="index.php?action=home"><img class="logo" src="app/public/images/logo_small.png" alt="GRH formation logo"></a>
         <button id='burger_button' onclick="hamburgerBtn()">
             <div>MENU</div>
@@ -56,7 +56,6 @@
                 
             </ul>
         </nav>
-    </div>
     </div>
     <div class id="top_separator"></div>
     <div id="modal_box" class="modal_animate modal_box">

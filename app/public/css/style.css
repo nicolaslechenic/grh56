@@ -2,6 +2,8 @@
 
 @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Charm&display=swap');
+
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,100;1,300;1,400&display=swap');
@@ -17,6 +19,7 @@ body {
     min-height: 100vh;
     position: relative;
     width: 100%;
+    margin: 0;
 }
 
 .active {
@@ -39,7 +42,8 @@ body {
 .flexcolumn,
 .dictionary,
 #article form,
-.lessons {
+.lessons,
+#radio_btns {
     display: flex;
     display: -ms-flexbox;
     /* IE10 */
@@ -60,12 +64,17 @@ body {
     padding-bottom: 100px;
 }
 
+.center {
+    text-align: center;
+}
+
 /*HEADER STYLING*/
 .header_main {
     justify-content: space-between;
     margin: 0 3em;
     max-width: 1200px;
     margin: auto;
+
 }
 
 .logo {
@@ -184,7 +193,8 @@ body {
     color: rgb(70, 136, 180);
 }
 
-.log_in_field {
+.log_in_field,
+.contact_field {
     margin: 20px 10px;
     height: 2.5em;
     border-radius: 5px;
@@ -232,7 +242,7 @@ body {
 
 #signup_form label {
     text-align: left;
-    margin-left: 15px;
+    padding-left: 15px;
     font-weight: bold;
 }
 
@@ -286,7 +296,7 @@ body {
 
 /*LESSONS SECTION*/
 #lessons_section {
-    padding: 15px 0;
+    padding: 15px 30px;
 }
 
 .lessons {
@@ -297,7 +307,7 @@ body {
     position: relative;
     height: 400px;
     width: 350px;
-    margin: 3em 0;
+    margin: 3em 10px;
     perspective: 500px;
 }
 
@@ -308,7 +318,7 @@ body {
     height: 100%;
     box-shadow: 4px 8px 8px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
     transition: transform 1s;
     transform-style: preserve-3d;
 }
@@ -330,21 +340,41 @@ body {
 
 }
 
+.img_lesson {
+    width: 80%;
+    height: auto;
+}
+
 .card_back {
     background: #03446A;
     color: white;
-    font-size: 1.4em;
-    line-height: 1.6;
+    font-size: 2vh;
     text-align: justify;
     text-align-last: center;
     text-indent: 50px;
-    padding: 20px 10px 20px 15px;
+
     transform: rotateY(180deg);
 }
 
 .card_back a {
+    bottom: 25px;
     color: white;
     font: 1.15em 'Playfair Display', serif;
+    left: 0;
+    position: absolute;
+    right: 0;
+    text-indent: 0;
+}
+
+.card_back p {
+    padding: 0 30px;
+}
+
+.lesson_card_text {
+    bottom: 25px;
+    left: 0;
+    position: absolute;
+    right: 0;
 }
 
 .lesson_card_text h2 {
@@ -354,7 +384,7 @@ body {
 }
 
 /* ARTICLE 2*/
-.grey_strip {
+.separator_page {
     background-color: #01385C;
     color: white;
     font: italic 1.25em 'Raleway', sans-serif;
@@ -544,4 +574,37 @@ footer {
     margin-right: auto;
     margin-top: 5%;
     width: 50%;
+}
+
+/* CONTACT PAGE*/
+
+#contact_form {}
+
+#contact_section {
+    border-radius: 35px;
+    border: 3px solid rgba(1, 56, 92, 0.562);
+    margin: 100px auto 200px;
+    padding: 50px 60px;
+    box-shadow: 5px 5px 15px rgba(1, 56, 92, 0.562);
+    max-width: 600px;
+}
+
+#radio_btns,
+#contact_form label {
+    font: 1.2em 'Open sans', sans-serif;
+    justify-content: space-between;
+    padding-right: 60%;
+    padding-left: 10px;
+}
+
+#radio_btns {
+    padding-top: 0.35em;
+}
+
+#first_line {
+    padding-top: 1.5em;
+}
+
+#contact_message {
+    height: 200px;
 }

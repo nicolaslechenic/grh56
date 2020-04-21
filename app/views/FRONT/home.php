@@ -15,8 +15,8 @@ include_once 'layouts/header.php';
             </svg>
         </div> 
     </article>
-    <section id="lessons_section">
-        <article class="lessons normal_width">
+    <section id="lessons_section" class="normal_width">
+        <article class="lessons">
         <?php foreach($lessons as $lesson): ?>
             <div class="lesson">
                 <div class="card">
@@ -34,10 +34,10 @@ include_once 'layouts/header.php';
             </div> 
             <?php endforeach ?>
         </article>
-        <article class="grey_strip">
+     </section>
+    <div class="separator_page">
         <p class="why_english normal_width">Out of the 6 500 spoken languages in the world today, why choose to learn English? As the third most widely spoken language in the world, English is widely spoken and taught in over 118 countries and is commonly used around the world as a trade language or diplomatic language. It is the language of science, aviation, computers, diplomacy and tourism. Last but not least, it is the language of international communication, the media and the internet.</p>
-        </article>
-    </section>
+    </div>
     <section id="testimonies" class="normal_width">
         <div class="testimony normal_width">
             <p class="testimony_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse condimentum ligula sit amet eleifend condimentum. Fusce euismod turpis consectetur tortor dignissim, sit amet posuere ligula tincidunt. Aenean imperdiet elit at lacus facilisis, id sollicitudin mauris laoreet. Donec tincidunt fringilla nulla, vel porttitor augue tempus ultrices. </p>

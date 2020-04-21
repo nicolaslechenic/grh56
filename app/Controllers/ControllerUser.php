@@ -219,27 +219,5 @@ class ControllerUser
            $this->mainPage();
         }
     }
-
-    // function api(){
-    //     $request = new HttpRequest();
-    //     $request->setUrl('https://od-api.oxforddictionaries.com/api/v2/entries/en-gb/word');
-    //     $request->setMethod(HTTP_METH_GET);
-
-    // $request->setHeaders(array(
-    //   'postman-token' => 'a6ea9e58-c0e0-0f4e-f397-ddba4c69ee80',
-    //   'cache-control' => 'no-cache',
-    //   'app_key' => '09309458c4b76c5d889b92c344a21f05',
-    //   'app_id' => 'd9730fd0'
-    // ));
-
-    // try {
-    //   $response = $request->send();
-    //     die ($response);
-    //   echo $response->getBody();
-    // } catch (HttpException $ex) {
-    //   echo $ex;
-    // }
-    // }
-    
       
 }  

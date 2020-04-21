@@ -45,6 +45,9 @@ try{
         if($_GET['action'] == 'checkemail'){
             $controllerUser -> checkEmailExists();
         }
+        if($_GET['action'] == 'send'){
+            $controllerFront -> sendMessage();
+        }
         if($_GET['action'] && !isset($_SESSION['name']) != '1'){
             throw new Exception("You are not loged in");
         }

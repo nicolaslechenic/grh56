@@ -4,7 +4,7 @@ include_once 'app/views/FRONT/layouts/header.php';
 ?>
 <section  class="section">
     <div class="account_card">
-        <form class="account_form flexcolumn"  id="personal_form" action="index.php?action=modif" method="post">
+        <form class="account_form flexcolumn"  id="personal_form" action="test.php" method="post">
             <label for="name">PRENOM:</label>
             <input type="text"  name="name" class="log_in_field" id="update_name" value="<?php echo($_SESSION['name'])?>">
             <span class="form_error"><?= $errors['name'] ?></span>
@@ -37,7 +37,4 @@ include_once 'app/views/FRONT/layouts/header.php';
 
     
 </section>
-<?php include 'app/views/FRONT/layouts/footer.php' ?>   
-<?php echo($_SESSION['user']);
-echo($_SESSION['name']);
-    ?>
+<?php include 'app/views/FRONT/layouts/footer.php' ?> 
