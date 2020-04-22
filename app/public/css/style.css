@@ -549,6 +549,10 @@ footer {
     width: auto;
 }
 
+.dictHeaders {
+    font-size: 1.5em;
+}
+
 /*ADMIN PAGE */
 #side_buttons li a {
     color: white;

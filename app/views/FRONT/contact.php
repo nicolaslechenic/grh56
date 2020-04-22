@@ -4,7 +4,7 @@ include_once 'app/views/FRONT/layouts/header.php';
 ?>
 <section class="normal_width main_container">
     <div id="contact_section">
-        <h1 class="center">Contactez-moi !</h1>
+        <h1 class="center">Contactez nous </h1>
         <form class="flexcolumn" id="contact_form" action="index.php?action=send"  method="post">
             <label for="civilite">Votre civilité :</label>
             <div id="radio_btns">

@@ -5,13 +5,15 @@ include_once 'app/views/FRONT/layouts/header.php';
 <div id="div"> 
     <h1>STUDENT PAGE</h1>
     <div class="dictionary">
-        <div class="search_area">
-        
-            <input type="text" id="word_search" placeholder="">
-            <button type="button" class="button" id="search">Search</button>
-        </div>
+        <form action="" method="POST">
+            <label>Word search</label>
+            <div class="search_area">
+                <input type="text" name="word" id="word_search" placeholder="">
+                <button type="button" class="button" id="search">Search</button>
+            </div>
+        </form>
         <div id="result">
-            <p id="def"></p>
+            
         </div>
     </div>
 </div>
