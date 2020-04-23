@@ -36,7 +36,6 @@ formValidSignUp.addEventListener("click", function resetMessage() {
 });
 // form validation
 formValidSignUp.addEventListener("click", function validate(event) {
-    console.log('valid')
     // regex validation results
     let nameResult = nameRegExp.test(name.value);
     let surnameResult = surnameRegExp.test(surname.value);
@@ -49,19 +48,15 @@ formValidSignUp.addEventListener("click", function validate(event) {
     // checkind  empty form fields  and input formats
     for (let i = 0; i < formFieldsNamesSigUp.length; i++) {
         if (formFieldsSignUp[i].value === "") {
-            console.log('empty')
             formFieldsSignUpRequired[i].textContent = formFieldsNamesSigUp[i] + " manquant";
             event.stopImmediatePropagation();
 
         } else if (formRegExpUp[i] == false) {
-            console.log('false')
             formFieldsSignUpRequired[i].textContent = formFieldsNamesSigUp[i] + " n'est pas conforme"
             event.stopImmediatePropagation();
         }
     }
     if (passwordUp.value != confirmPassword.value) {
-        console.log(passwordUp.value);
-        console.log(confirmPassword.value);
         passwordUpConfirmRequired.textContent = "La confirmation du mot de passe ne correspond pas !"
         click.stopImmediatePropagation();
     }

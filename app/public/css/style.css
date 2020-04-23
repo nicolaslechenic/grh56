@@ -49,18 +49,21 @@ body {
     /* IE10 */
 }
 
+main {
+    padding-bottom: 110px;
+}
+
 .normal_width {
     max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
 }
 
 .flexcolumn {
     flex-direction: column;
 }
 
-.main_container {
-
+.main {
+    max-width: 1200px;
     padding-bottom: 100px;
 }
 
@@ -492,9 +495,9 @@ footer {
 
 
 /* STUDENT PAGE*/
-#div {
-    max-width: 1200px;
-    margin: 0 auto;
+#word_search {
+    width: 250px;
+    font-size: 1.5em;
 }
 
 .section {
@@ -549,8 +552,27 @@ footer {
     width: auto;
 }
 
-.dictHeaders {
-    font-size: 1.5em;
+#wordSearch {
+    min-width: 270px;
+}
+
+.searchedWord {
+    color: #01385C;
+    font: 1.55em 'Playfair Display', serif;
+}
+
+#result li:first-child {
+    list-style-type: none;
+}
+
+.dictHeader {
+    color: lightslategray;
+    font: 1.35em'Playfair Display', serif;
+}
+
+.dictDefinition {
+    font: 1.15em 'Raleway', sans-serif;
+    padding-left: 25px;
 }
 
 /*ADMIN PAGE */

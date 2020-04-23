@@ -9,10 +9,11 @@ try{
         
         if($_GET['action'] == 'lessons'){
             $controllerAdmin -> lessons();
-           
+        }
+        if($_SERVER['QUERY_STRING'] == 'admin'){
+            $controllerUser -> admin();
         }
     }
-
 }catch(Exception $e){
  
 } 

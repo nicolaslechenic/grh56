@@ -2,8 +2,8 @@
 include 'layouts/head.php';
 include_once 'layouts/header.php';
 ?>
-<div class="main_container">
-    <article class="normal_width">
+<main>
+    <article   class="normal_width">
         <div class="top_article">
             <img src="app/public/images/hand.png" alt="image of a hand holding a pen">
             <p>Formation en anglais éligible au cpf</p>
@@ -52,5 +52,5 @@ include_once 'layouts/header.php';
             <p class="written_by">Michel Colucci </p>
         </div>
     </section>
-</div>
+</main>
 <?php include 'layouts/footer.php' ?>

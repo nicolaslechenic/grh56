@@ -32,8 +32,7 @@ formValidSignIn.addEventListener("click", function validate(event) {
 
     // array of regex validation results
     let formRegExp = [emailResult, passwordResult];
-
-
+    // error messages creation
     for (let i = 0; i < formFieldsNamesSigIn.length; i++) {
         if (formFieldsSignIn[i].value === "") {
             formFieldsSignInRequired[i].textContent = formFieldsNamesSigIn[i] + " manquant";

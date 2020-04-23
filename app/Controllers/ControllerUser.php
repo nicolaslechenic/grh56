@@ -1,15 +1,16 @@
 <?php
 
 namespace GRH56\Controllers;
+
 // creating user class with registration signin functions
 class ControllerUser
 {  
     private $object;
-    protected $errors;
+    public $errors;
     public $errorsPass;
 
-    /* to use for connecting to the model (DRY) */
-    public function __construct(){
+    // connecting to the model and creating arrays for errors display
+    function __construct(){
         $this->object = new \GRH56\Models\UserManager();
         $this->errors = [
             'name' => '',
@@ -21,7 +22,8 @@ class ControllerUser
             'new_pass' => ''
         ];
     }
-    // functin to redirect to the homepage
+
+    // functin to redirect to the homepage through controllerFront to load lessons from the database
     public function mainPage(){
         $controllerFront = new \GRH56\Controllers\ControllerFront();
         $controllerFront -> home();
@@ -42,13 +44,14 @@ class ControllerUser
             }
     }
     // registring new user(adding a row into Database)
-    function signUp(){
-        // filter removes tags/special characters from array    
+    function signUp(){   
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING); 
             $name = $_POST['name'];
             $surname = $_POST['surname'];
             $email = $_POST['email'];
             $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+            
+            //sending user details to the database
             $userSignUp = $this->object->userRegister($name, $surname, $email, $password);
             if($userSignUp == true){
                 exit ('registred');
@@ -56,17 +59,16 @@ class ControllerUser
                 exit('Oups! Il y a une erreur....');
             }
     }
-    // checkig  on login if user email exists and password correct
+    // checking  on login if user email exists and password correct
     function checkUserLogIn(){
         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
         if (isset($_POST['signin'])){
-            // escape special characters
             $email =$_POST['email'];
             $password = $_POST['password'];
-            
-            //using email  and password inputs for sql request  
-            $loginData = $this->object->checkLogIn($email, $password);         
-            // checking response from model(if there is any data in the array) 
+
+            //using email  and password inputs for an sql request  
+            $loginData = $this->object->checkLogIn($email, $password); 
+            //checking if user is an admin or student       
             if($loginData === "user"){
                 exit("user");
             }elseif($loginData === "admin"){
@@ -77,7 +79,8 @@ class ControllerUser
             }
         }        
     }
-    //if function checkUser sends true, then gooing to student page or admin page depending on $_SESSION['status]
+
+    //if checkUser sends true, then gooing to student page or admin page depending on $_SESSION['status]
     function logedIn(){  
         if(isset($_SESSION['name']) && $_SESSION['status'] == '0'){
             require 'app/views/STUDENT/student.php';
@@ -86,8 +89,8 @@ class ControllerUser
         }else{
             $this->mainPage();
         }
-
     } 
+    
     // on logout destroying session
     function logOut(){
         unset($_SESSION['user']);
@@ -142,6 +145,7 @@ class ControllerUser
             
             if($userDataUpdate == 'true'){   
                 require 'app/views/STUDENT/student.php';
+                //(to do) create modal box for messages 
                 echo "<script type='text/javascript'>alert('Vos données sont modifiées !');</script>";
             }else{ 
             echo ('Oupss....');
@@ -184,6 +188,7 @@ class ControllerUser
             $newPassword = $this->object->changePassword($newPasswordHash, $email);
                 if($newPassword == true){
                     require 'app/views/STUDENT/student.php';
+                //(to do) create modal box for messages 
                     echo "<script type='text/javascript'>alert('Vos données sont modifiées !');</script>";
                 }else{
                     echo ('Oupss....1');
@@ -196,22 +201,24 @@ class ControllerUser
             }
         }
     }
+    
     function deleteUser(){
         $id =  $_SESSION['user'];
         $deleteUser = $this->object->deleteUser( $id); 
+        //clears SESSION data and destroys all data registered to a session
         if($deleteUser  == true){
-           
-            unset($_SESSION['user']);
-            unset($_SESSION['name']);
+            $_SESSION = array();
             session_destroy();
             $controllerFront = new \GRH56\Controllers\ControllerFront();
             $controllerFront -> home();
-            echo "<script type='text/javascript'>alert('GOODBYE !');</script>";
+                //(to do) create modal box for messages 
         }else{
+            //(to do) create modal box for messages
            echo ('Oupss....');
         }
         
     }
+    
     function admin(){
         if(isset($_SESSION['name'])){
             require 'app/views/BACK/admin.php';

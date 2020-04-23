@@ -11,13 +11,15 @@ $(document).ready(function () {
             })
             .then(function (json) {
                 console.log(json);
-                // let searchExample = document.createElement('p');
-                $("#result").append("<span class='dictHeaders'>" + word + ":</span>" + " " + json[0].fl + "</br>");
-                $("#result").append("<span class='dictHeaders'>Definition :</span>" + " " + json[0].shortdef[0]);
-                //result.appendChild(searchDef);
-
-
-
+                // checking if defenition exists and appending text as a new "li"
+                $("#result").append("<li><span class='searchedWord'>" + word + ":</span> </li>");
+                for (let i = 0; i < json.length; i++) {
+                    if (json[i].shortdef.length != 0) {
+                        // need to add pronunciation
+                        $("#result").append("<li><span class='dictHeader'>" + json[i].fl + ":</span> </li>");
+                        $("#result").append("<span class='dictDefinition'>" + json[i].shortdef[0]) + "</span>";
+                    }
+                }
             })
     })
 })

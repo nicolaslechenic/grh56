@@ -2,6 +2,7 @@
 include 'app/views/FRONT/layouts/head.php';
 include_once 'app/views/FRONT/layouts/header.php';
 ?>
+<main>
 <section class="normal_width main_container">
     <div id="contact_section">
         <h1 class="center">Contactez nous </h1>
@@ -31,4 +32,5 @@ include_once 'app/views/FRONT/layouts/header.php';
         </form>
     </div>
 </section>
+</main>
 <?php include 'app/views/FRONT/layouts/footer.php' ?>   

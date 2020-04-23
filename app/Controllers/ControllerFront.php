@@ -4,6 +4,7 @@ namespace GRH56\Controllers;
 
 class ControllerFront
 {   
+    // array for errors for a contact form
     public $errorsContact;
     
     public function __construct(){
@@ -16,6 +17,7 @@ class ControllerFront
             ];
     }
 
+    // getting lessons information from the database and displaying lessons on front page   
     function home()
     {
         $homeFront = new \GRH56\Models\FrontManager();
@@ -23,6 +25,7 @@ class ControllerFront
        
         require 'app/views/FRONT/home.php';
     }
+    //loding different views depanding on the router request
     function contactForm(){
         require 'app/views/FRONT/contact.php';
     }
@@ -32,19 +35,23 @@ class ControllerFront
     function courses(){
         require 'app/views/FRONT/courses.php';
     }
+    // contact form verification and message sending
     function sendMessage(){
         extract($_POST);
         // switcing from key=> value array to indexed array for errors handling
         $inedexedPost = array_values($_POST);
         $errorsContact = $this->errorsContact;
+
         for($i= 0; $i < count($errorsContact); $i++){
             if (empty($inedexedPost[$i])){
                 $errorsContact[$i] = "Veuillez remplir ce champ !";
             }
         }
+
         if(!filter_var($inedexedPost['3'], FILTER_VALIDATE_EMAIL)){
             $errorsContact['2'] = "L'adresse e-mail n'est pas valide !";
         }
+
         if(count($errorsContact) == 0){
             $to = 'galba.rp@gmail.com';
             $subject  = 'New message from '. $name;
@@ -64,6 +71,7 @@ class ControllerFront
             unset($_POST['message']);
             echo "<script type='text/javascript'>alert('Votre message a bien été envoyé !');</script>";
             $this->home();
+
         }else{
             require 'app/views/FRONT/contact.php';
         }

@@ -13,7 +13,9 @@ try{
     $controllerUser = new \GRH56\Controllers\ControllerUser();
     
 
-    if(isset($_GET['action']))  {
+    if(isset($_GET['action']) && !isset($_SESSION['name'])) {
+        $controllerFront -> home();
+    }elseif(isset($_GET['action'])){
         if($_GET['action'] == 'contact'){
             $controllerFront -> contactForm();
         }
@@ -50,9 +52,9 @@ try{
         if($_GET['action'] == 'send'){
             $controllerFront -> sendMessage();
         }
-        if($_GET['action'] && !isset($_SESSION['name']) != '1'){
-            throw new Exception("You are not loged in");
-        }  
+        if($_SERVER['QUERY_STRING'] == 'admin'){
+            $controllerUser -> admin(); 
+        }    
     }else{
         $controllerFront -> home();
     }
