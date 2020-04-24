@@ -53,7 +53,7 @@ class ControllerUser
             
             //sending user details to the database
             $userSignUp = $this->object->userRegister($name, $surname, $email, $password);
-            if($userSignUp == true){
+            if($userSignUp == 'true'){
                 exit ('registred');
             }else{
                 exit('Oups! Il y a une erreur....');

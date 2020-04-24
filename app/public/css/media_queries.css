@@ -76,7 +76,7 @@
     }
 
     /*MAIN SECTION*/
-    .main_container {
+    main {
         padding-bottom: 280px;
     }
 
@@ -116,6 +116,10 @@
         align-items: center;
         flex-direction: column-reverse;
         margin-top: 10px;
+    }
+
+    .quote {
+        font: 1.5em 'Charm', sans-serif, bold;
     }
 
     /*ACCOUNT SECTION*/

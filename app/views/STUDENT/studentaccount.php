@@ -2,7 +2,7 @@
 include 'app/views/FRONT/layouts/head.php';
 include_once 'app/views/FRONT/layouts/header.php';
 ?>
-<section  class="section">
+<section  class="section" id="account_section">
     <div class="account_card">
         <form class="account_form flexcolumn"  id="personal_form" action="index.php?action=modif" method="post">
             <label for="name">PRENOM:</label>
@@ -33,9 +33,7 @@ include_once 'app/views/FRONT/layouts/header.php';
             <p id="delete_account_text">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</p>
             <button type="submit" id="delete_button"> Fermer mon compte</button>
         </form>
-    </div>
-
-    
+    </div> 
 </section>
 <?php include 'app/views/FRONT/layouts/footer.php' ?>   
 

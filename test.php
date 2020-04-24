@@ -1,3 +1,10 @@
 <?php
-$inedexedPost = array_values($_POST);
-var_dump($inedexedPost[0]);
+$args =['logout', 'student', 'account', 'modif', 'modif_pass', 'delete']
+function logedin($action){
+   
+   foreach($args as $arg){ 
+       if($action == $arg){
+        $controllerFront -> $action();
+        }
+    }
+}

@@ -41,12 +41,11 @@
          $bdd = $this->dbConnect();
          $signUpData = $bdd->prepare('INSERT INTO users(username, surname, email, pass)  VALUES (?, ?, ?, ?)' );
          $signUpData->execute([$name, $surname, $email, $password]);
-         
          if($signUpData){
             $getUserData = $bdd->prepare('SELECT * FROM users WHERE email=?');
             $getUserData->execute([$email]);
             $getUserData = $getUserData-> fetch();
-            $this->session($getUserData['username'], $getUserData['surname'], $getUserData['email'], $getUserData['id_student']);
+            $this->session($getUserData['username'], $getUserData['surname'], $getUserData['email'], $getUserData['id_student'], $getUserData['id_status']);
             return true;
          }else{
             return false;

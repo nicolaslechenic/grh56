@@ -6,16 +6,20 @@ include_once 'layouts/header.php';
     <article   class="normal_width">
         <div class="top_article">
             <img src="app/public/images/hand.png" alt="image of a hand holding a pen">
-            <p>Formation en anglais éligible au cpf</p>
+            <p>Formation en anglais éligible au CPF</p>
             <svg width="250" height="180">
                 <rect x="0" y="20" rx="20" ry="20" width="200" height="40" id="svg_rect"
                 style="fill:white;stroke:black;stroke-width:1;opacity:0.5" />
                 <a href="https://www.moncompteformation.gouv.fr" target="_blank">
-                <text x="30" y="45" fill="#01385C" id="svg_text" class="svg_text">EN SAVOIR PLUS!</text>
+                <text x="30" y="45" fill="#01385C" id="svg_text" class="svg_text">EN SAVOIR PLUS !</text>
             </svg>
         </div> 
     </article>
+    
     <section id="lessons_section" class="normal_width">
+        <p class="pagedivider_top"></p>
+        <p class="quote"> The secret of getting ahead is getting started</p>
+        <p class="pagedivider_bottom"></p>
         <article class="lessons">
         <?php foreach($lessons as $lesson): ?>
             <div class="lesson">

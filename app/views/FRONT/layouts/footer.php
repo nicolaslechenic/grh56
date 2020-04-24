@@ -3,7 +3,7 @@
                 <div id="footer_line1">
                     <nav id="footer_sub_menu" aria-label="bottom sub menu">
                         <ul>
-                            <li><a href="index.php?action=about" class="botoom_sub_menu">A PROPOS</a></li>
+                            <li><a href="index.php?action=about" class="botoom_sub_menu">&Agrave PROPOS</a></li>
                             <li><a href="#" class="botoom_sub_menu">CPF</a></li>
                             <li><a href="index.php?action=contact" class="botoom_sub_menu">CPF</a></li>
                         </ul>
@@ -42,9 +42,7 @@
         <script src="app/public/js/userSignUp.js"></script>
         <script src="app/public/js/signUpValid.js"></script>
         <script src="app/public/js/login.js"></script>
-        <script src="app/public/js/urbanApi.js"></script>
-        
-        
+        <script src="app/public/js/urbanApi.js"></script>        
         <script src="app/public/js/userRegistrationCheck.js"></script>
        
     </body>

@@ -71,6 +71,20 @@ main {
     text-align: center;
 }
 
+.pagedivider_top {
+    background-color: lightslategray;
+    height: 2px;
+    margin: 20px 0 -40px;
+    background-image: linear-gradient(to right, white, lightslategray, white);
+}
+
+.pagedivider_bottom {
+    background-color: lightslategray;
+    height: 2px;
+    margin: -20px 0 10px;
+    background-image: linear-gradient(to right, white, lightslategray, white);
+}
+
 /*HEADER STYLING*/
 .header_main {
     justify-content: space-between;
@@ -299,6 +313,13 @@ main {
 }
 
 /*LESSONS SECTION*/
+.quote {
+    font: 2.5em 'Charm', sans-serif, bold;
+    color: rgb(1, 56, 92);
+    padding-top: 25px;
+    text-align: center;
+}
+
 #lessons_section {
     padding: 15px 30px;
 }
