@@ -22,6 +22,7 @@ class ControllerFront
     {
         $homeFront = new \GRH56\Models\FrontManager();
         $lessons = $homeFront->displayLessons();
+        $testimonials = $homeFront->displayTestimonials();
        
         require 'app/views/FRONT/home.php';
     }

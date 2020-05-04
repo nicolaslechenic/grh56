@@ -427,7 +427,8 @@ main {
     margin-bottom: 150px;
 }
 
-.testimony {
+.testimony,
+.hidden_testimonies {
     background-color: rgba(1, 56, 92, 0.562);
     border-radius: 55px;
     box-shadow: 10px 10px 6px rgba(0, 0, 0, 0.2);
@@ -435,8 +436,14 @@ main {
     margin-bottom: 30px;
 }
 
+.testimony:hover {
+    background-color: rgba(1, 56, 92);
+    cursor: pointer;
+}
+
 .testimony_text,
-.written_by {
+.written_by,
+.hidden_testimonies {
     color: white;
     font: 1.25em 'Charm', sans-serif;
 }
@@ -444,6 +451,10 @@ main {
 .written_by {
     text-align: right;
     padding-right: 100px;
+}
+
+.hidden_testimonies {
+    display: none;
 }
 
 /*FOOTER*/

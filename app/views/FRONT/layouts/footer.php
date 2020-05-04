@@ -44,7 +44,7 @@
         <script src="app/public/js/login.js"></script>
         <script src="app/public/js/urbanApi.js"></script>        
         <script src="app/public/js/userRegistrationCheck.js"></script>
-       
+        <script src="app/public/js/testimonial.js"></script>
     </body>
 
 </html>

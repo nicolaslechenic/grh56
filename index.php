@@ -16,44 +16,32 @@ try{
     // if(isset($_GET['action']) && !isset($_SESSION['name'])) {
     //     $controllerFront -> home();}
     if(isset($_GET['action'])){
+       
         if($_GET['action'] == 'contact'){
             $controllerFront -> contactForm();
-        }
-        if($_GET['action'] == 'about'){
+        }elseif($_GET['action'] == 'about'){
             $controllerFront -> about();
-        }
-        if($_GET['action'] == 'courses'){
+        }elseif($_GET['action'] == 'courses'){
             $controllerFront -> courses();
-        }
-        if($_GET['action'] == 'home'){
+        }elseif($_GET['action'] == 'home'){
             $controllerFront -> home();
-        }
-        if($_GET['action'] == 'logout' && isset($_SESSION['name'])){
+        }elseif($_GET['action'] == 'logout' && isset($_SESSION['name'])){
             $controllerUser -> logOut();
-        }
-        if($_GET['action'] == 'student' && isset($_SESSION['name'])){
-            var_dump($_SESSION['here']);
+        }elseif($_GET['action'] == 'student' && isset($_SESSION['name'])){
             $controllerUser -> logedIn();
-        }
-        if($_GET['action'] == 'account' && isset($_SESSION['name'])){
+        }elseif($_GET['action'] == 'account' && isset($_SESSION['name'])){
             $controllerUser -> account();
-        }
-        if($_GET['action'] == 'modif' && isset($_SESSION['name'])){
+        }elseif($_GET['action'] == 'modif' && isset($_SESSION['name'])){
             $controllerUser -> accountUpdate();
-        }
-        if($_GET['action'] == 'modif_pass' && isset($_SESSION['name'])){
+        }elseif($_GET['action'] == 'modif_pass' && isset($_SESSION['name'])){
             $controllerUser -> changePass();
-        }
-        if($_GET['action'] == 'delete' && isset($_SESSION['name'])){
+        }elseif($_GET['action'] == 'delete' && isset($_SESSION['name'])){
             $controllerUser -> deleteUser();
-        }
-        if($_GET['action'] == 'checkemail'){
+        }elseif($_GET['action'] == 'checkemail'){
             $controllerUser -> checkEmailExists();
-        }
-        if($_GET['action'] == 'send'){
+        }elseif($_GET['action'] == 'send'){
             $controllerFront -> sendMessage();
-        }
-        if($_SERVER['QUERY_STRING'] == 'admin' && isset($_SESSION['name'])){
+        }elseif($_SERVER['QUERY_STRING'] == 'admin' && isset($_SESSION['name'])){
             $controllerUser -> admin(); 
         }    
     }else{
