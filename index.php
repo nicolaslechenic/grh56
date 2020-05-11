@@ -25,11 +25,11 @@ try{
             $controllerFront -> courses();
         }elseif($_GET['action'] == 'home'){
             $controllerFront -> home();
-        }elseif($_GET['action'] == 'logout' && isset($_SESSION['name'])){
+        }elseif($_GET['action'] == 'logout'){
             $controllerUser -> logOut();
-        }elseif($_GET['action'] == 'student' && isset($_SESSION['name'])){
+        }elseif($_GET['action'] == 'student'){
             $controllerUser -> logedIn();
-        }elseif($_GET['action'] == 'account' && isset($_SESSION['name'])){
+        }elseif($_GET['action'] == 'account'){
             $controllerUser -> account();
         }elseif($_GET['action'] == 'modif' && isset($_SESSION['name'])){
             $controllerUser -> accountUpdate();

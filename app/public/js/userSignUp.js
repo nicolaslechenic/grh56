@@ -1,4 +1,4 @@
-function signUp() {
+function userSignUp() {
     let signup_name = $('#sign_up_name').val();
     let signup_surname = $('#sign_up_surname').val();
     let signup_email = $('#sign_up_email').val();
@@ -13,7 +13,8 @@ function signUp() {
             password: signup_password
         },
         success: function (response) {
-            if (response == 'registred') {
+            console.log(response);
+            if (response === 'registred') {
                 window.location.href = 'index.php?action=student';
             }
         }

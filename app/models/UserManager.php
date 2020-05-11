@@ -3,7 +3,7 @@
  class UserManager extends Manager
  {     
    // session variable to use across class (DRY)
-   private function session( $name, $surname, $email, $user, $status){
+  function session( $name, $surname, $email, $user, $status){
          $_SESSION['name'] = $name;
          $_SESSION['surname'] = $surname;
          $_SESSION['email'] = $email;
@@ -44,10 +44,12 @@
          if($signUpData){
             $getUserData = $bdd->prepare('SELECT * FROM users WHERE email=?');
             $getUserData->execute([$email]);
-            $getUserData = $getUserData-> fetch();
-            $this->session($getUserData['username'], $getUserData['surname'], $getUserData['email'], $getUserData['id_student'], $getUserData['id_status']);
+            $getUserData = $getUserData-> fetch();           
+            //$this->session($getUserData['username'], $getUserData['surname'], $getUserData['email'], $getUserData['id_student'], $getUserData['id_status']);
+
             return true;
          }else{
+            
             return false;
          }
    }

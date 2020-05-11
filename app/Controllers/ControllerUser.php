@@ -89,15 +89,14 @@ class ControllerUser
         }else{
             $this->mainPage();
         }
-    } 
+    }
     
     // on logout destroying session
     function logOut(){
         unset($_SESSION['user']);
         unset($_SESSION['name']);
         session_destroy();
-        $controllerFront = new \GRH56\Controllers\ControllerFront();
-        $controllerFront -> home();
+        $this->mainPage();
     }
     function account(){
         $errors = $this->errors;

@@ -12,7 +12,7 @@ $(document).ready(function () {
             },
             success: function (response) {
                 if (response == "ok") {
-                    signUp();
+                    userSignUp();
                 } else {
                     $("#upEmailRequired").html(response);
                 }

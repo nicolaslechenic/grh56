@@ -48,7 +48,7 @@ include_once 'layouts/header.php';
                 <p class="testimony_text"><?= $testimonial['short']?></p>
                 <p class="written_by"><?= $testimonial['author'] ?></p>
             </div>
-            <div class="normal_width hidden_testimonies" id=testimonial<?= $testimonial['id']?>>
+            <div class="normal_width hidden_testimonies testimony" id=testimonial<?= $testimonial['id']?>>
                 <p class="testimony_text " ><?= $testimonial['testimonial'] ?></p>
                 <p class="written_by "><?= $testimonial['author'] ?></p>
             </div>
