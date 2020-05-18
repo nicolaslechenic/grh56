@@ -14,9 +14,9 @@ include_once 'app/views/FRONT/layouts/header.php';
             </ul>
         </nav>
         <div id="article">
-            <form method="post" action="" enctype="multipart/form-data" class="flexcolumn">
+            <form method="post" action="indexAdmin.php?action=lessonday" enctype="multipart/form-data" class="flexcolumn">
                 <input type="text" class="newLesson" name="title" placeholder="Lesson title" value="<?php if(isset($_POST['title'])) echo$_POST['title'] ?>">
-                <input type="text" class="newLesson" name="description" placeholder="Lesson comment" value="<?php if(isset($_POST['description'])) echo$_POST['description'] ?>">
+                <input type="text" class="newLesson" name="comment" placeholder="Lesson comment" value="<?php if(isset($_POST['description'])) echo$_POST['description'] ?>">
                 <div class="flex_row">
                     <input type="file" id="myfile" name="myfile">
                     <input type="submit" class="small_button" value="Preview">

@@ -28,6 +28,7 @@ try{
         }elseif($_GET['action'] == 'logout'){
             $controllerUser -> logOut();
         }elseif($_GET['action'] == 'student'){
+            //var_dump($_SESSION);
             $controllerUser -> logedIn();
         }elseif($_GET['action'] == 'account'){
             $controllerUser -> account();

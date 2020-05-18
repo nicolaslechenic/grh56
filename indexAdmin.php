@@ -12,6 +12,8 @@ try{
         }
         if($_SERVER['QUERY_STRING'] == 'admin'){
             $controllerUser -> admin();
+        }if($_GET['action'] == 'lessonday'){
+            $controllerAdmin -> lessonday();
         }
     }
 }catch(Exception $e){

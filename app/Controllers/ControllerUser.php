@@ -1,7 +1,6 @@
 <?php
 
 namespace GRH56\Controllers;
-
 // creating user class with registration signin functions
 class ControllerUser
 {  
@@ -54,7 +53,7 @@ class ControllerUser
             //sending user details to the database
             $userSignUp = $this->object->userRegister($name, $surname, $email, $password);
             if($userSignUp == 'true'){
-                exit ('registred');
+                echo ('registred');
             }else{
                 exit('Oups! Il y a une erreur....');
             }
@@ -83,6 +82,8 @@ class ControllerUser
     //if checkUser sends true, then gooing to student page or admin page depending on $_SESSION['status]
     function logedIn(){  
         if(isset($_SESSION['name']) && $_SESSION['status'] == '0'){
+            $lod = $this->object->latestLesson();
+            var_dump($lod);
             require 'app/views/STUDENT/student.php';
         }elseif(isset($_SESSION['name']) && $_SESSION['status'] == '1'){
             require 'app/views/BACK/admin.php';

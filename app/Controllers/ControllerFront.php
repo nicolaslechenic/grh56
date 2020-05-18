@@ -40,6 +40,7 @@ class ControllerFront
     }
     // contact form verification and message sending
     function sendMessage(){
+        $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING); 
         extract($_POST);
         // switcing from key=>value array to indexed array for errors handling
         $inedexedPost = array_values($_POST);      
@@ -86,7 +87,7 @@ class ControllerFront
                 var_dump($_POST);
                 $_POST = [];
                 var_dump($_POST);
-                require 'app/views/FRONT/home.php';
+                header('Location: index.php?action=home');
             }else{
                 require 'app/views/FRONT/404.php';
             }

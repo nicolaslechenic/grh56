@@ -45,8 +45,7 @@
             $getUserData = $bdd->prepare('SELECT * FROM users WHERE email=?');
             $getUserData->execute([$email]);
             $getUserData = $getUserData-> fetch();           
-            //$this->session($getUserData['username'], $getUserData['surname'], $getUserData['email'], $getUserData['id_student'], $getUserData['id_status']);
-
+            $this->session($getUserData['username'], $getUserData['surname'], $getUserData['email'], $getUserData['id_student'], $getUserData['id_status']);
             return true;
          }else{
             
@@ -91,4 +90,11 @@
          return false;
       }
    }
+   function latestLesson(){
+      $bdd = $this->dbConnect();
+      $lod = $bdd->prepare('SELECT * FROM lessonoftheday ORDER BY id DESC LIMIT 1');
+      $lod->execute();
+      $lod = $lod->fetch();
+      return $lod;
+  } 
 }
