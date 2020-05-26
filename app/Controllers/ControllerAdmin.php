@@ -67,7 +67,7 @@ class ControllerAdmin
             } 
             if ($lessonDay) {
                 echo "all good";
-                require 'app/views/BACK/lessons.php';
+                require 'app/views/BACK/admin.php';
             }
 
         }

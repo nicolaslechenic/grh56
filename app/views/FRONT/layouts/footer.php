@@ -34,7 +34,9 @@
             </div>
         </footer>
         <!-- LINKS TO SCRIPTS -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="app/public/js/changeClass.js"></script>
+        <script src="app/public/js/pageFadeIn.js"></script>
+        <script src="app/public/js/menuFadeIn.js"></script>
         <script src="app/public/js/active.js"></script>
         <script src="app/public/js/hamburgerBtn.js"></script>
         <script src="app/public/js/modalBox.js"></script>
@@ -45,6 +47,7 @@
         <script src="app/public/js/urbanApi.js"></script>        
         <script src="app/public/js/userRegistrationCheck.js"></script>
         <script src="app/public/js/testimonial.js"></script>
+        <script src="app/public/js/plugin.js"></script>              
     </body>
 
 </html>

@@ -1,6 +1,6 @@
 <header>
-    <div class="header_main sticky">
-        <a href="index.php?action=home"><img class="logo" src="app/public/images/logo_small.png" alt="GRH formation logo"></a>
+    <div class="header_main" id="header">
+        <a href="index.php?action=home" id=><img class="logo fade_in" src="app/public/images/logo_small.png" alt="GRH formation logo"></a>
         <button id='burger_button' onclick="hamburgerBtn()">
             <div>MENU</div>
             <div id='burger_icon'>
@@ -37,8 +37,8 @@
                     endif;
 
                 else:
-                    $show1 = $show2 = 'main_menu_link';
-                    $show3 = $show4 =  $show5 = $show6 ='main_menu_link_connected';
+                    $show1 = $show2 = 'main_menu_link fade_menu';
+                    $show3 = $show4 =  $show5 = $show6 ='main_menu_link_connected ';
 
                 endif;
                     ?>
@@ -57,7 +57,7 @@
             </ul>
         </nav>
     </div>
-    <div class id="top_separator"></div>
+    <div class="fade_in" id="top_separator"></div>
     <div id="modal_box" class="modal_animate modal_box">
         <i class="fa fa-remove" style="font-size:24px"></i>
         <div id="login_title">SE CONNECTER</div>

@@ -3,8 +3,8 @@ include 'layouts/head.php';
 include_once 'layouts/header.php';
 ?>
 <main>
-    <article   class="normal_width">
-        <div class="top_article">
+    <article class="normal_width">
+        <div class="top_article fade">
             <img src="app/public/images/hand.png" alt="image of a hand holding a pen">
             <p>Formation en anglais éligible au CPF</p>
             <svg width="250" height="180">
@@ -16,9 +16,9 @@ include_once 'layouts/header.php';
         </div> 
     </article>
     
-    <section id="lessons_section" class="normal_width">
+    <section id="lessons_section" class="normal_width fade">
         <p class="pagedivider_top"></p>
-        <p class="quote"> The secret of getting ahead is getting started</p>
+        <div id="plugin"> The secret of getting ahead is getting started</div>
         <p class="pagedivider_bottom"></p>
         <article class="lessons">
         <?php foreach($lessons as $lesson): ?>
@@ -39,18 +39,20 @@ include_once 'layouts/header.php';
             <?php endforeach ?>
         </article>
      </section>
-    <div class="separator_page">
-        <p class="why_english normal_width">Out of the 6 500 spoken languages in the world today, why choose to learn English? As the third most widely spoken language in the world, English is widely spoken and taught in over 118 countries and is commonly used around the world as a trade language or diplomatic language. It is the language of science, aviation, computers, diplomacy and tourism. Last but not least, it is the language of international communication, the media and the internet.</p>
+    <div class="separator_page fade">
+        <p class="why_english normal_width fade">Out of the 6 500 spoken languages in the world today, why choose to learn English? As the third most widely spoken language in the world, English is widely spoken and taught in over 118 countries and is commonly used around the world as a trade language or diplomatic language. It is the language of science, aviation, computers, diplomacy and tourism. Last but not least, it is the language of international communication, the media and the internet.</p>
     </div>
-    <section id="testimonies" class="normal_width">
+    <section id="testimonies" class="normal_width fade">
         <?php foreach($testimonials as $testimonial): ?>
-            <div class="testimony normal_width" id=<?= $testimonial['id']?>>
-                <p class="testimony_text"><?= $testimonial['short']?></p>
-                <p class="written_by"><?= $testimonial['author'] ?></p>
-            </div>
-            <div class="normal_width hidden_testimonies testimony" id=testimonial<?= $testimonial['id']?>>
+            <div class="testimonial_container container_small" id=container<?= $testimonial['id']?>>
+                <div class="testimony normal_width" id=<?= $testimonial['id']?>>
+                    <p class="testimony_text"><?= $testimonial['short']?></p>
+                    <p class="written_by"><?= $testimonial['author'] ?></p>
+                </div>
+            <div class="normal_width hidden_testimonies" id=testimonial<?= $testimonial['id']?>>
                 <p class="testimony_text " ><?= $testimonial['testimonial'] ?></p>
                 <p class="written_by "><?= $testimonial['author'] ?></p>
+            </div>
             </div>
         <?php endforeach ?>
     </section>

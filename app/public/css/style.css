@@ -75,15 +75,27 @@ main {
 .pagedivider_top {
     background-color: lightslategray;
     height: 2px;
-    margin: 20px 0 -40px;
+    margin: 20px 0 20px;
     background-image: linear-gradient(to right, white, lightslategray, white);
 }
 
 .pagedivider_bottom {
     background-color: lightslategray;
     height: 2px;
-    margin: -20px 0 10px;
+    margin: 20px 0 10px;
     background-image: linear-gradient(to right, white, lightslategray, white);
+}
+
+.fade_in {
+    display: none
+}
+
+.fade_in_menu {
+    display: none
+}
+
+.none {
+    display: none;
 }
 
 /*HEADER STYLING*/
@@ -141,6 +153,12 @@ main {
 .main_menu_link_connected {
     display: none;
     margin: 0;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    z-index: 9999;
 }
 
 /* HAMBURGER ICON*/
@@ -314,9 +332,14 @@ main {
 }
 
 /*LESSONS SECTION*/
+#plugin {
+    text-align: center;
+}
+
 .quote {
     font: 2.5em 'Charm', sans-serif, bold;
     color: rgb(1, 56, 92);
+    opacity: 0;
     padding-top: 25px;
     text-align: center;
 }
@@ -327,6 +350,7 @@ main {
 
 .lessons {
     justify-content: space-between;
+    padding: 0 20px;
 }
 
 .lesson {
@@ -414,7 +438,7 @@ main {
     background-color: #01385C;
     color: white;
     font: italic 1.25em 'Raleway', sans-serif;
-    margin: 40px 0;
+    margin: 40px 0 70px 0;
     padding: 20px 20px;
     width: 100vw !important;
 }
@@ -428,6 +452,7 @@ main {
 #testimonies {
     position: relative;
     margin-bottom: 150px;
+    padding: 0 20px;
 }
 
 .testimony,
@@ -436,7 +461,7 @@ main {
     border-radius: 55px;
     box-shadow: 10px 10px 6px rgba(0, 0, 0, 0.2);
     padding: 5px 50px;
-    margin-bottom: 30px;
+    width: 50%;
 }
 
 .testimony:hover {
@@ -444,11 +469,20 @@ main {
     cursor: pointer;
 }
 
+.hidden_testimonies:hover {
+    background-color: rgba(1, 56, 92);
+    cursor: pointer;
+}
+
 .testimony_text,
-.written_by,
-.hidden_testimonies {
+.written_by {
     color: white;
     font: 1.25em 'Charm', sans-serif;
+}
+
+.hidden_testimonies {
+    color: white;
+    font: 1em 'Charm', sans-serif;
 }
 
 .written_by {
@@ -458,6 +492,15 @@ main {
 
 .hidden_testimonies {
     display: none;
+}
+
+.testimonial_container {
+    z-index: -9999;
+}
+
+.container_small {
+    min-height: 200px;
+    margin-bottom: 30px;
 }
 
 /*FOOTER*/
@@ -611,40 +654,17 @@ footer {
 }
 
 /*ADMIN PAGE */
-#side_buttons li a {
-    color: white;
-    padding: 5px;
-}
-
-#side_buttons li {
-    border-radius: 10px;
-    background-color: rgb(70, 136, 180);
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
-    list-style: none;
-    margin: 10px;
-    width: 200px;
-}
-
-#side_buttons li:hover {
-    background-color: #01385C;
-    cursor: pointer;
-}
-
-#new_lesson {
-    width: 500px;
-}
 
 #article {
-    height: 50vh;
-    width: 100%;
-    box-shadow: 0 8px 8px 0 rgba(145, 143, 143, 0.6);
-}
-
-#article form {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 5%;
-    width: 500px;
+    height: 395px;
+    margin-top: 10%;
+    padding: 30px 50px 30px;
+    border-radius: 35px;
+    border: 3px solid rgba(1, 56, 92, 0.562);
+    box-shadow: 5px 5px 15px rgba(1, 56, 92, 0.562);
+    width: 450px;
+    text-align: center;
+    color: #01385C;
 }
 
 .flex_row {
@@ -683,10 +703,15 @@ footer {
     cursor: pointer;
 }
 
-#publish {
+.publish {
     margin-top: 30px;
 
 }
+
+#bottom_button {
+    margin-top: 80px;
+}
+
 
 /* CONTACT PAGE*/
 

@@ -4,18 +4,31 @@ include_once 'app/views/FRONT/layouts/header.php';
 ?>
 
 <div class="main_container">
-<h1>ADMINISTRATION PAGE</h1>
-    <section class="section">
-        <nav id="side_menu">
-            <ul id="side_buttons">
-                <li class="main_menu_link side_menu"><a href="indexAdmin.php?action=lessons"  id="about">LESSONS</a></li>
-                <li class="main_menu_link"><a href="indexAdmin.php?action=lessons"  id="about">WORD OF THE DAY</a></li>
-                <li class="main_menu_link"><a href="indexAdmin.php?action=lessons"  id="about">USEFUL LINKS</a></li>
-            </ul>
-        </nav>
-        <div id="article">
-            affasgdfa
-        </div>
-    </section>
+    <main>
+        <section class=" section normal_width" id="admin_section">
+            <div id="article">
+                <h1>"WORD A DAY"</h1>
+                <form method="post" action="indexAdmin.php?action=lessonday" class="flexcolumn">
+                    <input type="text" class="newLesson" name="word" placeholder="word of the day" value="<?php if(isset($_POST['title'])) echo$_POST['word'] ?>">
+                    <input type="text" class="newLesson" name="translation" placeholder="translation" value="<?php if(isset($_POST['translation'])) echo$_POST['description'] ?>">
+                    <input type="text" class="newLesson" name="example" placeholder="example" value="<?php if(isset($_POST['translation'])) echo$_POST['example'] ?>">
+                    <input type="text" class="newLesson" name="comments" placeholder="comments" value="<?php if(isset($_POST['translation'])) echo$_POST['comments'] ?>">
+                    <input type="submit" class="small_button publish"  value="Publish !">
+                </form>
+            </div>
+            <div id="article">
+                <h1>LESSON OF THE WEEK</h1>
+                <form method="post" action="indexAdmin.php?action=lessonday"  id="lod" enctype="multipart/form-data" class="flexcolumn">
+                    <input type="text" class="newLesson" name="title" placeholder="lesson title" value="<?php if(isset($_POST['title'])) echo$_POST['title'] ?>">
+                    <input type="text" class="newLesson" name="comment" placeholder="lesson comment" value="<?php if(isset($_POST['description'])) echo$_POST['description'] ?>">
+                    <div class="flex_row">
+                        <input type="file" id="myfile" name="myfile">
+                        <!-- <input type="submit" class="small_button" value="Preview"> -->
+                    </div>
+                    <input type="submit" class="small_button publish"  id= "bottom_button" value="Publish !">
+                </form>
+            </div>
+        </section>
+    </main>
 </div>
 <?php include 'layouts/footer.php' ?>
