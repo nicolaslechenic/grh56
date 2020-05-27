@@ -31,4 +31,4 @@ include_once 'app/views/FRONT/layouts/header.php';
         </section>
     </main>
 </div>
-<?php include 'layouts/footer.php' ?>
+<?php include 'app/views/FRONT/layouts/footer.php' ?>
