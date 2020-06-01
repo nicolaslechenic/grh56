@@ -41,7 +41,7 @@ body {
 #icon_footer,
 .flexcolumn,
 .dictionary,
-#article form,
+.card_admin form,
 .lessons,
 #radio_btns,
 .flex_row {
@@ -51,7 +51,7 @@ body {
 }
 
 main {
-    padding-bottom: 110px;
+    padding-bottom: 160px;
 }
 
 .normal_width {
@@ -363,6 +363,7 @@ main {
 
 .card {
     background-color: rgba(1, 56, 92, 0.562);
+    color: white;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -375,7 +376,7 @@ main {
 
 .lesson:hover .card {
     transform: rotateY(180deg);
-    transition: transform 0.8s;
+    transition: transform 1.2s;
 }
 
 .card_front,
@@ -401,8 +402,7 @@ main {
     font-size: 2vh;
     text-align: justify;
     text-align-last: center;
-    text-indent: 50px;
-
+    text-indent: 25px;
     transform: rotateY(180deg);
 }
 
@@ -432,6 +432,7 @@ main {
     color: white;
     padding: 2px 16px;
 }
+
 
 /* ARTICLE 2*/
 .separator_page {
@@ -508,6 +509,7 @@ footer {
     background-color: #01385C;
     position: absolute;
     bottom: 0;
+    margin-top: 50px;
     width: 100%;
 }
 
@@ -580,7 +582,7 @@ footer {
 
 .section {
     justify-content: space-around;
-    padding-bottom: 155px;
+    padding: 25px 0;
 }
 
 .account_card {
@@ -655,46 +657,47 @@ footer {
 
 /*ADMIN PAGE */
 
-#article {
-    height: 395px;
-    margin-top: 10%;
-    padding: 30px 50px 30px;
-    border-radius: 35px;
-    border: 3px solid rgba(1, 56, 92, 0.562);
-    box-shadow: 5px 5px 15px rgba(1, 56, 92, 0.562);
-    width: 450px;
-    text-align: center;
-    color: #01385C;
-}
-
 .flex_row {
     justify-content: space-between;
 }
 
 .small_button {
-    background-color: rgb(70, 136, 180);
-    border-radius: 5px;
-    color: white;
     font: 1.25em 'Open Sans';
-    height: 2em;
-    margin-top: 5px;
 }
 
 .newLesson {
     margin: 8px 0;
-    line-height: 2em;
+    line-height: 2.5em;
+}
+
+.admin_buttons {
+    background-color: rgb(70, 136, 180);
+    border-radius: 15px;
+    border: 1px solid white;
+    color: white;
+    height: 2em;
+    margin-top: 5px;
+}
+
+.delete_btn {
+    background-color: #8A0202;
+    border-radius: 15px;
+    border: 1px solid white;
+    color: white;
+    height: 2em;
+    margin-top: 5px;
+}
+
+#all_lessons {
+    margin-top: 25%;
 }
 
 #myfile {
-    background-color: rgb(70, 136, 180);
-    padding: 5px 0 0 5px;
-    border-radius: 5px;
-    border-style: double;
-    color: white;
+    padding: 12px 0 0 25px;
     font: 1em 'Open Sans';
     margin-top: 5px;
     height: 2em;
-    width: 215px
+    width: 155px
 }
 
 #myfile:hover,
@@ -703,19 +706,74 @@ footer {
     cursor: pointer;
 }
 
-.publish {
-    margin-top: 30px;
-
-}
-
-#bottom_button {
+#publish_button {
     margin-top: 80px;
 }
 
+.cadmin {
+    border-radius: 35px;
+    background-color: #7a93a1;
+}
+
+.cadmin_back {
+    border-radius: 35px;
+    background-color: #dee7ec;
+    border: 2px solid #01385C;
+    box-shadow: 4px 8px 8px rgba(0, 0, 0, 0.2);
+}
+
+.cadmin_back form {
+    padding: 30px 20px;
+}
+
+.title_card {
+    font-size: 2em;
+    padding-top: 15%;
+}
+
+.errors {}
+
+.card_admin {
+
+    position: relative;
+    height: 400px;
+    width: 450px;
+    margin: 3em 50px;
+    perspective: 500px;
+}
+
+
+.admin_section {
+    background-color: #dee7ec;
+    border: 2px solid #01385C;
+    border-radius: 25px;
+    box-shadow: 4px 8px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 30px;
+    margin-bottom: 80px;
+}
+
+/* ADMIN LESSONS PAGE */
+
+.week_card {
+    background-color: #dee7ec;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    height: 500px;
+    margin: 50px 20px;
+    padding: 0 20px;
+    width: 350px;
+}
+
+.video_lesson {
+    margin: 10px auto 10px auto;
+}
+
+.lessons_crud_btn {
+    font-size: 1.1em;
+    width: 150px;
+}
 
 /* CONTACT PAGE*/
-
-#contact_form {}
 
 #contact_section {
     border-radius: 35px;

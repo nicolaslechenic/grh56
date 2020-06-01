@@ -47,7 +47,9 @@
         <script src="app/public/js/urbanApi.js"></script>        
         <script src="app/public/js/userRegistrationCheck.js"></script>
         <script src="app/public/js/testimonial.js"></script>
-        <script src="app/public/js/plugin.js"></script>              
+         <script src="app/public/js/plugin.js"></script>
+         <script src="app/public/js/rotatingCard.js"></script> 
+         <!-- <script src="app/public/js/adminCardUpdate.js"></script>              -->
     </body>
 
 </html>

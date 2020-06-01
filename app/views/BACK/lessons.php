@@ -4,26 +4,29 @@ include_once 'app/views/FRONT/layouts/header.php';
 ?>
 
 <div class="main_container">
-<h1>LESSONS</h1>
     <section class="section normal_width">
-        <nav id="side_menu">
-            <ul id="side_buttons">
-                <li class="main_menu_link side_menu"><a href="indexAdmin.php?action=admin/lessons"  id="about">LESSONS</a></li>
-                <li class="main_menu_link"><a href="indexAdmin.php?action=lessons"  id="about">WORD OF THE DAY</a></li>
-                <li class="main_menu_link"><a href="indexAdmin.php?action=lessons"  id="about">USEFUL LINKS</a></li>
-            </ul>
-        </nav>
-        <div id="article">
-            <form method="post" action="indexAdmin.php?action=lessonday" enctype="multipart/form-data" class="flexcolumn">
-                <input type="text" class="newLesson" name="title" placeholder="Lesson title" value="<?php if(isset($_POST['title'])) echo$_POST['title'] ?>">
-                <input type="text" class="newLesson" name="comment" placeholder="Lesson comment" value="<?php if(isset($_POST['description'])) echo$_POST['description'] ?>">
-                <div class="flex_row">
-                    <input type="file" id="myfile" name="myfile">
-                    <input type="submit" class="small_button" value="Preview">
+            <?php foreach($allLessons as $lesson): ?>
+                <div class="week_card">
+                        <form class="account_form flexcolumn" action="indexAdmin.php?action=updateWeekLesson" method="post">
+                            <input type="hidden" value="<?= $lesson['id']?>" name="id"/>
+                            <label for="name">Title:</label>
+                            <input type="text"  name="lesson" class="log_in_field" value="<?= $lesson['lod_title']?>">
+                            <span class="form_error"><?= $errors['lesson'] ?></span>
+                            <label for="name">Comment:</label>
+                            <input type="text"  name="comment" class="log_in_field" value="<?= $lesson['lod_comment']?>">
+                            <span class="form_error"><?= $errors['comment'] ?></span>
+                            <video width="320" height="240" controls class="video_lesson">
+                                <source src="<?= $lesson['lod_file']?>" type="video/mp4">
+                            </video>
+                            <div class="flex_row" >
+                                <input type="submit" class="small_button admin_buttons lessons_crud_btn" name="lesson-btn"  value="UPDATE LESSON">
+                                <input type="submit" class="small_button  lessons_crud_btn delete_btn" name="lesson-btn" value="DELETE LESSON">
+                            </div>    
+                        </form>
+                    </article>
                 </div>
-                <input type="submit" class="small_button"  id="publish" value="Publish !">
-            </form>
-        </div>
+            <?php endforeach ?>
+    
     </section>
 </div>
-<?php include 'layouts/footer.php' ?>    
+<?php include 'app/views/FRONT/layouts/footer.php' ?>    

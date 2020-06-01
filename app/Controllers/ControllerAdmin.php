@@ -6,14 +6,22 @@ class ControllerAdmin
 {   
     private $object;
     public $errors;
+    public $errorsWord;
+
 
     public function __construct(){
         $this->object = new \GRH56\Models\AdminManager();
         $this->errors = [
             'lesson' => '',
             'video' => '',
-            'description' => '',
+            'comment' => '',
             'not uploaded' => '',
+        ];
+        $this->errorsWord = [
+            'word' => '',
+            'translation' => '',
+            'example' => '',
+            'comments' => '',
         ];
     }
 
@@ -30,46 +38,100 @@ class ControllerAdmin
         require 'app/views/BACK/lessons.php';
     }
 
-    function lessonday(){
-        //var_dump ("here");
+    // lessonday creates lesson of the day 
+    function lessonWeek(){
+        $errors = $this->errors;
         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
         extract($_POST);
         $upload_dir = "app/public/videos/";
         $upload_file = $upload_dir . basename($_FILES["myfile"]["name"]);
         $upload = 1;
         $fileType = strtolower(pathinfo($upload_file,PATHINFO_EXTENSION));
-        var_dump ($upload);
-        // checking if file already exists
-        // if (file_exists($upload_file)) {
-        //     $errors['video'] = "File already exists.";
-        //     $upload = 0;
-        // } 
+
+        if(empty($_POST['title'])){
+            $errors['lesson'] = "Lesson's title is missing !";
+        }
+        if(empty($_POST['comment'])){
+            $errors['comment'] = "Comment is missing !";
+        }
+
+        //checking if file already exists.
+        if (file_exists($upload_file)) {
+            $errors['video'] = "File already exists.";
+            $upload = 0;
+        } 
       
-        // limiting file size
+        // limiting file size.
         if ($_FILES["myfile"]["size"] > 25000000) {
             $errors['video'] =  "File is too large.";
             $upload = 0;
         }
-        //var_dump ($upload);
-        // limiting to MP4 format only
+        
+        // limiting to MP4 format only.
         if($fileType != "mp4") {
             $errors['video'] = "Only MP4 files are allowed.";
         $upload = 0;
         } 
-     
-        // if $upload is set to 0 display an error
+
+        
         if ($upload == 0) {
             $errors['not uploaded'] = "An error has occured, please try again";
-        }else{ 
-            //var_dump ("here1");
-            if (move_uploaded_file($_FILES["myfile"]["tmp_name"], $upload_file)){
-                $lessonDay = $this->object->lessonDay($title, $comment, $upload_file);
-            } 
-            if ($lessonDay) {
-                echo "all good";
-                require 'app/views/BACK/admin.php';
-            }
 
+            require 'app/views/BACK/admin.php';
+           
+        }
+        
+        if (empty($errors['video']) && empty($errors['lesson']) && empty($errors['comment']) && empty($errors['not uploaded'])) {
+            if (move_uploaded_file($_FILES["myfile"]["tmp_name"], $upload_file)){
+                $lessonWeek = $this->object->lessonOfTheWeek($title, $comment, $upload_file);
+                    
+                    if ($lessonWeek) {
+                        echo "all good";
+                        require 'app/views/BACK/admin.php';
+                    } else {
+                        var_dump("error to do");
+                    }
+            } else{
+                var_dump("error to do");
+            }
         }
     }
+
+    // allLessons gets all "lesson of the week" from db
+    function allLessons(){
+        $errors = $this->errors;
+        $allLessons = $this->object->allLessons();
+        require 'app/views/BACK/lessons.php';
+    }
+        // updateWeekLeeson updates lesson's title and lesson's comment.
+        // ---TO DO --- modal for success message +  error handling.
+    function updateWeekLesson(){
+        $errors = $this->errors;
+        $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        extract($_POST);
+
+        if(empty($_POST['lesson'])){
+            $errors['lesson'] = "Lesson's title is missing !";
+        }
+        if(empty($_POST['comment'])){
+            $errors['comment'] = "Comment is missing !";
+        } elseif (empty($errors['lesson']) && empty($errors['comment'])) {
+            $lessonUpdate = $this->object->lessonWeekUpdate($lesson, $comment, $id);
+           if ($lessonUpdate){
+            require 'app/views/BACK/admin.php';
+           }
+        }
+
+    }
+
+     // deleteWeekLesson delets lesson form db.
+        // ---TO DO --- modal for success message +  error handling.
+        function deleteWeekLesson(){
+            extract($_POST);
+                $lessonDelete = $this->object->lessonWeekDelet($id);
+                unlink($lessonDelete);
+                header('Location: indexAdmin.php?action=allLessons');
+        }
+
+
 }

@@ -84,9 +84,7 @@ class ControllerFront
             echo "<script type='text/javascript'>alert('Votre message a bien été envoyé !');</script>";
             $sendmail = $this->object->saveMail($name, $surname, $email, $subject, $message);
             if ($sendmail == true){
-                var_dump($_POST);
                 $_POST = [];
-                var_dump($_POST);
                 header('Location: index.php?action=home');
             }else{
                 require 'app/views/FRONT/404.php';

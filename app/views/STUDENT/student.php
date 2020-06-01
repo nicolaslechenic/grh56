@@ -5,8 +5,8 @@ include_once 'app/views/FRONT/layouts/header.php';
 <main class="normal_width">
     <article class="student_arrticle">
         <h1>Lesson Of the Day</h1>
-        <h2><?= $lod['lod_title']?></h2>
-        <p><?= $lod['lod_comment']?></p>
+        <h2 class=lesson_title><?= $lod['lod_title']?></h2>
+        <p class=lesson_comment><?= $lod['lod_comment']?></p>
         <video width="320" height="240" controls>
             <source src="<?= $lod['lod_file']?>" type="video/mp4">
         </video> 
