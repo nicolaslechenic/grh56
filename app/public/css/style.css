@@ -731,15 +731,17 @@ footer {
     padding-top: 15%;
 }
 
-.errors {}
+.errors {
+    width: 100%;
+}
 
 .card_admin {
-
     position: relative;
     height: 400px;
     width: 450px;
     margin: 3em 50px;
     perspective: 500px;
+    flex-grow: 1;
 }
 
 
@@ -748,6 +750,7 @@ footer {
     border: 2px solid #01385C;
     border-radius: 25px;
     box-shadow: 4px 8px 8px rgba(0, 0, 0, 0.2);
+    flex-wrap: wrap;
     margin-top: 30px;
     margin-bottom: 80px;
 }
@@ -771,6 +774,13 @@ footer {
 .lessons_crud_btn {
     font-size: 1.1em;
     width: 150px;
+}
+
+/* ADMIN WORDS PAGE*/
+
+.word_section {
+    flex-wrap: wrap;
+    margin-bottom: 80px;
 }
 
 /* CONTACT PAGE*/

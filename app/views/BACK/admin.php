@@ -5,12 +5,12 @@ include_once 'app/views/FRONT/layouts/header.php';
 
     <main>
         <section class="section normal_width admin_section">
-        <div class= "normal_width errors">
-            <span class="form_error"><?= $errors['lesson'] ?></span></br>
-            <span class="form_error"><?= $errors['comment'] ?></span></br>
-            <span class="form_error"><?= $errors['video'] ?></span></br>
-            <span class="form_error"><?= $errors['not uploaded'] ?></span></br>
-        </div>
+            <div class= "normal_width errors">
+                <span class="form_error"><?= $errors['lesson'] ?></span></br>
+                <span class="form_error"><?= $errors['comment'] ?></span></br>
+                <span class="form_error"><?= $errors['video'] ?></span></br>
+                <span class="form_error"><?= $errors['not uploaded'] ?></span></br>
+            </div>
             <div class="card_admin" id="card1">
                 <div class="card cadmin">
                     <div class="card_front">
@@ -53,11 +53,11 @@ include_once 'app/views/FRONT/layouts/header.php';
                         <p class="title_card">"WORD A DAY"</p>
                     </div>
                     <div class="card_back cadmin_back">
-                        <form method="post" action="indexAdmin.php?action=wordADay"  id="wad" class="flexcolumn">
-                            <input type="text" class="newLesson" name="word" placeholder="word of the day" value="<?php if(isset($_POST['title'])) echo$_POST['word'] ?>">
-                            <input type="text" class="newLesson" name="translation" placeholder="translation" value="<?php if(isset($_POST['translation'])) echo$_POST['description'] ?>">
-                            <input type="text" class="newLesson" name="example" placeholder="example" value="<?php if(isset($_POST['translation'])) echo$_POST['example'] ?>">
-                            <input type="text" class="newLesson" name="comments" placeholder="comments" value="<?php if(isset($_POST['translation'])) echo$_POST['comments'] ?>">
+                        <form method="post" action="indexAdmin.php?action=word" id="wad" class="flexcolumn">
+                            <input type="text" class="newLesson" name="word" placeholder="word of the day" value="<?php if(isset($_POST['word'])) echo$_POST['word'] ?>">
+                            <input type="text" class="newLesson" name="translation" placeholder="translation" value="<?php if(isset($_POST['translation'])) echo$_POST['translation'] ?>">
+                            <input type="text" class="newLesson" name="example" placeholder="example" value="<?php if(isset($_POST['example'])) echo$_POST['example'] ?>">
+                            <input type="text" class="newLesson" name="comments" placeholder="comments" value="<?php if(isset($_POST['comments'])) echo$_POST['comments'] ?>">
                             <input type="submit" class="small_button admin_buttons"  id= "publish_button_word" value="Publish !">
                         </form>             
                     </div>

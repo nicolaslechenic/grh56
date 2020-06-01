@@ -44,4 +44,28 @@
 
         return $deleteLesson;        	
     }
+
+    // wordADay writes data to db.
+    function wordADay($word, $translation, $example, $comments){
+        $bdd = $this->dbConnect();
+        $wordADay = $bdd->prepare('INSERT INTO wordaday (word, translation, example, comments) VALUES(?, ?, ?, ?)');
+        $wordADay->execute([$word, $translation, $example, $comments]);
+        return  $wordADay;
+    }
+
+    // allWords gets all words of a day from db.
+    function allWords() {
+        $bdd = $this->dbConnect();
+        $allWords = $bdd->prepare('SELECT * FROM wordaday');
+        $allWords->execute();
+        $allWords = $allWords -> fetchAll();
+        return  $allWords;
+    }
+
+    function wordUpdate($word, $translation, $example, $comments, $id){
+        $bdd = $this->dbConnect();
+        $updateWord = $bdd->prepare('UPDATE wordaday SET word = ?, translation = ?, example = ?, comments = ? WHERE id = ?' );
+        $updateWord->execute([$word, $translation, $example, $comments, $id]);
+        return  $updateWord;
+    }
  }

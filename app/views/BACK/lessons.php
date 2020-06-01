@@ -7,7 +7,7 @@ include_once 'app/views/FRONT/layouts/header.php';
     <section class="section normal_width">
             <?php foreach($allLessons as $lesson): ?>
                 <div class="week_card">
-                        <form class="account_form flexcolumn" action="indexAdmin.php?action=updateWeekLesson" method="post">
+                        <form class="account_form flexcolumn" action="indexAdmin.php?action=updateWord" method="post">
                             <input type="hidden" value="<?= $lesson['id']?>" name="id"/>
                             <label for="name">Title:</label>
                             <input type="text"  name="lesson" class="log_in_field" value="<?= $lesson['lod_title']?>">

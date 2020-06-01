@@ -19,6 +19,16 @@ try{
             } elseif ($_REQUEST['lesson-btn'] == "DELETE LESSON"){
                 $controllerAdmin -> deleteWeekLesson();
             }
+        } elseif ($_GET['action'] == 'word') {
+            $controllerAdmin -> createWord();
+        } elseif ($_GET['action'] == 'allWords') {
+            $controllerAdmin -> allWords();
+        } elseif($_GET['action'] == 'updateWord'){
+            if($_REQUEST['word-btn'] == "UPDATE"){
+                $controllerAdmin -> updateWord();
+            } elseif ($_REQUEST['word-btn'] == "DELETE"){
+                $controllerAdmin -> deleteWord();
+            }
         }
     }
 }catch(Exception $e){
