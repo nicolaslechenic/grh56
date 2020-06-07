@@ -40,40 +40,6 @@ include_once 'app/views/FRONT/layouts/header.php';
                 </div>
             </div>
         </section> 
-        <section class=" section normal_width admin_section">
-            <div class= "normal_width errors">
-                <span class="form_error"><?= $errorsWord['word'] ?></span></br>
-                <span class="form_error"><?= $errorsWord['translation'] ?></span></br>
-                <span class="form_error"><?= $errorsWord['example'] ?></span></br>
-                <span class="form_error"><?= $errorsWord['comments'] ?></span></br>
-            </div>
-            <div class="card_admin" id="cardW1">
-                <div class="card cadmin">
-                    <div class="card_front">
-                        <p class="title_card">"WORD A DAY"</p>
-                    </div>
-                    <div class="card_back cadmin_back">
-                        <form method="post" action="indexAdmin.php?action=word" id="wad" class="flexcolumn">
-                            <input type="text" class="newLesson" name="word" placeholder="word of the day" value="<?php if(isset($_POST['word'])) echo$_POST['word'] ?>">
-                            <input type="text" class="newLesson" name="translation" placeholder="translation" value="<?php if(isset($_POST['translation'])) echo$_POST['translation'] ?>">
-                            <input type="text" class="newLesson" name="example" placeholder="example" value="<?php if(isset($_POST['example'])) echo$_POST['example'] ?>">
-                            <input type="text" class="newLesson" name="comments" placeholder="comments" value="<?php if(isset($_POST['comments'])) echo$_POST['comments'] ?>">
-                            <input type="submit" class="small_button admin_buttons"  id= "publish_button_word" value="Publish !">
-                        </form>             
-                    </div>
-                </div>
-            </div> 
-            <div class="card_admin" id="cardW2">
-                <div class="card cadmin">
-                    <div class="card_front">
-                        <p class="title_card">MANAGE </br> "WORD A DAY"</p>
-                    </div>
-                    <div class="card_back cadmin_back">
-                        <input type="button" class="small_button admin_buttons" id="all_lessons" onclick="location.href='indexAdmin.php?action=allWords';" value="ALL WORDS">            
-                    </div>
-                </div>
-            </div> 
-        </section>
     </main>
 
 <?php include 'app/views/FRONT/layouts/footer.php' ?>

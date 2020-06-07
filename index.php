@@ -28,7 +28,6 @@ try{
         }elseif($_GET['action'] == 'logout'){
             $controllerUser -> logOut();
         }elseif($_GET['action'] == 'student'){
-            //var_dump($_SESSION);
             $controllerUser -> logedIn();
         }elseif($_GET['action'] == 'account'){
             $controllerUser -> account();
@@ -44,12 +43,19 @@ try{
             $controllerFront -> sendMessage();
         }elseif($_SERVER['QUERY_STRING'] == 'admin' && isset($_SESSION['name'])){
             $controllerUser -> admin(); 
-        }    
+        }elseif($_GET['action'] == 'about_cookies'){
+            $controllerFront -> aboutCookies(); 
+        } 
     }else{
         $controllerFront -> home();
     }
+
+// ---TODO--- create log file to errors.
 }catch(Exception $e){
-    
+    //$controllerFront -> error();
+    require 'app/views/FRONT/error.php';
+}catch(Error $e){
+    require 'app/views/FRONT/error.php';
 }
 
 

@@ -6,8 +6,6 @@ class ControllerAdmin
 {   
     private $object;
     public $errors;
-    public $errorsWord;
-
 
     public function __construct(){
         $this->object = new \GRH56\Models\AdminManager();
@@ -16,12 +14,6 @@ class ControllerAdmin
             'video' => '',
             'comment' => '',
             'not uploaded' => '',
-        ];
-        $this->errorsWord = [
-            'word' => '',
-            'translation' => '',
-            'example' => '',
-            'comments' => '',
         ];
     }
 
@@ -76,21 +68,20 @@ class ControllerAdmin
             $errors['not uploaded'] = "An error has occured, please try again";
 
             require 'app/views/BACK/admin.php';
-           
-        }
-
-        if (empty($errors['video']) && empty($errors['lesson']) && empty($errors['comment']) && empty($errors['not uploaded'])) {
+        }elseif (empty($errors['video']) && empty($errors['lesson']) && empty($errors['comment']) && empty($errors['not uploaded'])) {
+            
             if (move_uploaded_file($_FILES["myfile"]["tmp_name"], $upload_file)){
                 $lessonWeek = $this->object->lessonOfTheWeek($title, $comment, $upload_file);
                     
                     if ($lessonWeek) {
-                        echo "all good";
+                        $show = "show";
+                        $message = "Lesson successfully created!";
                         require 'app/views/BACK/admin.php';
                     } else {
-                        var_dump("error to do");
+                        throw new \Exception("lessonWeek creatoion failed");
                     }
             } else{
-                var_dump("error to do");
+                throw new \Exception("lessonWeek failed");
             }
         }
     }
@@ -102,9 +93,10 @@ class ControllerAdmin
         require 'app/views/BACK/lessons.php';
     }
         // updateWeekLeeson updates lesson's title and lesson's comment.
-        // ---TO DO --- modal for success message +  error handling.
+        // ---TO DO --- modal for success message.
     function updateWeekLesson(){
         $errors = $this->errors;
+        $allLessons = $this->object->allLessons();
         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
         extract($_POST);
 
@@ -120,84 +112,30 @@ class ControllerAdmin
             $lessonUpdate = $this->object->lessonWeekUpdate($lesson, $comment, $id);
             
             if ($lessonUpdate){
+                $show = "show";
+                $message = "Lesson has beeen updated!";
                 header('Location: indexAdmin.php?action=allLessons');
+           }else{
+                throw new \Exception("updateWeekLesson failed");
            }
         }
 
     }
 
      // deleteWeekLesson delets lesson form db.
-        // ---TO DO --- modal for success message +  error handling.
+        // ---TO DO --- modal for success message.
     function deleteWeekLesson(){
         extract($_POST);
         $lessonDelete = $this->object->lessonWeekDelet($id);
-        unlink($lessonDelete);
-        header('Location: indexAdmin.php?action=allLessons');
-    }
 
-    function createWord(){
-        $errorsWord = $this->errorsWord;
-        $errors = $this->errors;
-        $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-        extract($_POST);
-        if(empty($word)){
-            $errorsWord['word'] = "Word of the day is missing !";
-        }
-        if(empty($translation)){
-            $errorsWord['translation'] = "Translation is missing !";
-        }
-        if(empty($example)){
-            $errorsWord['example'] = "Example is missing !";
-        }
-        if(empty($comments)){
-            $errorsWord['example'] = "Comments are missing !";
-        }
-        if (!empty($errorsWord['word']) || !empty($errorsWord['translation']) || !empty($errorsWord['example']) || !empty($errorsWord['comments'])){
-            require 'app/views/BACK/admin.php';
+        if ($lessonDelete){
+            unlink($lessonDelete);
+            $show = "show";
+            $message = "Lesson has been deleted!";
+            header('Location: indexAdmin.php?action=allLessons');
         }else{
-            $wordADay = $this->object->wordADay($word, $translation, $example, $comments);
-
-            if ($wordADay){
-                require 'app/views/BACK/admin.php';
-            }else{
-                // todo EROOR
-            }
+            throw new \Exception("deletWeekLesson failed");
         }
     }
 
-    function allWords(){
-        $errorsWord = $this->errorsWord;
-        $allWords = $this->object->allWords();
-        require 'app/views/BACK/words.php';
-    }
-
-    function updateWord(){
-        $errorsWord = $this->errorsWord;
-        $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-        extract($_POST);
-
-        if(empty($word)){
-            $errorsWord['word'] = "Word of the day is missing !";
-        }
-        if(empty($translation)){
-            $errorsWord['translation'] = "Translation is missing !";
-        }
-        if(empty($example)){
-            $errorsWord['example'] = "Example is missing !";
-        }
-        if(empty($comments)){
-            $errorsWord['example'] = "Comments are missing !";
-        }if (!empty($errorsWord['word']) || !empty($errorsWord['translation']) || !empty($errorsWord['example']) || !empty($errorsWord['comments'])){
-            $allWords = $this->object->allWords();
-            require 'app/views/BACK/words.php';
-        }else{
-            $updateWord = $this->object->wordUpdate($word, $translation, $example, $comments, $id);
-            if ($updateWord){
-                require 'app/views/BACK/admin.php';
-            }else{
-                // todo EROOR
-            }
-        }
-
-    }
 }

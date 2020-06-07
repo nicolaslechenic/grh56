@@ -1,6 +1,6 @@
 <header>
     <div class="header_main" id="header">
-        <a href="index.php?action=home" id=><img class="logo fade_in" src="app/public/images/logo_small.png" alt="GRH formation logo"></a>
+        <a href="index.php?action=home" id=><img class="logo fade_in" src="app/public/images/logo_s.png" alt="GRH formation logo"></a>
         <button id='burger_button' onclick="hamburgerBtn()">
             <div>MENU</div>
             <div id='burger_icon'>
@@ -58,7 +58,7 @@
         </nav>
     </div>
     <div class="fade_in" id="top_separator"></div>
-    <div id="modal_box" class="modal_animate modal_box">
+    <div id="modal_box" class="modal_box">
         <i class="fa fa-remove" style="font-size:24px"></i>
         <div id="login_title">SE CONNECTER</div>
         <form class="flexcolumn" id="login_form" action="index.php?action=login" method="post">
@@ -73,7 +73,7 @@
             <a href="#" class="modal_links" id="create_account">Créer un compte</a>
         </form>
     </div>
-    <div id="signin_box" class="modal_animate modal_box">
+    <div id="signin_box" class="modal_box">
         <i class="fa fa-remove" style="font-size:24px"></i>
         <div id="signin_title"></div>
         <form class="flexcolumn"  id="signup_form"  method="post">
@@ -94,5 +94,9 @@
             <span  class="form_error" id="upPasswordConfirmRequired"></span>
             <button type="button" id="signup_button" class="button">Créer mon compter</button>
         </form>
+    </div>
+    <div id="message_modal" class="modal_box message <?=$show?>">
+        <p id="success_message"><?=$message?></p>
+        <button type="button" id="messsage_ok" class="button">OK</button>
     </div>
 </header>   

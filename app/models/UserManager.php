@@ -4,29 +4,33 @@
  {     
    // session variable to use across class (DRY)
   function session( $name, $surname, $email, $user, $status){
-         $_SESSION['name'] = $name;
-         $_SESSION['surname'] = $surname;
-         $_SESSION['email'] = $email;
-         $_SESSION['user'] = $user;
-         $_SESSION['status'] = $status;
+      $_SESSION['name'] = $name;
+      $_SESSION['surname'] = $surname;
+      $_SESSION['email'] = $email;
+      $_SESSION['user'] = $user;
+      $_SESSION['status'] = $status;
    }
 
    public function checkLogIn($email, $password){
-        $bdd = $this->dbConnect();
-        $loginData = $bdd->prepare('SELECT * FROM users WHERE email=?' );
-        $loginData->execute([$email]);
-        $loginData = $loginData->fetch();
-        if( password_verify($password,$loginData['pass'])){
-           $this->session($loginData['username'], $loginData['surname'], $loginData['email'], $loginData['id_student'], $loginData['id_status']);
-           //return based on user status
-           if($loginData['id_status'] === "0"){
-            return "user";
-           }else{
-            return "admin";
-           }         
-        }else{ 
+      $bdd = $this->dbConnect();
+      $loginData = $bdd->prepare('SELECT * FROM users WHERE email=?');
+      $loginData->execute([$email]);
+      $loginData = $loginData->fetch();
+      if ($loginData){
+         if( password_verify($password,$loginData['pass'])){
+            $this->session($loginData['username'], $loginData['surname'], $loginData['email'], $loginData['id_student'], $loginData['id_status']);
+            //return based on user status
+            if($loginData['id_status'] === "0"){
+               return "user";
+            }else{
+               return "admin";
+            }         
+         }else{ 
             return false;
-        }        
+         }
+      }else{
+         return($loginData);
+      }        
    }
 
    public function checkEmailexists($email){
@@ -48,7 +52,6 @@
             $this->session($getUserData['username'], $getUserData['surname'], $getUserData['email'], $getUserData['id_student'], $getUserData['id_status']);
             return true;
          }else{
-            
             return false;
          }
    }
@@ -92,7 +95,7 @@
    }
    function latestLesson(){
       $bdd = $this->dbConnect();
-      $lod = $bdd->prepare('SELECT * FROM lessonoftheday ORDER BY id DESC LIMIT 1');
+      $lod = $bdd->prepare('SELECT * FROM lessonoftheweek ORDER BY id DESC LIMIT 1');
       $lod->execute();
       $lod = $lod->fetch();
       return $lod;

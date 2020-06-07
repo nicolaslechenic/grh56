@@ -21,6 +21,9 @@ class ControllerUser
             'new_pass' => ''
         ];
     }
+    function error(){
+        require 'app/views/FRONT/error.php';
+    }
 
     // functin to redirect to the homepage through controllerFront to load lessons from the database
     public function mainPage(){
@@ -53,9 +56,9 @@ class ControllerUser
             //sending user details to the database
             $userSignUp = $this->object->userRegister($name, $surname, $email, $password);
             if($userSignUp == 'true'){
-                echo ('registred');
+                exit('registred');
             }else{
-                exit('Oups! Il y a une erreur....');
+                throw new \Exception("error");
             }
     }
     // checking  on login if user email exists and password correct
@@ -83,7 +86,6 @@ class ControllerUser
     function logedIn(){  
         if(isset($_SESSION['name']) && $_SESSION['status'] == '0'){
             $lod = $this->object->latestLesson();
-            var_dump($lod);
             require 'app/views/STUDENT/student.php';
         }elseif(isset($_SESSION['name']) && $_SESSION['status'] == '1'){
             require 'app/views/BACK/admin.php';
@@ -144,11 +146,11 @@ class ControllerUser
             $userDataUpdate = $this->object->userUpdate($nameUpdate, $surnameUpdate, $emailUpdate, $id); 
             
             if($userDataUpdate == 'true'){   
+                $show = "show";
+                $message = "Le changement a bien été pris en compte !";
                 require 'app/views/STUDENT/student.php';
-                //(to do) create modal box for messages 
-                echo "<script type='text/javascript'>alert('Vos données sont modifiées !');</script>";
             }else{ 
-            echo ('Oupss....');
+            throw new \Exception("update failed");
             }
         }else{
             $errorsPass =$this->errorsPass;
@@ -187,11 +189,11 @@ class ControllerUser
         if(empty($errorsPass['old_pass']) && empty($errorsPass['new_pass'])){                
             $newPassword = $this->object->changePassword($newPasswordHash, $email);
                 if($newPassword == true){
+                    $show = "show";
+                    $message = "Le changement a bien été pris en compte !";
                     require 'app/views/STUDENT/student.php';
-                //(to do) create modal box for messages 
-                    echo "<script type='text/javascript'>alert('Vos données sont modifiées !');</script>";
                 }else{
-                    echo ('Oupss....1');
+                    throw new \Exception("update failed");
                 }
         }else{
             if(isset($_SESSION['name'])){
@@ -211,10 +213,8 @@ class ControllerUser
             session_destroy();
             $controllerFront = new \GRH56\Controllers\ControllerFront();
             $controllerFront -> home();
-                //(to do) create modal box for messages 
         }else{
-            //(to do) create modal box for messages
-           echo ('Oupss....');
+            throw new \Exception("deleteUser failed");
         }
         
     }

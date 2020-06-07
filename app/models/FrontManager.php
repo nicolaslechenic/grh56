@@ -28,10 +28,8 @@
          $mail = $bdd->prepare('INSERT INTO contactMessages(contact_name, surname, email, mailsubject, mail) VALUES (?, ?, ?, ?, ?)');
          $mail->execute([$name, $surname, $email, $subject, $message]);
          if ($mail){
-
              return true;
          }else{
-
             return false;
          }
      }

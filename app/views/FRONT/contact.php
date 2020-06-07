@@ -7,12 +7,6 @@ include_once 'app/views/FRONT/layouts/header.php';
     <div id="contact_section">
         <h1 class="center">Contactez nous </h1>
         <form class="flexcolumn" id="contact_form" action="index.php?action=send"  method="post">
-            <label for="civilite">Votre civilité :</label>
-            <div id="radio_btns">
-                <span><input type="radio" class="radio" id="radioM" name="optradio" value="monsieur">M.</span>
-                <span><input type="radio" class="radio" id="radioMme" name="optradio" value="madame">Mme</span>
-                <span><input type="radio" class="radio" id="radioMle" name="optradio" value="mademoiselle">Mle</span>
-            </div>
             <label for="name" class="label" id="first_line">Prénom :</label>
             <input type="text" name="name" class="contact_field" id="contact_name" placeholder="Votre prénom ..." value = <?php if(isset($_POST['name'])) echo $_POST['name'] ?>>
             <span class="form_error"><?= $errorsContact[0] ?></span>

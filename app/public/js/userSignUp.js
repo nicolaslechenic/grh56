@@ -13,7 +13,6 @@ function userSignUp() {
             password: signup_password
         },
         success: function (response) {
-            console.log(response);
             if (response === 'registred') {
                 window.location.href = 'index.php?action=student';
             }

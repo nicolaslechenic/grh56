@@ -49,9 +49,21 @@
         align-items: center;
 
     }
+
+    /*FOOTER*/
+    #logo_footer {
+        display: none;
+    }
+
 }
 
+
+
 @media (max-width: 720px) {
+    .normal_width {
+        margin-bottom: 50px;
+    }
+
     #top_menu {
         display: none;
         align-self: center;
@@ -103,18 +115,26 @@
         text-align: center;
     }
 
-    /* footer*/
-    #logo_footer {
-        display: none;
+    #comp_base {
+        flex-wrap: wrap;
     }
 
-    #footer_line1 {
+    /* FOOTER */
+    #icon_footer {
+        display: none
+    }
+
+    #footer_main {
+        font: 0.8em 'Charm', sans-serif;
+    }
+
+    footer #footer_line1 {
         flex-direction: column;
     }
 
     #footer_sub_menu ul,
-    #icon_footer img,
     .social_net {
+        margin-bottom: 2em;
         margin-left: 15px;
         padding: 0;
         text-align: center;
@@ -128,10 +148,6 @@
         align-items: center;
         flex-direction: column-reverse;
         margin-top: 10px;
-    }
-
-    .quote {
-        font: 1.5em 'Charm', sans-serif, bold;
     }
 
     /*ACCOUNT SECTION*/
@@ -158,4 +174,20 @@
         width: 340px;
     }
 
+    /* ERROR PAGE */
+    .error {
+        font-size: 1em;
+        margin: 50px 20px;
+    }
+
+    /*CONTACT PAGE*/
+    #contact_section {
+        margin: 50px 20px 200px;
+        padding: 10px
+    }
+
+    #radio_btns,
+    #contact_form label {
+        font: 0.8em 'Open sans', sans-serif;
+    }
 }
