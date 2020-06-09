@@ -55,6 +55,26 @@
         display: none;
     }
 
+    /* COURSES PAGE*/
+    .course h2 {
+        font-size: 2.5em;
+    }
+
+    .course h3 {
+        font-size: 1.5em;
+    }
+
+    .course h4 {
+        font-size: 1.1em;
+    }
+
+    .course p {
+        font-size: 1.2em;
+    }
+
+    .cp_flex ul li {
+        font-size: 1.em;
+    }
 }
 
 
@@ -190,4 +210,14 @@
     #contact_form label {
         font: 0.8em 'Open sans', sans-serif;
     }
+
+    /* COURSES PAGE*/
+    .course img {
+        display: none;
+    }
+
+    .cp_flex {
+        flex-direction: column;
+    }
+
 }

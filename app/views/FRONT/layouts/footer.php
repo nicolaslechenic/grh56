@@ -33,6 +33,7 @@
                 </div>
                 <div id="footer_line2">
                     <p>© <?php echo date('Y')?> BLABLA DESIGN</p>
+                    <p>Images designed by <a href="https://www.freepik.com">freepik.com</a></p>
                     <a href="index.php?action=about_cookies">POLITIQUE DE COOKIES</a>
                 </div>
             </div>

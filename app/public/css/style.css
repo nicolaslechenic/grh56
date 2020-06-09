@@ -43,7 +43,8 @@ body {
 .lessons,
 #radio_btns,
 .flex_row,
-.cp_flex {
+.cp_flex,
+.flex {
     display: flex;
     display: -ms-flexbox;
     /* IE10 */
@@ -55,7 +56,11 @@ main {
 
 .normal_width {
     max-width: 1200px;
-    margin: 0 auto 180px;
+    margin: 0 auto;
+}
+
+.bottom {
+    margin-bottom: 180px;
 }
 
 .flexcolumn {
@@ -303,7 +308,7 @@ main {
 .top_article>img {
     display: block;
     position: relative;
-    margin-top: 1.5em;
+    margin-top: 3em;
     margin-bottom: 1.5em;
     max-width: 100%;
     height: auto;
@@ -596,7 +601,7 @@ footer {
 
 #icon_footer {
     flex-basis: 30%;
-    flex-grow: auto;
+    flex-grow: 0;
 }
 
 #logo_footer {
@@ -934,9 +939,9 @@ footer {
 /* COURSES PAGE*/
 .course {
     color: #01385C;
-    width: 100%;
+    margin: 0 auto;
+    width: 95%;
     height: 100%;
-    padding-bottom: 20px;
 }
 
 .course h2 {
@@ -966,7 +971,7 @@ footer {
 }
 
 #cp_article2 h3:first-of-type {
-    margin-top: 2em;
+    margin-top: 1.5em;
 }
 
 #cp_article2 img {
@@ -990,4 +995,61 @@ footer {
 
 .cp_flex ul li {
     font: 1.2em 'Cormorant', serif;
+}
+
+/*ABOUT PAGE*/
+#about_bubble {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+#about article {
+    margin: 0 30px;
+}
+
+#london {
+    float: left;
+    margin: 50px 20px;
+    flex-shrink: 0;
+}
+
+#sydney {
+    float: right;
+    margin: 50px 50px;
+}
+
+#first_h1 {
+    margin-top: 100px;
+}
+
+.cormorant_p {
+    color: rgb(70, 136, 180);
+    font: 1.9em 'Cormorant', serif;
+    text-align: center;
+}
+
+.charm_p {
+    color: #01385C;
+    font: 2.5em 'Charm', sans-serif, bold;
+    text-align: center;
+}
+
+.flex div p {
+    text-align: justify;
+    text-indent: 50px;
+    margin-left: 30px;
+}
+
+#story {
+    text-align: justify;
+    text-indent: 50px;
+}
+
+#about_contact {
+    text-decoration: none;
+}
+
+#about_contact:hover {
+    color: red;
 }

@@ -3,7 +3,7 @@ include 'layouts/head.php';
 include_once 'layouts/header.php';
 ?>
 <main>
-    <section class="normal_width fade">
+    <section class="normal_width fade bottom" id >
         <article class="course" id="cp_article1">
             <h2>ANGLAIS GENRAL</h2>
             <div>
