@@ -53,8 +53,10 @@ try{
 // ---TODO--- create log file to errors.
 }catch(Exception $e){
     //$controllerFront -> error();
+    var_dump($e);
     require 'app/views/FRONT/error.php';
 }catch(Error $e){
+    var_dump($e);
     require 'app/views/FRONT/error.php';
 }
 
