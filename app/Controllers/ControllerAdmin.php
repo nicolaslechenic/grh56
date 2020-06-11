@@ -1,6 +1,6 @@
 <?php
 
-namespace GRH56\Controllers;
+namespace Grh\Controllers;
 
 class ControllerAdmin
 {   
@@ -8,7 +8,7 @@ class ControllerAdmin
     public $errors;
 
     public function __construct(){
-        $this->object = new \GRH56\Models\AdminManager();
+        $this->object = new \Grh\Models\AdminManager();
         $this->errors = [
             'lesson' => '',
             'video' => '',

@@ -8,8 +8,8 @@ require_once __DIR__. '/vendor/autoload.php';
 error_reporting(E_ERROR | E_WARNING | E_PARSE);
 // displaying  specific view or catching errors
 try{
-    $controllerFront = new \GRH56\Controllers\ControllerFront(); //creating object controllerFront
-    $controllerUser = new \GRH56\Controllers\ControllerUser();
+    $controllerFront = new \Grh\Controllers\ControllerFront(); //creating object controllerFront
+    $controllerUser = new \Grh\Controllers\ControllerUser();
     
 
     // HAVE TO CREATE FUNCTION TO REPLACE CODE REPETITION FOR LOGGED IN USER AND TO MANAGE NON EXISTANT ACTION INPUT (SEE TEST.PHP or (MIGHT USE IN ARRAY())

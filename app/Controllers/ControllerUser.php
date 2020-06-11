@@ -1,6 +1,6 @@
 <?php
 
-namespace GRH56\Controllers;
+namespace Grh\Controllers;
 // creating user class with registration signin functions
 class ControllerUser
 {  
@@ -10,7 +10,7 @@ class ControllerUser
 
     // connecting to the model and creating arrays for errors display
     function __construct(){
-        $this->object = new \GRH56\Models\UserManager();
+        $this->object = new \Grh\Models\UserManager();
         $this->errors = [
             'name' => '',
             'surname' => '',
@@ -27,7 +27,7 @@ class ControllerUser
 
     // functin to redirect to the homepage through controllerFront to load lessons from the database
     public function mainPage(){
-        $controllerFront = new \GRH56\Controllers\ControllerFront();
+        $controllerFront = new \Grh\Controllers\ControllerFront();
         $controllerFront -> home();
     }
     
@@ -211,7 +211,7 @@ class ControllerUser
         if($deleteUser  == true){
             $_SESSION = array();
             session_destroy();
-            $controllerFront = new \GRH56\Controllers\ControllerFront();
+            $controllerFront = new \Grh\Controllers\ControllerFront();
             $controllerFront -> home();
         }else{
             throw new \Exception("deleteUser failed");

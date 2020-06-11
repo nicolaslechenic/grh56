@@ -1,5 +1,5 @@
 <?php
- namespace GRH56\Models;
+ namespace Grh\Models;
  class UserManager extends Manager
  {     
    // session variable to use across class (DRY)

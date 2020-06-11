@@ -1,5 +1,5 @@
 <?php
- namespace GRH56\Models;
+ namespace Grh\Models;
 
  class FrontManager extends Manager
  {     
