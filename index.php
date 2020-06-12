@@ -56,7 +56,7 @@ try{
         }elseif($_GET['action'] == 'about_cookies'){
             $controllerFront -> aboutCookies(); 
         } else {
-            echo("3");
+
             $controllerFront -> home();
         }
     }else{    

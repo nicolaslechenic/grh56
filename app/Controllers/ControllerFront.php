@@ -21,9 +21,7 @@ class ControllerFront {
     function home() {
         // $lessons = $this->object->displayLessons();
         // $testimonials = $this->object->displayTestimonials();
-       
-        echo("hello");
-        die();
+  
 
         require 'app/views/FRONT/home.php';
     }
