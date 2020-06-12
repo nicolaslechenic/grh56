@@ -1,16 +1,9 @@
 <?php
-
-
-
 //Demarre la session
 session_start();
 
 //autoload.php genere avec composer
 require_once __DIR__. '/vendor/autoload.php';
-
-
-echo("world");
-die();
 
 if (file_exists(__DIR__ . '/.env')) {
     $dotenv = \Dotenv\Dotenv::create(__DIR__);
@@ -18,6 +11,8 @@ if (file_exists(__DIR__ . '/.env')) {
 }
 
 
+echo("hello");
+die();
 // only report errors, warnings and compile-time parse errors and not notices
 error_reporting(E_ERROR | E_WARNING | E_PARSE);
 // displaying  specific view or catching errors
