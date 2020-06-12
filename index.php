@@ -25,9 +25,10 @@ try{
     // if(isset($_GET['action']) && !isset($_SESSION['name'])) {
     //     $controllerFront -> home();}
     if(isset($_GET['action'])){
-        echo("action");
-        die();
-        if($_GET['action'] == 'contact'){
+        if($_GET['action'] == '') {
+            $controllerFront -> home();
+        }
+        elseif($_GET['action'] == 'contact'){
             $controllerFront -> contactForm();
         }elseif($_GET['action'] == 'about'){
             $controllerFront -> about();
