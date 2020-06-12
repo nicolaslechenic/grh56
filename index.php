@@ -62,13 +62,9 @@ try{
 }catch(Exception $e){
     //$controllerFront -> error();
     // var_dump($e);
-    echo("error");
-    die();
     require 'app/views/FRONT/error.php';
 }catch(Error $e){
     // var_dump($e);
-    echo("error-2");
-    die();
     require 'app/views/FRONT/error.php';
 }
 
