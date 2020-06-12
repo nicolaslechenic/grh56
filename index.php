@@ -1,4 +1,8 @@
 <?php
+
+echo("hello");
+die();
+
 //Demarre la session
 session_start();
 
