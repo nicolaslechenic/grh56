@@ -15,12 +15,11 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
 // displaying  specific view or catching errors
 
 
-echo(getenv("DB_USER"));
-die();
+
 try{
     $controllerFront = new \Grh\controllers\ControllerFront(); //creating object controllerFront
     $controllerUser = new \Grh\controllers\ControllerUser();
-    
+
 
     // HAVE TO CREATE FUNCTION TO REPLACE CODE REPETITION FOR LOGGED IN USER AND TO MANAGE NON EXISTANT ACTION INPUT (SEE TEST.PHP or (MIGHT USE IN ARRAY())
     // if(isset($_GET['action']) && !isset($_SESSION['name'])) {
@@ -56,7 +55,9 @@ try{
         }elseif($_GET['action'] == 'about_cookies'){
             $controllerFront -> aboutCookies(); 
         } 
-    }else{
+    }else{    
+        echo($controllerFront);
+        die();
         $controllerFront -> home();
     }
 
