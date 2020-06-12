@@ -19,8 +19,8 @@ class ControllerFront {
 
     // home is getting lessons ant testimonials information from the database to display on  the front page.  
     function home() {
-        $lessons = $this->object->displayLessons();
-        $testimonials = $this->object->displayTestimonials();
+        // $lessons = $this->object->displayLessons();
+        // $testimonials = $this->object->displayTestimonials();
        
         require 'app/views/FRONT/home.php';
     }
