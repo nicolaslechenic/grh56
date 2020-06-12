@@ -15,7 +15,7 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
 // displaying  specific view or catching errors
 
 
-
+echo("1");
 try{
     $controllerFront = new \Grh\controllers\ControllerFront(); //creating object controllerFront
     $controllerUser = new \Grh\controllers\ControllerUser();
@@ -25,7 +25,9 @@ try{
     // if(isset($_GET['action']) && !isset($_SESSION['name'])) {
     //     $controllerFront -> home();}
     if(isset($_GET['action'])){
+        echo("2");
         if($_GET['action'] == '') {
+            echo("3");
             $controllerFront -> home();
         }
         elseif($_GET['action'] == 'contact'){
