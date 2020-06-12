@@ -26,11 +26,8 @@ try{
     //     $controllerFront -> home();}
     if(isset($_GET['action'])){
         echo("2");
-        if($_GET['action'] == '') {
-            echo("3");
-            $controllerFront -> home();
-        }
-        elseif($_GET['action'] == 'contact'){
+
+        if($_GET['action'] == 'contact'){
             $controllerFront -> contactForm();
         }elseif($_GET['action'] == 'about'){
             $controllerFront -> about();
@@ -58,7 +55,10 @@ try{
             $controllerUser -> admin(); 
         }elseif($_GET['action'] == 'about_cookies'){
             $controllerFront -> aboutCookies(); 
-        } 
+        } else {
+            echo("3");
+            $controllerFront -> home();
+        }
     }else{    
         echo("no-action");
         die();
