@@ -1,13 +1,13 @@
 <?php
 
-namespace Grh\Controllers;
+namespace Grh\controllers;
 
 class ControllerFront {   
     private $object;
     public $errorsContact;
     
     public function __construct(){
-        $this->object = new \Grh\Models\FrontManager();
+        $this->object = new \Grh\models\FrontManager();
         $this->errorsContact = [
             0 => '',
             1 => '',

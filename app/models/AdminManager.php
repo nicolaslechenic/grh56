@@ -1,6 +1,6 @@
 <?php
 
- namespace Grh\Models;
+ namespace Grh\models;
 
  class AdminManager extends Manager
  {  

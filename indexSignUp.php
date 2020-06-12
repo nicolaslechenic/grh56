@@ -7,7 +7,7 @@ $dotenv->load();
 
 
 try{
-    $controllerUser = new \Grh\Controllers\ControllerUser(); //creating object controllerUser for registration 
+    $controllerUser = new \Grh\controllers\ControllerUser(); //creating object controllerUser for registration 
     $controllerUser -> signUp();
 }catch(Exception $e){
     

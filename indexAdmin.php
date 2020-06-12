@@ -6,7 +6,7 @@ $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
 try{
-     $controllerAdmin = new \Grh\Controllers\ControllerAdmin(); //createing object controllerAdmin
+     $controllerAdmin = new \Grh\controllers\ControllerAdmin(); //createing object controllerAdmin
     // $controllerAdmin -> admin();
     if(isset($_GET['action']) && isset($_SESSION['name']) && $_SESSION['status'] == '1'){
         

@@ -7,7 +7,7 @@ $dotenv->load();
 
 
 try{
-    $controllerUser = new \Grh\Controllers\ControllerUser(); //creating object controllerUser for login verification
+    $controllerUser = new \Grh\controllers\ControllerUser(); //creating object controllerUser for login verification
     
     if(isset($_POST['signin'])){
     $controllerUser -> checkUserLogIn();

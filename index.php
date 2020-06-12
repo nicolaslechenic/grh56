@@ -2,17 +2,17 @@
 //Demarre la session
 session_start();
 
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-$dotenv->load();
-
 //autoload.php genere avec composer
 require_once __DIR__. '/vendor/autoload.php';
+
+$dotenv = \Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
 // only report errors, warnings and compile-time parse errors and not notices
 error_reporting(E_ERROR | E_WARNING | E_PARSE);
 // displaying  specific view or catching errors
 try{
-    $controllerFront = new \Grh\Controllers\ControllerFront(); //creating object controllerFront
-    $controllerUser = new \Grh\Controllers\ControllerUser();
+    $controllerFront = new \Grh\controllers\ControllerFront(); //creating object controllerFront
+    $controllerUser = new \Grh\controllers\ControllerUser();
     
 
     // HAVE TO CREATE FUNCTION TO REPLACE CODE REPETITION FOR LOGGED IN USER AND TO MANAGE NON EXISTANT ACTION INPUT (SEE TEST.PHP or (MIGHT USE IN ARRAY())
