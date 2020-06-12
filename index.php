@@ -14,8 +14,6 @@ if (file_exists(__DIR__ . '/.env')) {
 error_reporting(E_ERROR | E_WARNING | E_PARSE);
 // displaying  specific view or catching errors
 
-
-echo("1");
 try{
     $controllerFront = new \Grh\controllers\ControllerFront(); //creating object controllerFront
     $controllerUser = new \Grh\controllers\ControllerUser();
@@ -25,8 +23,6 @@ try{
     // if(isset($_GET['action']) && !isset($_SESSION['name'])) {
     //     $controllerFront -> home();}
     if(isset($_GET['action'])){
-        echo("2");
-
         if($_GET['action'] == 'contact'){
             $controllerFront -> contactForm();
         }elseif($_GET['action'] == 'about'){
@@ -56,7 +52,6 @@ try{
         }elseif($_GET['action'] == 'about_cookies'){
             $controllerFront -> aboutCookies(); 
         } else {
-
             $controllerFront -> home();
         }
     }else{    
