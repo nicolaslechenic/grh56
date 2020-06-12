@@ -13,6 +13,7 @@
                 array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
             );
 
+            var_dump(getenv('DB_HOST'));
             var_dump($bdd);
             die();
             return $bdd; 
