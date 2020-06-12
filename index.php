@@ -10,12 +10,13 @@ if (file_exists(__DIR__ . '/.env')) {
     $dotenv->load();
 }
 
-
-echo(getenv("DB_HOST"));
-die();
 // only report errors, warnings and compile-time parse errors and not notices
 error_reporting(E_ERROR | E_WARNING | E_PARSE);
 // displaying  specific view or catching errors
+
+
+echo(getenv("DB_USER"));
+die();
 try{
     $controllerFront = new \Grh\controllers\ControllerFront(); //creating object controllerFront
     $controllerUser = new \Grh\controllers\ControllerUser();
