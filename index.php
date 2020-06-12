@@ -25,7 +25,8 @@ try{
     // if(isset($_GET['action']) && !isset($_SESSION['name'])) {
     //     $controllerFront -> home();}
     if(isset($_GET['action'])){
-       
+        echo("action");
+        die();
         if($_GET['action'] == 'contact'){
             $controllerFront -> contactForm();
         }elseif($_GET['action'] == 'about'){
@@ -56,7 +57,7 @@ try{
             $controllerFront -> aboutCookies(); 
         } 
     }else{    
-        echo($controllerFront);
+        echo("no-action");
         die();
         $controllerFront -> home();
     }
@@ -64,10 +65,14 @@ try{
 // ---TODO--- create log file to errors.
 }catch(Exception $e){
     //$controllerFront -> error();
-    var_dump($e);
+    // var_dump($e);
+    echo("error");
+    die();
     require 'app/views/FRONT/error.php';
 }catch(Error $e){
-    var_dump($e);
+    // var_dump($e);
+    echo("error-2");
+    die();
     require 'app/views/FRONT/error.php';
 }
 
