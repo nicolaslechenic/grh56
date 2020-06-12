@@ -5,10 +5,15 @@
      protected function dbConnect()
      {
         try{
+            $host = getenv('DB_HOST');
+            $dbname = getenv('DB_NAME');
+            $user = getenv('DB_USER');
+            $pass = getenv('DB_PASSWORD');
+
             $bdd = new \PDO(
-                "mysql:host=".$_ENV['DB_HOST'].";dbname=".$_ENV['DB_NAME'].";charset=utf8", 
-                $_ENV['DB_USER'], 
-                $_ENV['DB_PASSWORD']
+                "mysql:host=".$host.";dbname=".$dbname.";charset=utf8", 
+                $user, 
+                $pass
             );
 
 
