@@ -2,6 +2,9 @@
 //Demarre la session
 session_start();
 
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
 //autoload.php genere avec composer
 require_once __DIR__. '/vendor/autoload.php';
 // only report errors, warnings and compile-time parse errors and not notices

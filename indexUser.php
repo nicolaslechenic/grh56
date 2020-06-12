@@ -1,6 +1,11 @@
 <?php
  session_start();
 require_once __DIR__. '/vendor/autoload.php';
+
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
+
 try{
     $controllerUser = new \Grh\Controllers\ControllerUser(); //creating object controllerUser for login verification
     
