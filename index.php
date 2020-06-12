@@ -55,8 +55,6 @@ try{
             $controllerFront -> home();
         }
     }else{    
-        echo("no-action");
-        die();
         $controllerFront -> home();
     }
 
