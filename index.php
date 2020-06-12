@@ -5,8 +5,13 @@ session_start();
 //autoload.php genere avec composer
 require_once __DIR__. '/vendor/autoload.php';
 
-$dotenv = \Dotenv\Dotenv::createImmutable(__DIR__);
-$dotenv->load();
+
+if (file_exists(__DIR__ . '/.env')) {
+    $dotenv = \Dotenv\Dotenv::create(__DIR__);
+    $dotenv->load();
+}
+
+
 // only report errors, warnings and compile-time parse errors and not notices
 error_reporting(E_ERROR | E_WARNING | E_PARSE);
 // displaying  specific view or catching errors
