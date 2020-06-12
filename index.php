@@ -1,7 +1,6 @@
 <?php
 
-echo("hello");
-die();
+
 
 //Demarre la session
 session_start();
@@ -9,6 +8,9 @@ session_start();
 //autoload.php genere avec composer
 require_once __DIR__. '/vendor/autoload.php';
 
+
+echo("world");
+die();
 
 if (file_exists(__DIR__ . '/.env')) {
     $dotenv = \Dotenv\Dotenv::create(__DIR__);
