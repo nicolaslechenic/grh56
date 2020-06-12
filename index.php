@@ -11,7 +11,7 @@ if (file_exists(__DIR__ . '/.env')) {
 }
 
 
-echo("hello");
+echo(getenv("DB_HOST"));
 die();
 // only report errors, warnings and compile-time parse errors and not notices
 error_reporting(E_ERROR | E_WARNING | E_PARSE);
